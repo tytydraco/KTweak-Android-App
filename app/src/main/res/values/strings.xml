@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">KTweak</string>
+
+    <string name="pref_apply_on_boot">apply_on_boot</string>
+
+    <string name="pref_developer">developer</string>
+    <string name="pref_version">version</string>
+    <string name="pref_contact">contact</string>
 </resources>
