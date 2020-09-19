@@ -2,6 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="Settings">
         <SwitchPreference
+            android:icon="@drawable/ic_baseline_cached_24"
             android:title="Apply on boot"
             android:summary="Initialize KTweak after a reboot automatically"
             android:key="@string/pref_apply_on_boot"
@@ -9,13 +10,16 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="About">
         <Preference
+            android:icon="@drawable/ic_baseline_person_24"
             android:title="Developer"
             android:summary="tytydraco (Tyler Nijmeh)"
             android:key="@string/pref_developer" />
         <Preference
+            android:icon="@drawable/ic_baseline_developer_board_24"
             android:title="Version"
             android:key="@string/pref_version" />
         <Preference
+            android:icon="@drawable/ic_baseline_email_24"
             android:title="Contact"
             android:summary="Email me with questions, comments, or concerns"
             android:key="@string/pref_contact" />
