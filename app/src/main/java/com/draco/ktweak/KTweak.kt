@@ -23,6 +23,7 @@ class KTweak(private val context: Context) {
 
         Thread {
             process.waitFor()
+            if (process.exitValue() != 0) return@Thread
             log.writeText(process.inputStream.bufferedReader().readText())
             if (callback != null) callback()
         }.start()
