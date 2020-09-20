@@ -9,6 +9,7 @@ class KTweak(private val context: Context) {
         const val logName = "log"
     }
 
+
     fun execute(callback: (() -> Unit)? = null) {
         val scriptBytes = context.assets.open(scriptName).readBytes()
 
