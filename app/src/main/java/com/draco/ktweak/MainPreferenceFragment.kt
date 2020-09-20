@@ -1,20 +1,23 @@
 package com.draco.ktweak
 
-import android.app.AlertDialog
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import android.view.View
+import android.widget.ProgressBar
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.google.android.material.snackbar.Snackbar
 import java.io.File
 
-class MainPreferenceFragment: PreferenceFragmentCompat() {
+class MainPreferenceFragment(
+    private val progress: ProgressBar
+): PreferenceFragmentCompat() {
     private lateinit var ktweak: KTweak
-
-    private lateinit var waitDialog: AlertDialog
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.main, rootKey)
@@ -22,24 +25,33 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         /* Initialize private class */
         ktweak = KTweak(requireContext())
 
-        /* Initialize variables */
-        waitDialog = AlertDialog.Builder(requireContext())
-            .setTitle("Executing KTweak")
-            .setView(R.layout.dialog_loading)
-            .setCancelable(false)
-            .create()
-
         /* Update the version code string */
         val version = findPreference<Preference>(getString(R.string.pref_version))
         val flavor = if (BuildConfig.DEBUG) "debug" else "release"
         version!!.summary = "${BuildConfig.VERSION_NAME}-${flavor}"
     }
 
+    private fun setProgressVisibility(visible: Boolean) {
+        with(progress.animate()) {
+            if (visible) progress.visibility = View.VISIBLE
+
+            alpha(if (visible) 1f else 0f)
+            duration = resources.getInteger(android.R.integer.config_shortAnimTime).toLong()
+
+            setListener(object: AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator?) {
+                    super.onAnimationEnd(animation)
+                    if (!visible) progress.visibility = View.INVISIBLE
+                }
+            })
+        }
+    }
+
     private fun runKtweak() {
-        waitDialog.show()
+        setProgressVisibility(true)
         ktweak.execute {
             requireActivity().runOnUiThread {
-                waitDialog.dismiss()
+                setProgressVisibility(false)
                 if (it == 0)
                     Snackbar.make(requireView(), "Successfully executed KTweak", Snackbar.LENGTH_SHORT)
                         .setAction("Dismiss") {}

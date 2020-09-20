@@ -1,6 +1,7 @@
 package com.draco.ktweak
 
 import android.os.Bundle
+import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
@@ -15,9 +16,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val progress = findViewById<ProgressBar>(R.id.progress)
+
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.main_layout, MainPreferenceFragment())
+            .add(R.id.main_layout, MainPreferenceFragment(progress))
             .commit()
 
         if (!isRooted()) {
