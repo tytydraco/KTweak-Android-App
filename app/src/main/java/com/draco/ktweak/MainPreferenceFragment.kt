@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.provider.Settings
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.google.android.material.snackbar.Snackbar
 import java.io.File
 
@@ -79,6 +80,11 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
 
             getString(R.string.pref_contact) -> {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse("mailto:tylernij@gmail.com"))
+                startActivity(intent)
+            }
+
+            getString(R.string.pref_licenses) -> {
+                val intent = Intent(requireContext(), OssLicensesMenuActivity::class.java)
                 startActivity(intent)
             }
         }

@@ -40,5 +40,10 @@
             android:title="Contact"
             android:summary="Email me with questions, comments, or concerns"
             android:key="@string/pref_contact" />
+        <Preference
+            android:icon="@drawable/ic_baseline_insert_drive_file_24"
+            android:title="Licenses"
+            android:summary="View open source licenses"
+            android:key="@string/pref_licenses" />
     </PreferenceCategory>
 </PreferenceScreen>
