@@ -5,7 +5,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
-import android.widget.Toast
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.snackbar.Snackbar
@@ -50,6 +49,11 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         if (preference != null) when (preference.key) {
             getString(R.string.pref_run_ktweak) -> {
                 runKtweak()
+            }
+
+            getString(R.string.pref_view_logs) -> {
+                val intent = Intent(requireContext(), LogActivity::class.java)
+                startActivity(intent)
             }
 
             getString(R.string.pref_developer) -> {

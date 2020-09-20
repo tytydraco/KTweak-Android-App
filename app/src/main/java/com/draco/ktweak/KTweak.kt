@@ -1,25 +1,29 @@
 package com.draco.ktweak
 
 import android.content.Context
-import java.util.concurrent.atomic.AtomicBoolean
+import java.io.File
 
 class KTweak(private val context: Context) {
-    private val scriptName = "ktweak"
+    companion object {
+        const val scriptName = "ktweak"
+        const val logName = "log"
+    }
 
     fun execute(callback: (() -> Unit)? = null) {
         val scriptBytes = context.assets.open(scriptName).readBytes()
-        val tempScript = createTempFile(scriptName)
-        val logFile = createTempFile("log")
-        tempScript.writeBytes(scriptBytes)
 
-        val process = ProcessBuilder("su", "-c", "sh", tempScript.absolutePath)
+        val script = File(context.filesDir, scriptName)
+        script.writeBytes(scriptBytes)
+
+        val log = File(context.filesDir, logName)
+
+        val process = ProcessBuilder("su", "-c", "sh", script.absolutePath)
             .redirectErrorStream(true)
             .start()
 
         Thread {
             process.waitFor()
-            tempScript.delete()
-            logFile.writeText(process.inputStream.bufferedReader().readText())
+            log.writeText(process.inputStream.bufferedReader().readText())
             if (callback != null) callback()
         }.start()
     }

@@ -6,6 +6,11 @@
             android:title="Run KTweak"
             android:summary="Manually execute the KTweak script"
             android:key="@string/pref_run_ktweak" />
+        <Preference
+            android:icon="@drawable/ic_baseline_assessment_24"
+            android:title="View logs"
+            android:summary="Inspect the logs generated from the last KTweak execution"
+            android:key="@string/pref_view_logs" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Settings">
         <SwitchPreference

@@ -1,7 +1,10 @@
 <resources>
-    <string name="app_name">KTweak</string>
+    <string name="app_name">KTweak</string
+        >
+    <string name="log_empty">Log file does not exist</string>
 
     <string name="pref_run_ktweak">run_ktweak</string>
+    <string name="pref_view_logs">view_logs</string>
 
     <string name="pref_apply_on_boot">apply_on_boot</string>
 
