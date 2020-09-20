@@ -10,7 +10,7 @@ class KTweak(private val context: Context) {
     }
 
 
-    fun execute(callback: (() -> Unit)? = null) {
+    fun execute(callback: ((Int) -> Unit)? = null) {
         val scriptBytes = context.assets.open(scriptName).readBytes()
 
         val script = File(context.filesDir, scriptName)
@@ -26,7 +26,7 @@ class KTweak(private val context: Context) {
             process.waitFor()
             if (process.exitValue() != 0) return@Thread
             log.writeText(process.inputStream.bufferedReader().readText())
-            if (callback != null) callback()
+            if (callback != null) callback(process.exitValue())
         }.start()
     }
 }

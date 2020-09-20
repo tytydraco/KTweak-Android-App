@@ -40,9 +40,14 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         ktweak.execute {
             requireActivity().runOnUiThread {
                 waitDialog.dismiss()
-                Snackbar.make(requireView(), "Successfully executed KTweak", Snackbar.LENGTH_SHORT)
-                    .setAction("Dismiss") {}
-                    .show()
+                if (it == 0)
+                    Snackbar.make(requireView(), "Successfully executed KTweak", Snackbar.LENGTH_SHORT)
+                        .setAction("Dismiss") {}
+                        .show()
+                else
+                    Snackbar.make(requireView(), "Failed to execute KTweak", Snackbar.LENGTH_SHORT)
+                        .setAction("Dismiss") {}
+                        .show()
             }
         }
     }
