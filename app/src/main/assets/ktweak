@@ -3,17 +3,17 @@
 
 # Log in red
 err() {
-	echo -e "[ERR] $@"
+	echo -e " \e[91m*\e[39m $@"
 }
 
 # Log in orange
 warn() {
-	echo -e "[WARN] $@"
+	echo -e " \e[93m*\e[39m $@"
 }
 
 # Log in white and continue (unnecessary)
 dbg() {
-	echo -e "[DBG] $@"
+	echo -e " \e[92m*\e[39m $@"
 }
 
 # Safely write value to file
