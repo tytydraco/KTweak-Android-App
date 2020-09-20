@@ -5,25 +5,20 @@ import java.util.concurrent.atomic.AtomicBoolean
 
 class KTweak(private val context: Context) {
     private val scriptName = "ktweak"
-    val executing = AtomicBoolean(false)
-    var latestLog = String()
 
     fun execute(callback: (() -> Unit)? = null) {
         val scriptBytes = context.assets.open(scriptName).readBytes()
-        val tempFile = createTempFile(scriptName)
-        tempFile.writeBytes(scriptBytes)
+        val tempScript = createTempFile(scriptName)
+        val logFile = createTempFile("log")
+        tempScript.writeBytes(scriptBytes)
 
-        val process = ProcessBuilder("su", "-c", "sh", tempFile.absolutePath)
+        val process = ProcessBuilder("su", "-c", "sh", tempScript.absolutePath)
             .redirectErrorStream(true)
             .start()
 
         Thread {
-            executing.set(true)
             process.waitFor()
-            executing.set(false)
-
-            latestLog = process.inputStream.bufferedReader().readText()
-
+            logFile.writeText(process.inputStream.bufferedReader().readText())
             if (callback != null) callback()
         }.start()
     }
