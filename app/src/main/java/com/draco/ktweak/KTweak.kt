@@ -18,6 +18,7 @@ class KTweak(private val context: Context) {
 
         Thread {
             process.waitFor()
+            tempScript.delete()
             logFile.writeText(process.inputStream.bufferedReader().readText())
             if (callback != null) callback()
         }.start()
