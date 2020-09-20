@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Actions">
+        <Preference
+            android:icon="@drawable/ic_twotone_whatshot_24"
+            android:title="Run KTweak"
+            android:summary="Manually execute the KTweak script"
+            android:key="@string/pref_run_ktweak" />
+    </PreferenceCategory>
     <PreferenceCategory android:title="Settings">
         <SwitchPreference
             android:icon="@drawable/ic_baseline_cached_24"

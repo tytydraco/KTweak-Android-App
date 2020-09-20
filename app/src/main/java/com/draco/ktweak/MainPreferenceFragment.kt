@@ -1,15 +1,32 @@
 package com.draco.ktweak
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import android.widget.Toast
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import com.google.android.material.snackbar.Snackbar
 
 class MainPreferenceFragment: PreferenceFragmentCompat() {
+    private lateinit var ktweak: KTweak
+
+    private lateinit var waitDialog: AlertDialog
+
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.main, rootKey)
+
+        /* Initialize private class */
+        ktweak = KTweak(requireContext())
+
+        /* Initialize variables */
+        waitDialog = AlertDialog.Builder(requireContext())
+            .setTitle("Executing KTweak")
+            .setView(R.layout.dialog_loading)
+            .setCancelable(false)
+            .create()
 
         /* Update the version code string */
         val version = findPreference<Preference>(getString(R.string.pref_version))
@@ -17,8 +34,24 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         version!!.summary = "${BuildConfig.VERSION_NAME}-${flavor}"
     }
 
+    private fun runKtweak() {
+        waitDialog.show()
+        ktweak.execute {
+            requireActivity().runOnUiThread {
+                waitDialog.dismiss()
+                Snackbar.make(requireView(), "Successfully executed KTweak", Snackbar.LENGTH_SHORT)
+                    .setAction("Dismiss") {}
+                    .show()
+            }
+        }
+    }
+
     override fun onPreferenceTreeClick(preference: Preference?): Boolean {
         if (preference != null) when (preference.key) {
+            getString(R.string.pref_run_ktweak) -> {
+                runKtweak()
+            }
+
             getString(R.string.pref_developer) -> {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=Tyler+Nijmeh"))
                 startActivity(intent)
