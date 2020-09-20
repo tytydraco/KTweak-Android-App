@@ -8,6 +8,7 @@ import android.provider.Settings
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.snackbar.Snackbar
+import java.io.File
 
 class MainPreferenceFragment: PreferenceFragmentCompat() {
     private lateinit var ktweak: KTweak
@@ -54,6 +55,15 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
             getString(R.string.pref_view_logs) -> {
                 val intent = Intent(requireContext(), LogActivity::class.java)
                 startActivity(intent)
+            }
+
+            getString(R.string.pref_clear_logs) -> {
+                val log = File(requireContext().filesDir, KTweak.logName)
+                log.delete()
+
+                Snackbar.make(requireView(), "Successfully deleted log file", Snackbar.LENGTH_SHORT)
+                    .setAction("Dismiss") {}
+                    .show()
             }
 
             getString(R.string.pref_developer) -> {
