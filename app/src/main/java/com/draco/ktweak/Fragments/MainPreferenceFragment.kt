@@ -82,10 +82,36 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         }
     }
 
+    private fun fetchKtweak() {
+        setProgressVisibility(true)
+        ktweak.updateScript {
+            requireActivity().runOnUiThread {
+                setProgressVisibility(false)
+                when (it) {
+                    KTweak.Companion.FetchStatus.SUCCESS -> {
+                        Snackbar.make(requireView(), getString(R.string.snackbar_fetch_ktweak_success), Snackbar.LENGTH_SHORT)
+                            .setAction(getString(R.string.snackbar_dismiss)) {}
+                            .show()
+                    }
+
+                    KTweak.Companion.FetchStatus.FAILURE -> {
+                        Snackbar.make(requireView(), getString(R.string.snackbar_fetch_ktweak_failure), Snackbar.LENGTH_SHORT)
+                            .setAction(getString(R.string.snackbar_dismiss)) {}
+                            .show()
+                    }
+                }
+            }
+        }
+    }
+
     override fun onPreferenceTreeClick(preference: Preference?): Boolean {
         if (preference != null) when (preference.key) {
             getString(R.string.pref_run_ktweak) -> {
                 runKtweak()
+            }
+
+            getString(R.string.pref_fetch_ktweak) -> {
+                fetchKtweak()
             }
 
             getString(R.string.pref_view_logs) -> {

@@ -16,6 +16,11 @@ class KTweak(private val context: Context) {
             FAILURE,
             MISSING
         }
+
+        enum class FetchStatus {
+            SUCCESS,
+            FAILURE
+        }
     }
 
     private fun getLatestScriptBytes(callback: (ByteArray) -> Unit) {
@@ -32,14 +37,16 @@ class KTweak(private val context: Context) {
         }.start()
     }
 
-    fun updateScript(callback: (() -> Unit)? = null) {
+    fun updateScript(callback: ((FetchStatus) -> Unit)? = null) {
         val script = File(context.filesDir, scriptName)
         getLatestScriptBytes {
-            if (it.isEmpty())
+            if (it.isEmpty()) {
+                if (callback != null) callback(FetchStatus.FAILURE)
                 return@getLatestScriptBytes
+            }
 
             script.writeBytes(it)
-            if (callback != null) callback()
+            if (callback != null) callback(FetchStatus.SUCCESS)
         }
     }
 

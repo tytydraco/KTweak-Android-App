@@ -7,6 +7,11 @@
             android:summary="@string/pref_run_ktweak_summary"
             android:key="@string/pref_run_ktweak" />
         <Preference
+            android:icon="@drawable/ic_baseline_cloud_download_24"
+            android:title="@string/pref_fetch_ktweak_title"
+            android:summary="@string/pref_fetch_ktweak_summary"
+            android:key="@string/pref_fetch_ktweak" />
+        <Preference
             android:icon="@drawable/ic_baseline_assessment_24"
             android:title="@string/pref_view_logs_title"
             android:summary="@string/pref_view_logs_summary"
