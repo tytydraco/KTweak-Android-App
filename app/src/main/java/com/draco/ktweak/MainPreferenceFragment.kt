@@ -52,14 +52,25 @@ class MainPreferenceFragment(
         ktweak.execute {
             requireActivity().runOnUiThread {
                 setProgressVisibility(false)
-                if (it == 0)
-                    Snackbar.make(requireView(), "Successfully executed KTweak", Snackbar.LENGTH_SHORT)
-                        .setAction("Dismiss") {}
-                        .show()
-                else
-                    Snackbar.make(requireView(), "Failed to execute KTweak", Snackbar.LENGTH_SHORT)
-                        .setAction("Dismiss") {}
-                        .show()
+                when (it) {
+                    KTweak.Companion.ExecuteStatus.SUCCESS -> {
+                        Snackbar.make(requireView(), "Successfully executed KTweak", Snackbar.LENGTH_SHORT)
+                            .setAction("Dismiss") {}
+                            .show()
+                    }
+
+                    KTweak.Companion.ExecuteStatus.FAILURE -> {
+                        Snackbar.make(requireView(), "Failed to execute KTweak", Snackbar.LENGTH_SHORT)
+                            .setAction("Dismiss") {}
+                            .show()
+                    }
+
+                    KTweak.Companion.ExecuteStatus.MISSING -> {
+                        Snackbar.make(requireView(), "Failed to fetch KTweak script", Snackbar.LENGTH_SHORT)
+                            .setAction("Dismiss") {}
+                            .show()
+                    }
+                }
             }
         }
     }
