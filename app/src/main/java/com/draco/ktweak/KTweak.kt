@@ -39,7 +39,7 @@ class KTweak(private val context: Context) {
     private fun runScript(): ExecuteStatus {
         val script = File(context.filesDir, scriptName)
         val log = File(context.filesDir, logName)
-        val process = ProcessBuilder("su", "-c", "sh", script.absolutePath)
+        val process = ProcessBuilder("su", "-c", "sh", script.absolutePath, "-p")
             .redirectErrorStream(true)
             .start()
 

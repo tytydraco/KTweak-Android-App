@@ -27,13 +27,17 @@ class LogRecyclerAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val logTextRaw = items[position]
-        val tag = logTextRaw.split(" ")[1]
-        val logText = logTextRaw.replace(tag, "").trim()
+        var tag = ""
+        var logText = ""
+        
+        if (logTextRaw.isNotEmpty()) {
+            tag = logTextRaw.split(" ")[0]
+            logText = logTextRaw.replace("$tag ", "")
+        }
 
-        /* Parse bash color codes */
         var drawableId = R.drawable.ic_baseline_arrow_debug_24
-        if (tag.contains("[91m")) drawableId = R.drawable.ic_baseline_arrow_error_24
-        if (tag.contains("[93m")) drawableId = R.drawable.ic_baseline_arrow_warn_24
+        if (tag == "ERROR") drawableId = R.drawable.ic_baseline_arrow_error_24
+        if (tag == "WARNING") drawableId = R.drawable.ic_baseline_arrow_warn_24
 
         holder.log.setCompoundDrawablesWithIntrinsicBounds(ContextCompat.getDrawable(context, drawableId), null, null, null)
         holder.log.text = logText
