@@ -29,8 +29,7 @@ class KTweak(private val context: Context) {
         var scriptBytes = byteArrayOf()
         Thread {
             try {
-                val connection = url.openConnection()
-                scriptBytes = connection.getInputStream().readBytes()
+                scriptBytes = url.readBytes()
             } catch(e: Exception) {}
             callback(scriptBytes)
         }.start()
