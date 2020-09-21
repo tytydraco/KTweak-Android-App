@@ -97,6 +97,15 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                     .show()
             }
 
+            getString(R.string.pref_clear_cached) -> {
+                val script = File(requireContext().filesDir, KTweak.scriptName)
+                script.delete()
+
+                Snackbar.make(requireView(), "Successfully deleted cached script", Snackbar.LENGTH_SHORT)
+                    .setAction("Dismiss") {}
+                    .show()
+            }
+
             getString(R.string.pref_view_changelog) -> {
                 val intent = Intent(requireContext(), ChangelogActivity::class.java)
                 startActivity(intent)

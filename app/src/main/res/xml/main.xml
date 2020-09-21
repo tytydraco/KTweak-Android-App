@@ -17,6 +17,11 @@
             android:summary="Delete the KTweak log file if it exists"
             android:key="@string/pref_clear_logs" />
         <Preference
+            android:icon="@drawable/ic_baseline_undo_24"
+            android:title="Clear cached script"
+            android:summary="Delete the cached KTweak script"
+            android:key="@string/pref_clear_cached" />
+        <Preference
             android:icon="@drawable/ic_baseline_ballot_24"
             android:title="View changelog"
             android:summary="Inspect the latest KTweak updates"

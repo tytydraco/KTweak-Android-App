@@ -8,6 +8,7 @@
     <string name="pref_run_ktweak">run_ktweak</string>
     <string name="pref_view_logs">view_logs</string>
     <string name="pref_clear_logs">clear_logs</string>
+    <string name="pref_clear_cached">clear_cached</string>
     <string name="pref_view_changelog">view_changelog</string>
 
     <string name="pref_branch">branch</string>
