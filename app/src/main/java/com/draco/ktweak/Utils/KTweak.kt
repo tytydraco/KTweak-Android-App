@@ -71,31 +71,17 @@ class KTweak(private val context: Context) {
             ExecuteStatus.FAILURE
     }
 
-    fun execute(fetch: Boolean = true, callback: ((ExecuteStatus) -> Unit)? = null) {
+    fun execute(callback: ((ExecuteStatus) -> Unit)? = null) {
         val script = File(context.filesDir, scriptName)
 
-        if (fetch) {
-            updateScript {
-                if (!script.exists()) {
-                    if (callback != null) callback(ExecuteStatus.MISSING)
-                    return@updateScript
-                }
-
-                Thread {
-                    val ret = runScript()
-                    if (callback != null) callback(ret)
-                }.start()
-            }
-        } else {
-            if (!script.exists()) {
-                if (callback != null) callback(ExecuteStatus.MISSING)
-                return
-            }
-
-            Thread {
-                val ret = runScript()
-                if (callback != null) callback(ret)
-            }.start()
+        if (!script.exists()) {
+            if (callback != null) callback(ExecuteStatus.MISSING)
+            return
         }
+
+        Thread {
+            val ret = runScript()
+            if (callback != null) callback(ret)
+        }.start()
     }
 }
