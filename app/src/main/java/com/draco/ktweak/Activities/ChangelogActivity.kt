@@ -1,6 +1,8 @@
 package com.draco.ktweak.Activities
 
 import android.os.Bundle
+import android.view.View
+import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,6 +14,7 @@ import java.net.URL
 
 class ChangelogActivity: AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
+    private lateinit var progress: ProgressBar
     private lateinit var viewAdapter: ChangelogRecyclerAdapter
 
     private fun getChangelog(callback: (ArrayList<String>) -> Unit) {
@@ -31,6 +34,9 @@ class ChangelogActivity: AppCompatActivity() {
     private fun setupRecycler() {
         getChangelog {
             runOnUiThread {
+                progress.visibility = View.GONE
+                recyclerView.visibility = View.VISIBLE
+
                 recyclerView = findViewById(R.id.recycler_view)
                 viewAdapter = ChangelogRecyclerAdapter(it)
                 recyclerView.apply {
@@ -48,6 +54,8 @@ class ChangelogActivity: AppCompatActivity() {
         setContentView(R.layout.activity_changelog)
 
         recyclerView = findViewById(R.id.recycler_view)
+        progress = findViewById(R.id.progress)
+
         viewAdapter = ChangelogRecyclerAdapter(arrayListOf())
         recyclerView.apply {
             adapter = viewAdapter
