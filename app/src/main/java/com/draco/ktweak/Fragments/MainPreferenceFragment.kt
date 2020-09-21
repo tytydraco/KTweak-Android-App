@@ -61,20 +61,20 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                 setProgressVisibility(false)
                 when (it) {
                     KTweak.Companion.ExecuteStatus.SUCCESS -> {
-                        Snackbar.make(requireView(), "Successfully executed KTweak", Snackbar.LENGTH_SHORT)
-                            .setAction("Dismiss") {}
+                        Snackbar.make(requireView(), getString(R.string.snackbar_run_ktweak_success), Snackbar.LENGTH_SHORT)
+                            .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
 
                     KTweak.Companion.ExecuteStatus.FAILURE -> {
-                        Snackbar.make(requireView(), "Failed to execute KTweak", Snackbar.LENGTH_SHORT)
-                            .setAction("Dismiss") {}
+                        Snackbar.make(requireView(), getString(R.string.snackbar_run_ktweak_failure), Snackbar.LENGTH_SHORT)
+                            .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
 
                     KTweak.Companion.ExecuteStatus.MISSING -> {
-                        Snackbar.make(requireView(), "Cannot find KTweak script", Snackbar.LENGTH_SHORT)
-                            .setAction("Dismiss") {}
+                        Snackbar.make(requireView(), getString(R.string.snackbar_run_ktweak_missing), Snackbar.LENGTH_SHORT)
+                            .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
                 }
@@ -97,13 +97,13 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                 val log = File(requireContext().filesDir, KTweak.logName)
 
                 if (!log.exists()) {
-                    Snackbar.make(requireView(), "No log file to delete", Snackbar.LENGTH_SHORT)
-                        .setAction("Dismiss") {}
+                    Snackbar.make(requireView(), getString(R.string.snackbar_clear_logs_failure), Snackbar.LENGTH_SHORT)
+                        .setAction(getString(R.string.snackbar_dismiss)) {}
                         .show()
                 } else {
                     log.delete()
-                    Snackbar.make(requireView(), "Successfully deleted log file", Snackbar.LENGTH_SHORT)
-                        .setAction("Dismiss") {}
+                    Snackbar.make(requireView(), getString(R.string.snackbar_clear_logs_success), Snackbar.LENGTH_SHORT)
+                        .setAction(getString(R.string.snackbar_dismiss)) {}
                         .show()
                 }
             }
@@ -112,13 +112,13 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                 val script = File(requireContext().filesDir, KTweak.scriptName)
 
                 if (!script.exists()) {
-                    Snackbar.make(requireView(), "No cached script to delete", Snackbar.LENGTH_SHORT)
-                        .setAction("Dismiss") {}
+                    Snackbar.make(requireView(), getString(R.string.snackbar_clear_cached_failure), Snackbar.LENGTH_SHORT)
+                        .setAction(getString(R.string.snackbar_dismiss)) {}
                         .show()
                 } else {
                     script.delete()
-                    Snackbar.make(requireView(), "Successfully deleted log file", Snackbar.LENGTH_SHORT)
-                        .setAction("Dismiss") {}
+                    Snackbar.make(requireView(), getString(R.string.snackbar_clear_cached_success), Snackbar.LENGTH_SHORT)
+                        .setAction(getString(R.string.snackbar_dismiss)) {}
                         .show()
                 }
             }

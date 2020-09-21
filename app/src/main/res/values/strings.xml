@@ -11,6 +11,17 @@
     <string name="alert_root_not_granted_title">Root Not Granted</string>
     <string name="alert_root_not_granted_message">Superuser permissions are not enabled for this app. Some functionality will be restricted.</string>
 
+    <string name="snackbar_dismiss">Dismiss</string>
+    <string name="snackbar_run_ktweak_success">Successfully executed KTweak</string>
+    <string name="snackbar_run_ktweak_failure">Failed to execute KTweak</string>
+    <string name="snackbar_run_ktweak_missing">Cannot find KTweak script</string>
+
+    <string name="snackbar_clear_logs_success">Successfully deleted log file</string>
+    <string name="snackbar_clear_logs_failure">No log file to delete</string>
+
+    <string name="snackbar_clear_cached_success">Successfully deleted cached script</string>
+    <string name="snackbar_clear_cached_failure">No cached script to delete</string>
+
     <string name="pref_run_ktweak">run_ktweak</string>
     <string name="pref_run_ktweak_title">Run KTweak</string>
     <string name="pref_run_ktweak_summary">Manually execute the script</string>
