@@ -27,13 +27,14 @@ class LogRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val logTextRaw = items[position]
+        var logText = items[position]
         var tag = ""
-        var logText = ""
 
-        if (logTextRaw.isNotEmpty()) {
-            tag = logTextRaw.split(" ")[0]
-            logText = logTextRaw.replace("$tag ", "")
+        if (logText.startsWith("DEBUG") ||
+            logText.startsWith("WARNING") ||
+            logText.startsWith("ERROR")) {
+            tag = logText.split(" ")[0]
+            logText = logText.replace("$tag ", "")
         }
 
         var drawableId = R.drawable.ic_baseline_arrow_debug_24
