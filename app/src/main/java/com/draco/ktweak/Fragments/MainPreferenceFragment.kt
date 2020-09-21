@@ -99,6 +99,12 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
+
+                    KTweak.Companion.FetchStatus.UNCHANGED -> {
+                        Snackbar.make(requireView(), getString(R.string.snackbar_fetch_ktweak_unchanged), Snackbar.LENGTH_SHORT)
+                            .setAction(getString(R.string.snackbar_dismiss)) {}
+                            .show()
+                    }
                 }
             }
         }

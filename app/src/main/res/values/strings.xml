@@ -18,6 +18,7 @@
     <string name="snackbar_run_ktweak_missing">Cannot find KTweak script</string>
     <string name="snackbar_fetch_ktweak_success">Successfully fetched KTweak</string>
     <string name="snackbar_fetch_ktweak_failure">Failed to fetch KTweak</string>
+    <string name="snackbar_fetch_ktweak_unchanged">Script already up-to-date</string>
 
     <string name="snackbar_clear_logs_success">Successfully deleted log file</string>
     <string name="snackbar_clear_logs_failure">No log file to delete</string>

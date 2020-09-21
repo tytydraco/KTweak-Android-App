@@ -19,7 +19,8 @@ class KTweak(private val context: Context) {
 
         enum class FetchStatus {
             SUCCESS,
-            FAILURE
+            FAILURE,
+            UNCHANGED
         }
     }
 
@@ -42,6 +43,11 @@ class KTweak(private val context: Context) {
         getLatestScriptBytes {
             if (it.isEmpty()) {
                 if (callback != null) callback(FetchStatus.FAILURE)
+                return@getLatestScriptBytes
+            }
+
+            if (script.exists() && script.readBytes().contentEquals(it)) {
+                if (callback != null) callback(FetchStatus.UNCHANGED)
                 return@getLatestScriptBytes
             }
 
