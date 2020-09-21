@@ -1,17 +1,14 @@
 package com.draco.ktweak
 
 import android.content.Context
-import android.widget.Toast
 import androidx.preference.PreferenceManager
 import java.io.File
-import java.lang.Exception
 import java.net.URL
 
 class KTweak(private val context: Context) {
     companion object {
         const val scriptName = "ktweak"
         const val scriptURL = "https://raw.githubusercontent.com/tytydraco/KTweak/master/ktweak"
-        const val changelogURL = "https://github.com/tytydraco/KTweak/commits/master/ktweak"
         const val logName = "log"
 
         enum class ExecuteStatus {

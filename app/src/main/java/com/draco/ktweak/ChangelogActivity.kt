@@ -1,21 +1,43 @@
 package com.draco.ktweak
 
 import android.os.Bundle
-import android.view.View
-import android.webkit.WebView
-import android.webkit.WebViewClient
-import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import org.json.JSONArray
+import java.net.URL
 
 class ChangelogActivity: AppCompatActivity() {
-    private lateinit var webView: WebView
-    private lateinit var progress: ProgressBar
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var viewAdapter: ChangelogRecyclerAdapter
 
-    private class CustomWebViewClient(private val progress: ProgressBar): WebViewClient() {
-        override fun onPageFinished(view: WebView?, url: String?) {
-            progress.visibility = View.GONE
-            view!!.visibility = View.VISIBLE
-            super.onPageFinished(view, url)
+    private fun getChangelog(callback: (ArrayList<String>) -> Unit) {
+        Thread {
+            val json = URL("https://api.github.com/repos/tytydraco/KTweak/commits").readText()
+            val jsonArray = JSONArray(json)
+            val messages = arrayListOf<String>()
+
+            for (i in 0 until jsonArray.length()) {
+                messages += jsonArray.getJSONObject(i).getJSONObject("commit").getString("message").lines()[0]
+            }
+
+            callback(messages)
+        }.start()
+    }
+
+    private fun setupRecycler() {
+        getChangelog {
+            runOnUiThread {
+                recyclerView = findViewById(R.id.recycler_view)
+                viewAdapter = ChangelogRecyclerAdapter(it)
+                recyclerView.apply {
+                    adapter = viewAdapter
+                    layoutManager = LinearLayoutManager(context)
+                    addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+                }
+                viewAdapter.notifyDataSetChanged()
+            }
         }
     }
 
@@ -23,13 +45,14 @@ class ChangelogActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_changelog)
 
-        webView = findViewById(R.id.webView)
-        progress = findViewById(R.id.progress)
-
-        with (webView) {
-            webViewClient = CustomWebViewClient(this@ChangelogActivity.progress)
-            loadUrl(KTweak.changelogURL)
-            setBackgroundColor(getColor(R.color.colorPrimaryDark))
+        recyclerView = findViewById(R.id.recycler_view)
+        viewAdapter = ChangelogRecyclerAdapter(arrayListOf())
+        recyclerView.apply {
+            adapter = viewAdapter
+            layoutManager = LinearLayoutManager(context)
+            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         }
+        viewAdapter.notifyDataSetChanged()
+        setupRecycler()
     }
 }

@@ -17,7 +17,7 @@ class LogRecyclerAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.recycler_view_log, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.recycler_view_item, parent, false)
         return ViewHolder(view)
     }
 
@@ -29,7 +29,7 @@ class LogRecyclerAdapter(
         val logTextRaw = items[position]
         var tag = ""
         var logText = ""
-        
+
         if (logTextRaw.isNotEmpty()) {
             tag = logTextRaw.split(" ")[0]
             logText = logTextRaw.replace("$tag ", "")

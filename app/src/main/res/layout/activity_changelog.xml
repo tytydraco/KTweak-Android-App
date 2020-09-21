@@ -4,14 +4,8 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical">
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:id="@+id/progress" />
-    <WebView
-        android:visibility="gone"
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/webView" />
+        android:id="@+id/recycler_view" />
 </LinearLayout>
