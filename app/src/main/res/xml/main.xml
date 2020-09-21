@@ -3,76 +3,76 @@
     <PreferenceCategory android:title="Actions">
         <Preference
             android:icon="@drawable/ic_twotone_whatshot_24"
-            android:title="Run KTweak"
-            android:summary="Manually execute the script"
+            android:title="@string/pref_run_ktweak_title"
+            android:summary="@string/pref_run_ktweak_summary"
             android:key="@string/pref_run_ktweak" />
         <Preference
             android:icon="@drawable/ic_baseline_assessment_24"
-            android:title="View logs"
-            android:summary="Inspect the logs generated from the last execution"
+            android:title="@string/pref_view_logs_title"
+            android:summary="@string/pref_view_logs_summary"
             android:key="@string/pref_view_logs" />
         <Preference
             android:icon="@drawable/ic_baseline_delete_24"
-            android:title="Clear logs"
-            android:summary="Delete the log file if it exists"
+            android:title="@string/pref_clear_cached_title"
+            android:summary="@string/pref_clear_logs_summary"
             android:key="@string/pref_clear_logs" />
         <Preference
             android:icon="@drawable/ic_baseline_delete_24"
-            android:title="Clear cached script"
-            android:summary="Delete the cached script"
+            android:title="@string/pref_clear_cached_title"
+            android:summary="@string/pref_clear_cached_summary"
             android:key="@string/pref_clear_cached" />
         <Preference
             android:icon="@drawable/ic_baseline_list_alt_24"
-            android:title="View changelog"
-            android:summary="Inspect the latest updates"
+            android:title="@string/pref_view_changelog_title"
+            android:summary="@string/pref_view_changelog_summary"
             android:key="@string/pref_view_changelog" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Settings">
         <ListPreference
             android:icon="@drawable/ic_baseline_device_hub_24"
-            android:title="Branch"
-            android:summary="Select which public version to use"
+            android:title="@string/pref_branch_title"
+            android:summary="@string/pref_branch_summary"
             android:key="@string/pref_branch"
             android:entries="@array/branches"
             android:entryValues="@array/branchesValues"
             android:defaultValue="master" />
         <SwitchPreference
             android:icon="@drawable/ic_baseline_power_settings_new_24"
-            android:title="Apply on boot"
-            android:summary="Initialize after a reboot automatically"
+            android:title="@string/pref_apply_on_boot_title"
+            android:summary="@string/pref_apply_on_boot_summary"
             android:key="@string/pref_apply_on_boot"
             android:defaultValue="true" />
         <SwitchPreference
             android:icon="@drawable/ic_baseline_cloud_download_24"
-            android:title="Automatically fetch"
-            android:summary="Fetch the latest script before executing"
+            android:title="@string/pref_auto_fetch_title"
+            android:summary="@string/pref_auto_fetch_summary"
             android:key="@string/pref_auto_fetch"
             android:defaultValue="true" />
     </PreferenceCategory>
     <PreferenceCategory android:title="About">
         <Preference
             android:icon="@drawable/ic_baseline_person_24"
-            android:title="Developer"
-            android:summary="tytydraco (Tyler Nijmeh)"
+            android:title="@string/pref_developer_title"
+            android:summary="@string/pref_developer_summary"
             android:key="@string/pref_developer" />
         <Preference
             android:icon="@drawable/ic_baseline_developer_board_24"
-            android:title="Version"
+            android:title="@string/pref_version_title"
             android:key="@string/pref_version" />
         <Preference
             android:icon="@drawable/ic_baseline_code_24"
-            android:title="Source code"
-            android:summary="View the open source code"
+            android:title="@string/pref_source_code_title"
+            android:summary="@string/pref_source_code_summary"
             android:key="@string/pref_source_code" />
         <Preference
             android:icon="@drawable/ic_baseline_email_24"
-            android:title="Contact"
-            android:summary="Email me with questions, comments, or concerns"
+            android:title="@string/pref_contact_title"
+            android:summary="@string/pref_contact_summary"
             android:key="@string/pref_contact" />
         <Preference
             android:icon="@drawable/ic_baseline_insert_drive_file_24"
-            android:title="Licenses"
-            android:summary="View open source licenses"
+            android:title="@string/pref_licenses_title"
+            android:summary="@string/pref_licenses_summary"
             android:key="@string/pref_licenses" />
     </PreferenceCategory>
 </PreferenceScreen>
