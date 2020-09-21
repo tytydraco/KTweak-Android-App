@@ -4,34 +4,34 @@
         <Preference
             android:icon="@drawable/ic_twotone_whatshot_24"
             android:title="Run KTweak"
-            android:summary="Manually execute the KTweak script"
+            android:summary="Manually execute the script"
             android:key="@string/pref_run_ktweak" />
         <Preference
             android:icon="@drawable/ic_baseline_assessment_24"
             android:title="View logs"
-            android:summary="Inspect the logs generated from the last KTweak execution"
+            android:summary="Inspect the logs generated from the last execution"
             android:key="@string/pref_view_logs" />
         <Preference
             android:icon="@drawable/ic_baseline_delete_24"
             android:title="Clear logs"
-            android:summary="Delete the KTweak log file if it exists"
+            android:summary="Delete the log file if it exists"
             android:key="@string/pref_clear_logs" />
         <Preference
             android:icon="@drawable/ic_baseline_undo_24"
             android:title="Clear cached script"
-            android:summary="Delete the cached KTweak script"
+            android:summary="Delete the cached script"
             android:key="@string/pref_clear_cached" />
         <Preference
             android:icon="@drawable/ic_baseline_ballot_24"
             android:title="View changelog"
-            android:summary="Inspect the latest KTweak updates"
+            android:summary="Inspect the latest updates"
             android:key="@string/pref_view_changelog" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Settings">
         <ListPreference
             android:icon="@drawable/ic_baseline_device_hub_24"
             android:title="Branch"
-            android:summary="Select which branch of KTweak to use"
+            android:summary="Select which public version to use"
             android:key="@string/pref_branch"
             android:entries="@array/branches"
             android:entryValues="@array/branchesValues"
@@ -39,13 +39,13 @@
         <SwitchPreference
             android:icon="@drawable/ic_baseline_cached_24"
             android:title="Apply on boot"
-            android:summary="Initialize KTweak after a reboot automatically"
+            android:summary="Initialize after a reboot automatically"
             android:key="@string/pref_apply_on_boot"
             android:defaultValue="true" />
         <SwitchPreference
             android:icon="@drawable/ic_baseline_system_update_24"
             android:title="Automatically fetch"
-            android:summary="Fetch the latest KTweak script before executing"
+            android:summary="Fetch the latest script before executing"
             android:key="@string/pref_auto_fetch"
             android:defaultValue="true" />
     </PreferenceCategory>
