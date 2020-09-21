@@ -1,9 +1,11 @@
 package com.draco.ktweak.Activities
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,10 +20,12 @@ class ChangelogActivity: AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var progress: ProgressBar
     private lateinit var viewAdapter: ChangelogRecyclerAdapter
+    private lateinit var prefs: SharedPreferences
 
     private fun getChangelog(callback: (ArrayList<ChangelogItem>) -> Unit) {
         Thread {
-            val json = URL("https://api.github.com/repos/tytydraco/KTweak/commits").readText()
+            val branch = prefs.getString(getString(R.string.pref_branch), "master")!!
+            val json = URL("https://api.github.com/repos/tytydraco/KTweak/commits?sha=$branch").readText()
             val jsonArray = JSONArray(json)
             val changelogItems = arrayListOf<ChangelogItem>()
 
@@ -65,6 +69,7 @@ class ChangelogActivity: AppCompatActivity() {
 
         recyclerView = findViewById(R.id.recycler_view)
         progress = findViewById(R.id.progress)
+        prefs = PreferenceManager.getDefaultSharedPreferences(this)
 
         setupRecycler()
     }
