@@ -90,20 +90,32 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
 
             getString(R.string.pref_clear_logs) -> {
                 val log = File(requireContext().filesDir, KTweak.logName)
-                log.delete()
 
-                Snackbar.make(requireView(), "Successfully deleted log file", Snackbar.LENGTH_SHORT)
-                    .setAction("Dismiss") {}
-                    .show()
+                if (!log.exists()) {
+                    Snackbar.make(requireView(), "No log file to delete", Snackbar.LENGTH_SHORT)
+                        .setAction("Dismiss") {}
+                        .show()
+                } else {
+                    log.delete()
+                    Snackbar.make(requireView(), "Successfully deleted log file", Snackbar.LENGTH_SHORT)
+                        .setAction("Dismiss") {}
+                        .show()
+                }
             }
 
             getString(R.string.pref_clear_cached) -> {
                 val script = File(requireContext().filesDir, KTweak.scriptName)
-                script.delete()
 
-                Snackbar.make(requireView(), "Successfully deleted cached script", Snackbar.LENGTH_SHORT)
-                    .setAction("Dismiss") {}
-                    .show()
+                if (!script.exists()) {
+                    Snackbar.make(requireView(), "No cached script to delete", Snackbar.LENGTH_SHORT)
+                        .setAction("Dismiss") {}
+                        .show()
+                } else {
+                    script.delete()
+                    Snackbar.make(requireView(), "Successfully deleted log file", Snackbar.LENGTH_SHORT)
+                        .setAction("Dismiss") {}
+                        .show()
+                }
             }
 
             getString(R.string.pref_view_changelog) -> {
