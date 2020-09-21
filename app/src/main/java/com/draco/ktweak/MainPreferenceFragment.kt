@@ -98,8 +98,7 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
             }
 
             getString(R.string.pref_view_changelog) -> {
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse(KTweak.changelogURL)
+                val intent = Intent(requireContext(), ChangelogActivity::class.java)
                 startActivity(intent)
             }
 

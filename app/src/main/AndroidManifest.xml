@@ -24,6 +24,9 @@
         <activity android:name=".LogActivity"
             android:label="@string/activity_logs"
             android:screenOrientation="portrait"/>
+        <activity android:name=".ChangelogActivity"
+            android:label="@string/activity_changelog"
+            android:screenOrientation="portrait"/>
         <receiver android:name=".BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

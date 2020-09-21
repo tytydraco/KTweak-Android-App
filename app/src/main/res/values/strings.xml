@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">KTweak</string>
     <string name="activity_logs">Logs</string>
+    <string name="activity_changelog">Changelog</string>
 
     <string name="log_empty">Log file does not exist</string>
 
