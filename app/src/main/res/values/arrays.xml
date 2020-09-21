@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="branches">
+        <item>Development</item>
+        <item>Stable</item>
+        <item>Long Term Stable</item>
+    </string-array>
+    <string-array name="branchesValues">
+        <item>dev</item>
+        <item>master</item>
+        <item>lts</item>
+    </string-array>
+</resources>

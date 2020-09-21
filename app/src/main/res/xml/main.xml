@@ -23,6 +23,13 @@
             android:key="@string/pref_view_changelog" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Settings">
+        <ListPreference
+            android:title="Branch"
+            android:summary="Select which branch of KTweak to use"
+            android:key="@string/pref_branch"
+            android:entries="@array/branches"
+            android:entryValues="@array/branchesValues"
+            android:defaultValue="master" />
         <SwitchPreference
             android:icon="@drawable/ic_baseline_cached_24"
             android:title="Apply on boot"

@@ -1,6 +1,8 @@
 package com.draco.ktweak
 
 import android.content.Context
+import android.widget.Toast
+import androidx.preference.PreferenceManager
 import java.io.File
 import java.lang.Exception
 import java.net.URL
@@ -20,7 +22,10 @@ class KTweak(private val context: Context) {
     }
 
     private fun getLatestScriptBytes(callback: (ByteArray) -> Unit) {
-        val url = URL(scriptURL)
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        val branch = prefs.getString(context.getString(R.string.pref_branch), "master")!!
+
+        val url = URL(scriptURL.replace("master", branch))
         var scriptBytes = byteArrayOf()
         Thread {
             try {
