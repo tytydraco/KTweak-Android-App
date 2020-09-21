@@ -18,7 +18,7 @@
             android:key="@string/pref_view_logs" />
         <Preference
             android:icon="@drawable/ic_baseline_delete_24"
-            android:title="@string/pref_clear_cached_title"
+            android:title="@string/pref_clear_logs_title"
             android:summary="@string/pref_clear_logs_summary"
             android:key="@string/pref_clear_logs" />
         <Preference
