@@ -30,6 +30,7 @@ class LogRecyclerAdapter(
         var logText = items[position]
         var tag = ""
 
+        /* If this is a KTweak logging line, parse it */
         if (logText.startsWith("DEBUG") ||
             logText.startsWith("WARNING") ||
             logText.startsWith("ERROR")) {
@@ -37,6 +38,7 @@ class LogRecyclerAdapter(
             logText = logText.replace("$tag ", "")
         }
 
+        /* Change drawable based on tag */
         val drawableId = when(tag) {
             "DEBUG" -> R.drawable.ic_baseline_arrow_debug_24
             "ERROR" -> R.drawable.ic_baseline_arrow_error_24

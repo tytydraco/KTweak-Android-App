@@ -23,11 +23,13 @@ class ChangelogActivity: AppCompatActivity() {
 
     private fun getChangelog(callback: (ArrayList<ChangelogItem>) -> Unit) {
         Thread {
+            /* Fetch commits from GitHub using public API */
             val branch = prefs.getString(getString(R.string.pref_branch), "master")!!
             val json = URL("https://api.github.com/repos/tytydraco/KTweak/commits?sha=$branch").readText()
             val jsonArray = JSONArray(json)
             val changelogItems = arrayListOf<ChangelogItem>()
 
+            /* Parse returned JSON */
             for (i in 0 until jsonArray.length()) {
                 val changelogItem = ChangelogItem()
                 with(changelogItem) {
@@ -37,18 +39,21 @@ class ChangelogActivity: AppCompatActivity() {
                             .replace("T", "\n")
                             .replace("Z", "")
                         url = jsonArray.getJSONObject(i).getString("html_url")
+                        changelogItems += changelogItem
                     } catch (_: Exception) {}
                 }
-                changelogItems += changelogItem
             }
 
+            /* Once fetched, return */
             callback(changelogItems)
         }.start()
     }
 
     private fun setupRecycler() {
+        /* Wait for changelog items to populate */
         getChangelog {
             runOnUiThread {
+                /* Hide progress bar */
                 progress.visibility = View.GONE
                 recyclerView.visibility = View.VISIBLE
 

@@ -53,7 +53,8 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         }
     }
 
-    private fun _runKtweak() {
+    private fun runKtweak() {
+        /* Wait for execution to finish */
         ktweak.execute {
             requireActivity().runOnUiThread {
                 setProgressVisibility(false)
@@ -80,17 +81,9 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         }
     }
 
-    private fun runKtweak() {
-        setProgressVisibility(true)
-        val autoFetch = findPreference<SwitchPreference>(getString(R.string.pref_auto_fetch))!!.isChecked
-        if (autoFetch)
-            ktweak.updateScript { _runKtweak() }
-        else
-            _runKtweak()
-    }
-
     private fun fetchKtweak() {
         setProgressVisibility(true)
+        /* Update script and wait for fetch */
         ktweak.updateScript {
             requireActivity().runOnUiThread {
                 setProgressVisibility(false)
@@ -120,7 +113,12 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
     override fun onPreferenceTreeClick(preference: Preference?): Boolean {
         if (preference != null) when (preference.key) {
             getString(R.string.pref_run_ktweak) -> {
-                runKtweak()
+                setProgressVisibility(true)
+                val autoFetch = findPreference<SwitchPreference>(getString(R.string.pref_auto_fetch))!!.isChecked
+                if (autoFetch)
+                    ktweak.updateScript { runKtweak() }
+                else
+                    runKtweak()
             }
 
             getString(R.string.pref_fetch_ktweak) -> {

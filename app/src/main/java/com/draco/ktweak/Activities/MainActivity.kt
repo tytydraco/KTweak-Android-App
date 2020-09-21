@@ -23,11 +23,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        /* Setup preference screen */
         supportFragmentManager
             .beginTransaction()
             .add(R.id.main_layout, MainPreferenceFragment())
             .commit()
 
+        /* Warn user on each start if root is not detected */
         if (!isRooted()) {
             AlertDialog.Builder(this)
                 .setTitle(getString(R.string.alert_not_rooted_title))

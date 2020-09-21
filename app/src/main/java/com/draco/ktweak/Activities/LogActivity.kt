@@ -28,8 +28,8 @@ class LogActivity: AppCompatActivity() {
         recyclerView = findViewById(R.id.recycler_view)
         empty = findViewById(R.id.empty)
 
+        /* If log does not exist, show warning */
         val log = File(filesDir, KTweak.logName)
-
         if (!log.exists()) {
             recyclerView.visibility = View.GONE
             empty.visibility = View.VISIBLE

@@ -59,12 +59,17 @@ class KTweak(private val context: Context) {
     private fun runScript(): ExecuteStatus {
         val script = File(context.filesDir, scriptName)
         val log = File(context.filesDir, logName)
+
+        /* Start in parsable mode */
         val process = ProcessBuilder("su", "-c", "sh", script.absolutePath, "-p")
             .redirectErrorStream(true)
             .start()
 
         process.waitFor()
+
+        /* Write output to log file */
         log.writeText(process.inputStream.bufferedReader().readText())
+
         return if (process.exitValue() == 0)
             ExecuteStatus.SUCCESS
         else
@@ -74,11 +79,13 @@ class KTweak(private val context: Context) {
     fun execute(callback: ((ExecuteStatus) -> Unit)? = null) {
         val script = File(context.filesDir, scriptName)
 
+        /* Make sure script exists locally */
         if (!script.exists()) {
             if (callback != null) callback(ExecuteStatus.MISSING)
             return
         }
 
+        /* Execute async */
         Thread {
             val ret = runScript()
             if (callback != null) callback(ret)
