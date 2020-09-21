@@ -1,4 +1,4 @@
-package com.draco.ktweak
+package com.draco.ktweak.Fragments
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
@@ -11,6 +11,11 @@ import android.widget.ProgressBar
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreference
+import com.draco.ktweak.Activities.ChangelogActivity
+import com.draco.ktweak.Activities.LogActivity
+import com.draco.ktweak.BuildConfig
+import com.draco.ktweak.Utils.KTweak
+import com.draco.ktweak.R
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.google.android.material.snackbar.Snackbar
 import java.io.File

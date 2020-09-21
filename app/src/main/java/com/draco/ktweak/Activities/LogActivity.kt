@@ -1,4 +1,4 @@
-package com.draco.ktweak
+package com.draco.ktweak.Activities
 
 import android.os.Bundle
 import android.view.View
@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.draco.ktweak.Utils.KTweak
+import com.draco.ktweak.Adapters.LogRecyclerAdapter
+import com.draco.ktweak.R
 import java.io.File
 
 class LogActivity: AppCompatActivity() {

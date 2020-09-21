@@ -1,7 +1,8 @@
-package com.draco.ktweak
+package com.draco.ktweak.Utils
 
 import android.content.Context
 import androidx.preference.PreferenceManager
+import com.draco.ktweak.R
 import java.io.File
 import java.net.URL
 

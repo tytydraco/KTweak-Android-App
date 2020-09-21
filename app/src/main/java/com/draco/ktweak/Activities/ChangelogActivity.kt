@@ -1,10 +1,12 @@
-package com.draco.ktweak
+package com.draco.ktweak.Activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.draco.ktweak.Adapters.ChangelogRecyclerAdapter
+import com.draco.ktweak.R
 import org.json.JSONArray
 import java.net.URL
 

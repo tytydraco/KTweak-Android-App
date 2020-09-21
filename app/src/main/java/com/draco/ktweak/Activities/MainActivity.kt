@@ -1,9 +1,10 @@
-package com.draco.ktweak
+package com.draco.ktweak.Activities
 
 import android.os.Bundle
-import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.draco.ktweak.Fragments.MainPreferenceFragment
+import com.draco.ktweak.R
 
 class MainActivity : AppCompatActivity() {
     private fun isRooted(): Boolean {
