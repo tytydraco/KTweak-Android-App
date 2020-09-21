@@ -16,11 +16,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val progress = findViewById<ProgressBar>(R.id.progress)
-
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.main_layout, MainPreferenceFragment(progress))
+            .add(R.id.main_layout, MainPreferenceFragment())
             .commit()
 
         if (!isRooted()) {

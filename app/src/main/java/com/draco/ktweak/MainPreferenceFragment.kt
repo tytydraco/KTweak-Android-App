@@ -15,16 +15,16 @@ import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.google.android.material.snackbar.Snackbar
 import java.io.File
 
-class MainPreferenceFragment(
-    private val progress: ProgressBar
-): PreferenceFragmentCompat() {
+class MainPreferenceFragment: PreferenceFragmentCompat() {
     private lateinit var ktweak: KTweak
+    private lateinit var progress: ProgressBar
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.main, rootKey)
 
-        /* Initialize private class */
+        /* Initialize variables */
         ktweak = KTweak(requireContext())
+        progress = requireActivity().findViewById(R.id.progress)
 
         /* Update the version code string */
         val version = findPreference<Preference>(getString(R.string.pref_version))
