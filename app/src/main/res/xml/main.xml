@@ -17,12 +17,12 @@
             android:summary="Delete the log file if it exists"
             android:key="@string/pref_clear_logs" />
         <Preference
-            android:icon="@drawable/ic_baseline_undo_24"
+            android:icon="@drawable/ic_baseline_delete_24"
             android:title="Clear cached script"
             android:summary="Delete the cached script"
             android:key="@string/pref_clear_cached" />
         <Preference
-            android:icon="@drawable/ic_baseline_ballot_24"
+            android:icon="@drawable/ic_baseline_list_alt_24"
             android:title="View changelog"
             android:summary="Inspect the latest updates"
             android:key="@string/pref_view_changelog" />
@@ -37,13 +37,13 @@
             android:entryValues="@array/branchesValues"
             android:defaultValue="master" />
         <SwitchPreference
-            android:icon="@drawable/ic_baseline_cached_24"
+            android:icon="@drawable/ic_baseline_power_settings_new_24"
             android:title="Apply on boot"
             android:summary="Initialize after a reboot automatically"
             android:key="@string/pref_apply_on_boot"
             android:defaultValue="true" />
         <SwitchPreference
-            android:icon="@drawable/ic_baseline_system_update_24"
+            android:icon="@drawable/ic_baseline_cloud_download_24"
             android:title="Automatically fetch"
             android:summary="Fetch the latest script before executing"
             android:key="@string/pref_auto_fetch"
