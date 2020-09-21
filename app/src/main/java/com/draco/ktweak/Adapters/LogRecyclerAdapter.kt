@@ -38,9 +38,10 @@ class LogRecyclerAdapter(
         }
 
         val drawableId = when(tag) {
-            "ERROR" -> R.drawable.ic_baseline_stop_error_24
-            "WARNING" -> R.drawable.ic_baseline_stop_warning_24
-            else -> R.drawable.ic_baseline_stop_24
+            "DEBUG" -> R.drawable.ic_baseline_arrow_debug_24
+            "ERROR" -> R.drawable.ic_baseline_arrow_error_24
+            "WARNING" -> R.drawable.ic_baseline_arrow_warn_24
+            else -> R.drawable.ic_baseline_arrow_right_24
         }
 
         holder.log.setCompoundDrawablesWithIntrinsicBounds(ContextCompat.getDrawable(context, drawableId), null, null, null)
