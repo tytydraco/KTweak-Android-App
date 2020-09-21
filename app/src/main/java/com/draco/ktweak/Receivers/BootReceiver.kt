@@ -4,9 +4,8 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import androidx.preference.PreferenceManager
-import androidx.preference.SwitchPreference
-import com.draco.ktweak.Utils.KTweak
 import com.draco.ktweak.R
+import com.draco.ktweak.Utils.KTweak
 
 class BootReceiver: BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
