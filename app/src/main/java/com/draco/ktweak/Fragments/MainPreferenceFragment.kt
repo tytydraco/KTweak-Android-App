@@ -130,23 +130,47 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
 
             getString(R.string.pref_developer) -> {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=Tyler+Nijmeh"))
-                startActivity(intent)
+                try {
+                    startActivity(intent)
+                } catch (_: Exception) {
+                    Snackbar.make(requireView(), getString(R.string.snackbar_intent_failed), Snackbar.LENGTH_SHORT)
+                        .setAction(getString(R.string.snackbar_dismiss)) {}
+                        .show()
+                }
             }
 
             getString(R.string.pref_version) -> {
                 val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
                 intent.data = Uri.parse("package:${BuildConfig.APPLICATION_ID}")
-                startActivity(intent)
+                try {
+                    startActivity(intent)
+                } catch (_: Exception) {
+                    Snackbar.make(requireView(), getString(R.string.snackbar_intent_failed), Snackbar.LENGTH_SHORT)
+                        .setAction(getString(R.string.snackbar_dismiss)) {}
+                        .show()
+                }
             }
 
             getString(R.string.pref_source_code) -> {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/tytydraco/ktweak/"))
-                startActivity(intent)
+                try {
+                    startActivity(intent)
+                } catch (_: Exception) {
+                    Snackbar.make(requireView(), getString(R.string.snackbar_intent_failed), Snackbar.LENGTH_SHORT)
+                        .setAction(getString(R.string.snackbar_dismiss)) {}
+                        .show()
+                }
             }
 
             getString(R.string.pref_contact) -> {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse("mailto:tylernij@gmail.com"))
-                startActivity(intent)
+                try {
+                    startActivity(intent)
+                } catch (_: Exception) {
+                    Snackbar.make(requireView(), getString(R.string.snackbar_intent_failed), Snackbar.LENGTH_SHORT)
+                        .setAction(getString(R.string.snackbar_dismiss)) {}
+                        .show()
+                }
             }
 
             getString(R.string.pref_licenses) -> {

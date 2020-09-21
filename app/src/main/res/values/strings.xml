@@ -12,6 +12,7 @@
     <string name="alert_root_not_granted_message">Superuser permissions are not enabled for this app. Some functionality will be restricted.</string>
 
     <string name="snackbar_dismiss">Dismiss</string>
+    <string name="snackbar_intent_failed">Failed to launch intent</string>
     <string name="snackbar_run_ktweak_success">Successfully executed KTweak</string>
     <string name="snackbar_run_ktweak_failure">Failed to execute KTweak</string>
     <string name="snackbar_run_ktweak_missing">Cannot find KTweak script</string>
