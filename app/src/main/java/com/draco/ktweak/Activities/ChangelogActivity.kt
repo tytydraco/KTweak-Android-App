@@ -13,7 +13,6 @@ import com.draco.ktweak.Adapters.ChangelogRecyclerAdapter
 import com.draco.ktweak.R
 import com.draco.ktweak.Utils.ChangelogItem
 import org.json.JSONArray
-import java.lang.Exception
 import java.net.URL
 
 class ChangelogActivity: AppCompatActivity() {
@@ -35,6 +34,8 @@ class ChangelogActivity: AppCompatActivity() {
                     try {
                         message = jsonArray.getJSONObject(i).getJSONObject("commit").getString("message").lines()[0]
                         date = jsonArray.getJSONObject(i).getJSONObject("commit").getJSONObject("author").getString("date")
+                            .replace("T", "\n")
+                            .replace("Z", "")
                         url = jsonArray.getJSONObject(i).getString("html_url")
                     } catch (_: Exception) {}
                 }
