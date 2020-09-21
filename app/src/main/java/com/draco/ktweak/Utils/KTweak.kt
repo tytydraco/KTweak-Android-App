@@ -32,6 +32,17 @@ class KTweak(private val context: Context) {
         }.start()
     }
 
+    fun updateScript(callback: (() -> Unit)? = null) {
+        val script = File(context.filesDir, scriptName)
+        getLatestScriptBytes {
+            if (it.isEmpty())
+                return@getLatestScriptBytes
+
+            script.writeBytes(it)
+            if (callback != null) callback()
+        }
+    }
+
     private fun runScript(): ExecuteStatus {
         val script = File(context.filesDir, scriptName)
         val log = File(context.filesDir, logName)
@@ -51,18 +62,11 @@ class KTweak(private val context: Context) {
         val script = File(context.filesDir, scriptName)
 
         if (fetch) {
-            getLatestScriptBytes {
-                var bytes = it
-
-                if (bytes.isEmpty() && script.exists())
-                    bytes = script.readBytes()
-
-                if (bytes.isEmpty()) {
+            updateScript {
+                if (!script.exists()) {
                     if (callback != null) callback(ExecuteStatus.MISSING)
-                    return@getLatestScriptBytes
+                    return@updateScript
                 }
-
-                script.writeBytes(bytes)
 
                 Thread {
                     val ret = runScript()
@@ -70,17 +74,12 @@ class KTweak(private val context: Context) {
                 }.start()
             }
         } else {
+            if (!script.exists()) {
+                if (callback != null) callback(ExecuteStatus.MISSING)
+                return
+            }
+
             Thread {
-                var bytes = byteArrayOf()
-
-                if (script.exists())
-                    bytes = script.readBytes()
-
-                if (bytes.isEmpty()) {
-                    if (callback != null) callback(ExecuteStatus.MISSING)
-                    return@Thread
-                }
-
                 val ret = runScript()
                 if (callback != null) callback(ret)
             }.start()
