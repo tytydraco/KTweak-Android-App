@@ -95,6 +95,12 @@ class MainPreferenceFragment(
                     .show()
             }
 
+            getString(R.string.pref_view_changelog) -> {
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = Uri.parse(KTweak.changelogURL)
+                startActivity(intent)
+            }
+
             getString(R.string.pref_developer) -> {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=Tyler+Nijmeh"))
                 startActivity(intent)

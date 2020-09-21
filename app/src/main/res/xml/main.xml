@@ -16,6 +16,11 @@
             android:title="Clear logs"
             android:summary="Delete the KTweak log file if it exists"
             android:key="@string/pref_clear_logs" />
+        <Preference
+            android:icon="@drawable/ic_baseline_ballot_24"
+            android:title="View changelog"
+            android:summary="Inspect the latest KTweak updates"
+            android:key="@string/pref_view_changelog" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Settings">
         <SwitchPreference

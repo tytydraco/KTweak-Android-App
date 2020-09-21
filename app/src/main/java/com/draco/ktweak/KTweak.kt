@@ -9,6 +9,7 @@ class KTweak(private val context: Context) {
     companion object {
         const val scriptName = "ktweak"
         const val scriptURL = "https://raw.githubusercontent.com/tytydraco/ktweak/master/ktweak"
+        const val changelogURL = "https://github.com/tytydraco/ktweak/commits/master/ktweak"
         const val logName = "log"
 
         enum class ExecuteStatus {
