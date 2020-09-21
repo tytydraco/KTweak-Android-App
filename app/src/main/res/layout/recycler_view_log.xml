@@ -11,5 +11,5 @@
         android:drawablePadding="12dp"
         android:gravity="center_vertical"
         android:textSize="18sp"
-        app:drawableStartCompat="@drawable/ic_baseline_arrow_right_24" />
+        app:drawableStartCompat="@drawable/ic_baseline_stop_24" />
 </LinearLayout>
