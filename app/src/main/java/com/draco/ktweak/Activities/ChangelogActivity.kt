@@ -29,9 +29,9 @@ class ChangelogActivity: AppCompatActivity() {
                 val changelogItem = ChangelogItem()
                 with(changelogItem) {
                     try {
-                        changelogItem.message = jsonArray.getJSONObject(i).getJSONObject("commit").getString("message").lines()[0]
-                        changelogItem.date = jsonArray.getJSONObject(i).getJSONObject("commit").getJSONObject("author").getString("date")
-                        changelogItem.url = jsonArray.getJSONObject(i).getString("html_url")
+                        message = jsonArray.getJSONObject(i).getJSONObject("commit").getString("message").lines()[0]
+                        date = jsonArray.getJSONObject(i).getJSONObject("commit").getJSONObject("author").getString("date")
+                        url = jsonArray.getJSONObject(i).getString("html_url")
                     } catch (_: Exception) {}
                 }
                 changelogItems += changelogItem
