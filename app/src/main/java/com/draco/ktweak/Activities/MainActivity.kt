@@ -30,15 +30,15 @@ class MainActivity : AppCompatActivity() {
 
         if (!isRooted()) {
             AlertDialog.Builder(this)
-                .setTitle("Not Rooted")
-                .setMessage("Superuser binary was not detected. Ensure your device is rooted.")
-                .setPositiveButton("Okay", null)
+                .setTitle(getString(R.string.alert_not_rooted_title))
+                .setMessage(getString(R.string.alert_not_rooted_message))
+                .setPositiveButton(getString(R.string.alert_confirm), null)
                 .show()
         } else if (!rootGranted()) {
             AlertDialog.Builder(this)
-                .setTitle("Root Not Granted")
-                .setMessage("Superuser permissions are not enabled for this app. Some functionality will be restricted.")
-                .setPositiveButton("Okay", null)
+                .setTitle(getString(R.string.alert_root_not_granted_message))
+                .setMessage(getString(R.string.alert_root_not_granted_title))
+                .setPositiveButton(getString(R.string.alert_confirm), null)
                 .show()
         }
     }
