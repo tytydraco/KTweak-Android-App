@@ -60,6 +60,11 @@
             android:title="Version"
             android:key="@string/pref_version" />
         <Preference
+            android:icon="@drawable/ic_baseline_code_24"
+            android:title="Source code"
+            android:summary="View the open source code"
+            android:key="@string/pref_source_code" />
+        <Preference
             android:icon="@drawable/ic_baseline_email_24"
             android:title="Contact"
             android:summary="Email me with questions, comments, or concerns"

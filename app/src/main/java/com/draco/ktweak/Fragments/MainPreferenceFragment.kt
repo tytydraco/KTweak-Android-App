@@ -139,6 +139,11 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                 startActivity(intent)
             }
 
+            getString(R.string.pref_source_code) -> {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/tytydraco/ktweak/"))
+                startActivity(intent)
+            }
+
             getString(R.string.pref_contact) -> {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse("mailto:tylernij@gmail.com"))
                 startActivity(intent)
