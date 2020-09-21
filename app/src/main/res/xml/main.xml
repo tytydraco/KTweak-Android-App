@@ -29,6 +29,12 @@
             android:summary="Initialize KTweak after a reboot automatically"
             android:key="@string/pref_apply_on_boot"
             android:defaultValue="true" />
+        <SwitchPreference
+            android:icon="@drawable/ic_baseline_system_update_24"
+            android:title="Automatically fetch"
+            android:summary="Fetch the latest KTweak script before executing"
+            android:key="@string/pref_auto_fetch"
+            android:defaultValue="true" />
     </PreferenceCategory>
     <PreferenceCategory android:title="About">
         <Preference

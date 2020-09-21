@@ -10,6 +10,7 @@
     <string name="pref_view_changelog">view_changelog</string>
 
     <string name="pref_apply_on_boot">apply_on_boot</string>
+    <string name="pref_auto_fetch">auto_fetch</string>
 
     <string name="pref_developer">developer</string>
     <string name="pref_version">version</string>

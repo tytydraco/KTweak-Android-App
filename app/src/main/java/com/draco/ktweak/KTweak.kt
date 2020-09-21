@@ -31,37 +31,57 @@ class KTweak(private val context: Context) {
         }.start()
     }
 
-    fun execute(callback: ((ExecuteStatus) -> Unit)? = null) {
+    private fun runScript(): ExecuteStatus {
+        val script = File(context.filesDir, scriptName)
+        val log = File(context.filesDir, logName)
+        val process = ProcessBuilder("su", "-c", "sh", script.absolutePath)
+            .redirectErrorStream(true)
+            .start()
+
+        process.waitFor()
+        log.writeText(process.inputStream.bufferedReader().readText())
+        return if (process.exitValue() == 0)
+            ExecuteStatus.SUCCESS
+        else
+            ExecuteStatus.FAILURE
+    }
+
+    fun execute(fetch: Boolean = true, callback: ((ExecuteStatus) -> Unit)? = null) {
         val script = File(context.filesDir, scriptName)
 
-        getLatestScriptBytes {
-            var bytes = it
+        if (fetch) {
+            getLatestScriptBytes {
+                var bytes = it
 
-            if (bytes.isEmpty() && script.exists())
-                bytes = script.readBytes()
+                if (bytes.isEmpty() && script.exists())
+                    bytes = script.readBytes()
 
-            if (bytes.isEmpty()) {
-                if (callback != null) callback(ExecuteStatus.MISSING)
-                return@getLatestScriptBytes
-            }
-
-            script.writeBytes(bytes)
-
-            val log = File(context.filesDir, logName)
-            val process = ProcessBuilder("su", "-c", "sh", script.absolutePath)
-                .redirectErrorStream(true)
-                .start()
-
-            Thread {
-                process.waitFor()
-                if (process.exitValue() != 0) return@Thread
-                log.writeText(process.inputStream.bufferedReader().readText())
-                if (callback != null) {
-                    if (process.exitValue() == 0)
-                        callback(ExecuteStatus.SUCCESS)
-                    else
-                        callback(ExecuteStatus.FAILURE)
+                if (bytes.isEmpty()) {
+                    if (callback != null) callback(ExecuteStatus.MISSING)
+                    return@getLatestScriptBytes
                 }
+
+                script.writeBytes(bytes)
+
+                Thread {
+                    val ret = runScript()
+                    if (callback != null) callback(ret)
+                }.start()
+            }
+        } else {
+            Thread {
+                var bytes = byteArrayOf()
+
+                if (script.exists())
+                    bytes = script.readBytes()
+
+                if (bytes.isEmpty()) {
+                    if (callback != null) callback(ExecuteStatus.MISSING)
+                    return@Thread
+                }
+
+                val ret = runScript()
+                if (callback != null) callback(ret)
             }.start()
         }
     }

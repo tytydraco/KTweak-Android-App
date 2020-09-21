@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.ProgressBar
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.SwitchPreference
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.google.android.material.snackbar.Snackbar
 import java.io.File
@@ -49,7 +50,8 @@ class MainPreferenceFragment(
 
     private fun runKtweak() {
         setProgressVisibility(true)
-        ktweak.execute {
+        val autoFetch = findPreference<SwitchPreference>(getString(R.string.pref_auto_fetch))!!.isChecked
+        ktweak.execute(autoFetch) {
             requireActivity().runOnUiThread {
                 setProgressVisibility(false)
                 when (it) {
@@ -66,7 +68,7 @@ class MainPreferenceFragment(
                     }
 
                     KTweak.Companion.ExecuteStatus.MISSING -> {
-                        Snackbar.make(requireView(), "Failed to fetch KTweak script", Snackbar.LENGTH_SHORT)
+                        Snackbar.make(requireView(), "Cannot find KTweak script", Snackbar.LENGTH_SHORT)
                             .setAction("Dismiss") {}
                             .show()
                     }
