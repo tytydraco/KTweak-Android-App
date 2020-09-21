@@ -29,6 +29,7 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="Settings">
         <ListPreference
+            android:icon="@drawable/ic_baseline_device_hub_24"
             android:title="Branch"
             android:summary="Select which branch of KTweak to use"
             android:key="@string/pref_branch"
