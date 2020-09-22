@@ -25,10 +25,7 @@ class Script(private val context: Context) {
         }
     }
 
-    private fun getLatestScriptBytes(): ByteArray? {
-        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
-        val branch = prefs.getString(context.getString(R.string.pref_branch), "master")!!
-
+    private fun getLatestScriptBytes(branch: String): ByteArray? {
         val gitAuthor = context.getString(R.string.git_author)
         val gitRepo = context.getString(R.string.git_repo)
         val gitScriptPath = context.getString(R.string.git_script_path)
@@ -63,7 +60,11 @@ class Script(private val context: Context) {
         /* Parse returned JSON */
         for (i in 0 until jsonArray.length()) {
             try {
-                branches += jsonArray.getJSONObject(i).getString("name")
+                val branch = jsonArray.getJSONObject(i).getString("name")
+                
+                /* If script does not exist on remote branch, skip */
+                if (getLatestScriptBytes(branch) != null)
+                    branches += branch
             } catch (_: Exception) {}
         }
 
@@ -71,8 +72,10 @@ class Script(private val context: Context) {
     }
 
     fun fetch(): FetchStatus {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        val branch = prefs.getString(context.getString(R.string.pref_branch), "master")!!
         val script = File(context.filesDir, scriptName)
-        val bytes = getLatestScriptBytes() ?: return FetchStatus.FAILURE
+        val bytes = getLatestScriptBytes(branch) ?: return FetchStatus.FAILURE
 
         if (script.exists() && script.readBytes().contentEquals(bytes))
             return FetchStatus.UNCHANGED
