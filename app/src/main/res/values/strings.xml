@@ -21,7 +21,7 @@
     <string name="snackbar_intent_failed">Failed to launch intent</string>
     <string name="snackbar_run_success">Successfully executed script</string>
     <string name="snackbar_run_failure">Failed to execute script</string>
-    <string name="snackbar_run_missing">Cannot find script script</string>
+    <string name="snackbar_run_missing">Cannot find script</string>
     <string name="snackbar_fetch_success">Successfully fetched script</string>
     <string name="snackbar_fetch_failure">Failed to fetch script</string>
     <string name="snackbar_fetch_unchanged">Script already up-to-date</string>

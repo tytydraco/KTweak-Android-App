@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.draco.ktweak.Adapters.ChangelogRecyclerAdapter
 import com.draco.ktweak.R
 import com.draco.ktweak.Utils.ChangelogItem
-import com.draco.ktweak.Utils.Script
 import org.json.JSONArray
 import java.net.URL
 
@@ -26,7 +25,8 @@ class ChangelogActivity: AppCompatActivity() {
         Thread {
             /* Fetch commits from GitHub using public API */
             val branch = prefs.getString(getString(R.string.pref_branch), "master")!!
-            val commitsURL = URL("https://api.github.com/repos/${getString(R.string.git_author)}/${getString(R.string.git_repo)}/commits?sha=$branch")
+            val commitsURL = URL("https://api.github.com/repos/" +
+                    "${getString(R.string.git_author)}/${getString(R.string.git_repo)}/commits?sha=$branch")
             var json: String
 
             /* If we can't make the connection, retry until we can */
@@ -46,8 +46,10 @@ class ChangelogActivity: AppCompatActivity() {
                 val changelogItem = ChangelogItem()
                 with(changelogItem) {
                     try {
-                        message = jsonArray.getJSONObject(i).getJSONObject("commit").getString("message").lines()[0]
-                        date = jsonArray.getJSONObject(i).getJSONObject("commit").getJSONObject("author").getString("date")
+                        message = jsonArray.getJSONObject(i).getJSONObject("commit")
+                            .getString("message").lines()[0]
+                        date = jsonArray.getJSONObject(i).getJSONObject("commit")
+                            .getJSONObject("author").getString("date")
                             .replace("T", "\n")
                             .replace("Z", "")
                         url = jsonArray.getJSONObject(i).getString("html_url")
@@ -74,7 +76,8 @@ class ChangelogActivity: AppCompatActivity() {
                 recyclerView.apply {
                     adapter = viewAdapter
                     layoutManager = LinearLayoutManager(context)
-                    addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+                    addItemDecoration(DividerItemDecoration(context,
+                        DividerItemDecoration.VERTICAL))
                 }
                 viewAdapter.notifyDataSetChanged()
             }

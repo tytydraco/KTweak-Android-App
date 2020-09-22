@@ -28,7 +28,11 @@ class Script(private val context: Context) {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         val branch = prefs.getString(context.getString(R.string.pref_branch), "master")!!
 
-        val url = URL("https://raw.githubusercontent.com/${context.getString(R.string.git_author)}/${context.getString(R.string.git_repo)}/$branch/${context.getString(R.string.git_script_path)}")
+        val gitAuthor = context.getString(R.string.git_author)
+        val gitRepo = context.getString(R.string.git_repo)
+        val gitScriptPath = context.getString(R.string.git_script_path)
+        val url = URL("https://raw.githubusercontent.com/" +
+                "$gitAuthor/$gitRepo/$branch/$gitScriptPath")
         return try {
             url.readBytes()
         } catch(e: Exception) {
@@ -56,7 +60,8 @@ class Script(private val context: Context) {
             return ExecuteStatus.MISSING
 
         /* Start in parsable mode */
-        val process = ProcessBuilder("su", "-c", "sh", script.absolutePath, "-p")
+        val process = ProcessBuilder("su", "-c", "sh",
+            script.absolutePath, "-p")
             .redirectErrorStream(true)
             .start()
 

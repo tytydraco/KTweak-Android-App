@@ -18,7 +18,8 @@ class LogRecyclerAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.recycler_view_log, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.recycler_view_log, parent, false)
         return ViewHolder(view)
     }
 
@@ -46,7 +47,8 @@ class LogRecyclerAdapter(
             else -> R.drawable.ic_baseline_arrow_right_24
         }
 
-        holder.log.setCompoundDrawablesWithIntrinsicBounds(ContextCompat.getDrawable(context, drawableId), null, null, null)
+        holder.log.setCompoundDrawablesWithIntrinsicBounds(
+            ContextCompat.getDrawable(context, drawableId), null, null, null)
         holder.log.text = logText
     }
 }

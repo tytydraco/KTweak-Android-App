@@ -64,19 +64,22 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                 setProgressVisibility(false)
                 when (ret) {
                     Script.Companion.ExecuteStatus.SUCCESS -> {
-                        Snackbar.make(requireView(), getString(R.string.snackbar_run_success), Snackbar.LENGTH_SHORT)
+                        Snackbar.make(requireView(), getString(R.string.snackbar_run_success),
+                            Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
 
                     Script.Companion.ExecuteStatus.FAILURE -> {
-                        Snackbar.make(requireView(), getString(R.string.snackbar_run_failure), Snackbar.LENGTH_SHORT)
+                        Snackbar.make(requireView(), getString(R.string.snackbar_run_failure),
+                            Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
 
                     Script.Companion.ExecuteStatus.MISSING -> {
-                        Snackbar.make(requireView(), getString(R.string.snackbar_run_missing), Snackbar.LENGTH_SHORT)
+                        Snackbar.make(requireView(), getString(R.string.snackbar_run_missing),
+                            Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
@@ -93,19 +96,22 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                 setProgressVisibility(false)
                 when (ret) {
                     Script.Companion.FetchStatus.SUCCESS -> {
-                        Snackbar.make(requireView(), getString(R.string.snackbar_fetch_success), Snackbar.LENGTH_SHORT)
+                        Snackbar.make(requireView(), getString(R.string.snackbar_fetch_success),
+                            Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
 
                     Script.Companion.FetchStatus.FAILURE -> {
-                        Snackbar.make(requireView(), getString(R.string.snackbar_fetch_failure), Snackbar.LENGTH_SHORT)
+                        Snackbar.make(requireView(), getString(R.string.snackbar_fetch_failure),
+                            Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
 
                     Script.Companion.FetchStatus.UNCHANGED -> {
-                        Snackbar.make(requireView(), getString(R.string.snackbar_fetch_unchanged), Snackbar.LENGTH_SHORT)
+                        Snackbar.make(requireView(), getString(R.string.snackbar_fetch_unchanged),
+                            Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
@@ -138,7 +144,8 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                         .show()
                 } else {
                     log.delete()
-                    Snackbar.make(requireView(), getString(R.string.snackbar_clear_logs_success), Snackbar.LENGTH_SHORT)
+                    Snackbar.make(requireView(), getString(R.string.snackbar_clear_logs_success),
+                        Snackbar.LENGTH_SHORT)
                         .setAction(getString(R.string.snackbar_dismiss)) {}
                         .show()
                 }
@@ -148,12 +155,14 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                 val script = File(requireContext().filesDir, Script.scriptName)
 
                 if (!script.exists()) {
-                    Snackbar.make(requireView(), getString(R.string.snackbar_clear_cached_failure), Snackbar.LENGTH_SHORT)
+                    Snackbar.make(requireView(), getString(R.string.snackbar_clear_cached_failure),
+                        Snackbar.LENGTH_SHORT)
                         .setAction(getString(R.string.snackbar_dismiss)) {}
                         .show()
                 } else {
                     script.delete()
-                    Snackbar.make(requireView(), getString(R.string.snackbar_clear_cached_success), Snackbar.LENGTH_SHORT)
+                    Snackbar.make(requireView(), getString(R.string.snackbar_clear_cached_success),
+                        Snackbar.LENGTH_SHORT)
                         .setAction(getString(R.string.snackbar_dismiss)) {}
                         .show()
                 }
@@ -165,7 +174,10 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
             }
 
             getString(R.string.pref_developer) -> {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=${requireContext().getString(R.string.git_full_name).replace(" ", "+")}"))
+                val fullName = requireContext().getString(R.string.git_full_name)
+                    .replace(" ", "+")
+                val uri = "https://play.google.com/store/apps/developer?id=$fullName"
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
                 try {
                     startActivity(intent)
                 } catch (_: Exception) {
@@ -188,18 +200,23 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
             }
 
             getString(R.string.pref_source_code) -> {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/${requireContext().getString(R.string.git_author)}/${requireContext().getString(R.string.git_repo)}"))
+                val uri = "https://github.com/" +
+                        requireContext().getString(R.string.git_author) + "/" +
+                        requireContext().getString(R.string.git_repo)
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
                 try {
                     startActivity(intent)
                 } catch (_: Exception) {
-                    Snackbar.make(requireView(), getString(R.string.snackbar_intent_failed), Snackbar.LENGTH_SHORT)
+                    Snackbar.make(requireView(), getString(R.string.snackbar_intent_failed),
+                        Snackbar.LENGTH_SHORT)
                         .setAction(getString(R.string.snackbar_dismiss)) {}
                         .show()
                 }
             }
 
             getString(R.string.pref_contact) -> {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("mailto:${requireContext().getString(R.string.git_email)}"))
+                val email = requireContext().getString(R.string.git_email)
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("mailto:$email"))
                 try {
                     startActivity(intent)
                 } catch (_: Exception) {
