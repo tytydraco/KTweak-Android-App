@@ -54,11 +54,15 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
     }
 
     private fun runKtweak() {
-        /* Wait for execution to finish */
-        ktweak.execute {
+        setProgressVisibility(true)
+        val autoFetch = findPreference<SwitchPreference>(getString(R.string.pref_auto_fetch))!!.isChecked
+        Thread {
+            if (autoFetch)
+                ktweak.fetch()
+            val ret = ktweak.execute()
             requireActivity().runOnUiThread {
                 setProgressVisibility(false)
-                when (it) {
+                when (ret) {
                     KTweak.Companion.ExecuteStatus.SUCCESS -> {
                         Snackbar.make(requireView(), getString(R.string.snackbar_run_ktweak_success), Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
@@ -78,16 +82,16 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                     }
                 }
             }
-        }
+        }.start()
     }
 
     private fun fetchKtweak() {
         setProgressVisibility(true)
-        /* Update script and wait for fetch */
-        ktweak.updateScript {
+        Thread {
+            val ret = ktweak.fetch()
             requireActivity().runOnUiThread {
                 setProgressVisibility(false)
-                when (it) {
+                when (ret) {
                     KTweak.Companion.FetchStatus.SUCCESS -> {
                         Snackbar.make(requireView(), getString(R.string.snackbar_fetch_ktweak_success), Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
@@ -107,18 +111,13 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                     }
                 }
             }
-        }
+        }.start()
     }
 
     override fun onPreferenceTreeClick(preference: Preference?): Boolean {
         if (preference != null) when (preference.key) {
             getString(R.string.pref_run_ktweak) -> {
-                setProgressVisibility(true)
-                val autoFetch = findPreference<SwitchPreference>(getString(R.string.pref_auto_fetch))!!.isChecked
-                if (autoFetch)
-                    ktweak.updateScript { runKtweak() }
-                else
-                    runKtweak()
+                runKtweak()
             }
 
             getString(R.string.pref_fetch_ktweak) -> {

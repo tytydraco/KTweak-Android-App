@@ -24,41 +24,36 @@ class KTweak(private val context: Context) {
         }
     }
 
-    private fun getLatestScriptBytes(callback: (ByteArray?) -> Unit) {
+    private fun getLatestScriptBytes(): ByteArray? {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         val branch = prefs.getString(context.getString(R.string.pref_branch), "master")!!
 
         val url = URL("https://raw.githubusercontent.com/tytydraco/KTweak/$branch/ktweak")
-        Thread {
-            try {
-                callback(url.readBytes())
-            } catch(e: Exception) {
-                callback(null)
-            }
-        }.start()
-    }
-
-    fun updateScript(callback: ((FetchStatus) -> Unit)? = null) {
-        val script = File(context.filesDir, scriptName)
-        getLatestScriptBytes {
-            if (it == null) {
-                if (callback != null) callback(FetchStatus.FAILURE)
-                return@getLatestScriptBytes
-            }
-
-            if (script.exists() && script.readBytes().contentEquals(it)) {
-                if (callback != null) callback(FetchStatus.UNCHANGED)
-                return@getLatestScriptBytes
-            }
-
-            script.writeBytes(it)
-            if (callback != null) callback(FetchStatus.SUCCESS)
+        return try {
+            url.readBytes()
+        } catch(e: Exception) {
+            null
         }
     }
 
-    private fun runScript(): ExecuteStatus {
+    fun fetch(): FetchStatus {
+        val script = File(context.filesDir, scriptName)
+        val bytes = getLatestScriptBytes() ?: return FetchStatus.FAILURE
+
+        if (script.exists() && script.readBytes().contentEquals(bytes))
+            return FetchStatus.UNCHANGED
+
+        script.writeBytes(bytes)
+        return FetchStatus.SUCCESS
+    }
+
+    fun execute(): ExecuteStatus {
         val script = File(context.filesDir, scriptName)
         val log = File(context.filesDir, logName)
+
+        /* Make sure script exists locally */
+        if (!script.exists())
+            return ExecuteStatus.MISSING
 
         /* Start in parsable mode */
         val process = ProcessBuilder("su", "-c", "sh", script.absolutePath, "-p")
@@ -74,21 +69,5 @@ class KTweak(private val context: Context) {
             ExecuteStatus.SUCCESS
         else
             ExecuteStatus.FAILURE
-    }
-
-    fun execute(callback: ((ExecuteStatus) -> Unit)? = null) {
-        val script = File(context.filesDir, scriptName)
-
-        /* Make sure script exists locally */
-        if (!script.exists()) {
-            if (callback != null) callback(ExecuteStatus.MISSING)
-            return
-        }
-
-        /* Execute async */
-        Thread {
-            val ret = runScript()
-            if (callback != null) callback(ret)
-        }.start()
     }
 }
