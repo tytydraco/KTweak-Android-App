@@ -14,21 +14,21 @@ import androidx.preference.SwitchPreference
 import com.draco.ktweak.Activities.ChangelogActivity
 import com.draco.ktweak.Activities.LogActivity
 import com.draco.ktweak.BuildConfig
-import com.draco.ktweak.Utils.KTweak
+import com.draco.ktweak.Utils.Script
 import com.draco.ktweak.R
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.google.android.material.snackbar.Snackbar
 import java.io.File
 
 class MainPreferenceFragment: PreferenceFragmentCompat() {
-    private lateinit var ktweak: KTweak
+    private lateinit var script: Script
     private lateinit var progress: ProgressBar
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.main, rootKey)
 
         /* Initialize variables */
-        ktweak = KTweak(requireContext())
+        script = Script(requireContext())
         progress = requireActivity().findViewById(R.id.progress)
 
         /* Update the version code string */
@@ -53,29 +53,29 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         }
     }
 
-    private fun runKtweak() {
+    private fun runScript() {
         setProgressVisibility(true)
         val autoFetch = findPreference<SwitchPreference>(getString(R.string.pref_auto_fetch))!!.isChecked
         Thread {
             if (autoFetch)
-                ktweak.fetch()
-            val ret = ktweak.execute()
+                script.fetch()
+            val ret = script.execute()
             requireActivity().runOnUiThread {
                 setProgressVisibility(false)
                 when (ret) {
-                    KTweak.Companion.ExecuteStatus.SUCCESS -> {
+                    Script.Companion.ExecuteStatus.SUCCESS -> {
                         Snackbar.make(requireView(), getString(R.string.snackbar_run_success), Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
 
-                    KTweak.Companion.ExecuteStatus.FAILURE -> {
+                    Script.Companion.ExecuteStatus.FAILURE -> {
                         Snackbar.make(requireView(), getString(R.string.snackbar_run_failure), Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
 
-                    KTweak.Companion.ExecuteStatus.MISSING -> {
+                    Script.Companion.ExecuteStatus.MISSING -> {
                         Snackbar.make(requireView(), getString(R.string.snackbar_run_missing), Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
@@ -85,26 +85,26 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         }.start()
     }
 
-    private fun fetchKtweak() {
+    private fun fetchScript() {
         setProgressVisibility(true)
         Thread {
-            val ret = ktweak.fetch()
+            val ret = script.fetch()
             requireActivity().runOnUiThread {
                 setProgressVisibility(false)
                 when (ret) {
-                    KTweak.Companion.FetchStatus.SUCCESS -> {
+                    Script.Companion.FetchStatus.SUCCESS -> {
                         Snackbar.make(requireView(), getString(R.string.snackbar_fetch_success), Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
 
-                    KTweak.Companion.FetchStatus.FAILURE -> {
+                    Script.Companion.FetchStatus.FAILURE -> {
                         Snackbar.make(requireView(), getString(R.string.snackbar_fetch_failure), Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
 
-                    KTweak.Companion.FetchStatus.UNCHANGED -> {
+                    Script.Companion.FetchStatus.UNCHANGED -> {
                         Snackbar.make(requireView(), getString(R.string.snackbar_fetch_unchanged), Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
@@ -117,11 +117,11 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
     override fun onPreferenceTreeClick(preference: Preference?): Boolean {
         if (preference != null) when (preference.key) {
             getString(R.string.pref_run) -> {
-                runKtweak()
+                runScript()
             }
 
             getString(R.string.pref_fetch) -> {
-                fetchKtweak()
+                fetchScript()
             }
 
             getString(R.string.pref_view_logs) -> {
@@ -130,7 +130,7 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
             }
 
             getString(R.string.pref_clear_logs) -> {
-                val log = File(requireContext().filesDir, KTweak.logName)
+                val log = File(requireContext().filesDir, Script.logName)
 
                 if (!log.exists()) {
                     Snackbar.make(requireView(), getString(R.string.snackbar_clear_logs_failure), Snackbar.LENGTH_SHORT)
@@ -145,7 +145,7 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
             }
 
             getString(R.string.pref_clear_cached) -> {
-                val script = File(requireContext().filesDir, KTweak.scriptName)
+                val script = File(requireContext().filesDir, Script.scriptName)
 
                 if (!script.exists()) {
                     Snackbar.make(requireView(), getString(R.string.snackbar_clear_cached_failure), Snackbar.LENGTH_SHORT)

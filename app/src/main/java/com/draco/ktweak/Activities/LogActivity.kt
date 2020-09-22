@@ -7,13 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.draco.ktweak.Utils.KTweak
+import com.draco.ktweak.Utils.Script
 import com.draco.ktweak.Adapters.LogRecyclerAdapter
 import com.draco.ktweak.R
 import java.io.File
 
 class LogActivity: AppCompatActivity() {
-    private lateinit var ktweak: KTweak
+    private lateinit var script: Script
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var empty: TextView
@@ -24,12 +24,12 @@ class LogActivity: AppCompatActivity() {
         setContentView(R.layout.activity_log)
 
         /* Initialize variables */
-        ktweak = KTweak(this)
+        script = Script(this)
         recyclerView = findViewById(R.id.recycler_view)
         empty = findViewById(R.id.empty)
 
         /* If log does not exist, show warning */
-        val log = File(filesDir, KTweak.logName)
+        val log = File(filesDir, Script.logName)
         if (!log.exists()) {
             recyclerView.visibility = View.GONE
             empty.visibility = View.VISIBLE

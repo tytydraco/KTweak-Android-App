@@ -6,7 +6,7 @@ import com.draco.ktweak.R
 import java.io.File
 import java.net.URL
 
-class KTweak(private val context: Context) {
+class Script(private val context: Context) {
     companion object {
         const val scriptName = "ktweak"
         const val logName = "log"

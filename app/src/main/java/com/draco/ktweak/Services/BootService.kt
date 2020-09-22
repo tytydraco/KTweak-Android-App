@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.IBinder
 import androidx.preference.PreferenceManager
 import com.draco.ktweak.R
-import com.draco.ktweak.Utils.KTweak
+import com.draco.ktweak.Utils.Script
 
 class BootService: Service() {
     override fun onBind(intent: Intent?): IBinder? {
@@ -16,14 +16,14 @@ class BootService: Service() {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
 
         if (prefs.getBoolean(getString(R.string.pref_apply_on_boot), true)) {
-            val ktweak = KTweak(this)
+            val script = Script(this)
             val autoFetch = prefs.getBoolean(getString(R.string.pref_auto_fetch), true)
 
             Thread {
                 if (autoFetch)
-                    ktweak.fetch()
+                    script.fetch()
 
-                ktweak.execute()
+                script.execute()
             }.start()
         }
 
