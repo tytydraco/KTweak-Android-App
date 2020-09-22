@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import android.widget.ProgressBar
+import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreference
@@ -19,6 +20,7 @@ import com.draco.ktweak.R
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.google.android.material.snackbar.Snackbar
 import java.io.File
+import java.util.*
 
 class MainPreferenceFragment: PreferenceFragmentCompat() {
     private lateinit var script: Script
@@ -32,9 +34,21 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         progress = requireActivity().findViewById(R.id.progress)
 
         /* Update the version code string */
-        val version = findPreference<Preference>(getString(R.string.pref_version))
+        val version = findPreference<Preference>(getString(R.string.pref_version))!!
         val flavor = if (BuildConfig.DEBUG) "debug" else "release"
-        version!!.summary = "${BuildConfig.VERSION_NAME}-${flavor}"
+        version.summary = "${BuildConfig.VERSION_NAME}-${flavor}"
+
+        /* Update available branches */
+        val branch = findPreference<ListPreference>(getString(R.string.pref_branch))!!
+        Thread {
+            val branchEntryValues = script.listBranches().toTypedArray()
+            val branchEntries = branchEntryValues.map {
+                it.capitalize(Locale.getDefault()) }.toTypedArray()
+            requireActivity().runOnUiThread {
+                branch.entries = branchEntries
+                branch.entryValues = branchEntryValues
+            }
+        }.start()
     }
 
     private fun setProgressVisibility(visible: Boolean) {

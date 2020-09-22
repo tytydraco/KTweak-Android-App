@@ -3,6 +3,7 @@ package com.draco.ktweak.Utils
 import android.content.Context
 import androidx.preference.PreferenceManager
 import com.draco.ktweak.R
+import org.json.JSONArray
 import java.io.File
 import java.net.URL
 
@@ -38,6 +39,34 @@ class Script(private val context: Context) {
         } catch(e: Exception) {
             null
         }
+    }
+
+    fun listBranches(): List<String> {
+        val gitAuthor = context.getString(R.string.git_author)
+        val gitRepo = context.getString(R.string.git_repo)
+
+        val commitsURL = URL("https://api.github.com/repos/$gitAuthor/$gitRepo/branches")
+        var json: String
+
+        /* If we can't make the connection, retry until we can */
+        while (true) {
+            try {
+                json = commitsURL.readText()
+                break
+            } catch (_: Exception) {}
+        }
+
+        val jsonArray = JSONArray(json)
+        val branches = arrayListOf<String>()
+
+        /* Parse returned JSON */
+        for (i in 0 until jsonArray.length()) {
+            try {
+                branches += jsonArray.getJSONObject(i).getString("name")
+            } catch (_: Exception) {}
+        }
+
+        return branches
     }
 
     fun fetch(): FetchStatus {
