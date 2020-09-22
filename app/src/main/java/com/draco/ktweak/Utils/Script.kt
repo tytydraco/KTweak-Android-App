@@ -54,6 +54,7 @@ class Script(private val context: Context) {
                 json = commitsURL.readText()
                 break
             } catch (_: Exception) {}
+            Thread.sleep(1000)
         }
 
         val jsonArray = JSONArray(json)

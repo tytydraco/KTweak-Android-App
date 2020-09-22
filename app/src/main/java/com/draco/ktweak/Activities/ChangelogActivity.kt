@@ -42,6 +42,7 @@ class ChangelogActivity: AppCompatActivity() {
                     json = commitsURL.readText()
                     break
                 } catch (_: Exception) {}
+                Thread.sleep(1000)
             }
 
             val jsonArray = JSONArray(json)
