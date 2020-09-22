@@ -145,7 +145,7 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
             }
 
             getString(R.string.pref_clear_cached) -> {
-                val script = File(requireContext().filesDir, Script.scriptName)
+                val script = File(requireContext().filesDir, Script.gitScriptPath)
 
                 if (!script.exists()) {
                     Snackbar.make(requireView(), getString(R.string.snackbar_clear_cached_failure), Snackbar.LENGTH_SHORT)

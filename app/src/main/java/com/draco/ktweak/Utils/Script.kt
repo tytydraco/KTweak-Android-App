@@ -8,9 +8,10 @@ import java.net.URL
 
 class Script(private val context: Context) {
     companion object {
-        const val scriptName = "ktweak"
+        const val scriptName = "script"
         const val logName = "log"
 
+        const val gitScriptPath = "ktweak"
         const val gitRepo = "KTweak"
         const val gitAuthor = "tytydraco"
         const val gitFullName = "Tyler Nijmeh"
@@ -33,7 +34,7 @@ class Script(private val context: Context) {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         val branch = prefs.getString(context.getString(R.string.pref_branch), "master")!!
 
-        val url = URL("https://raw.githubusercontent.com/$gitAuthor/$gitRepo/$branch/$scriptName")
+        val url = URL("https://raw.githubusercontent.com/$gitAuthor/$gitRepo/$branch/$gitScriptPath")
         return try {
             url.readBytes()
         } catch(e: Exception) {
