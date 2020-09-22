@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.draco.ktweak.Adapters.ChangelogRecyclerAdapter
 import com.draco.ktweak.R
 import com.draco.ktweak.Utils.ChangelogItem
+import com.draco.ktweak.Utils.Script
 import org.json.JSONArray
 import java.net.URL
 
@@ -25,7 +26,7 @@ class ChangelogActivity: AppCompatActivity() {
         Thread {
             /* Fetch commits from GitHub using public API */
             val branch = prefs.getString(getString(R.string.pref_branch), "master")!!
-            val commitsURL = URL("https://api.github.com/repos/tytydraco/KTweak/commits?sha=$branch")
+            val commitsURL = URL("https://api.github.com/repos/${Script.gitAuthor}/${Script.gitRepo}/commits?sha=$branch")
             var json: String
 
             /* If we can't make the connection, retry until we can */

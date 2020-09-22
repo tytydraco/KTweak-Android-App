@@ -9,6 +9,8 @@ import java.net.URL
 class Script(private val context: Context) {
     companion object {
         const val scriptName = "ktweak"
+        const val gitRepo = "KTweak"
+        const val gitAuthor = "tytydraco"
         const val logName = "log"
 
         enum class ExecuteStatus {
@@ -28,7 +30,7 @@ class Script(private val context: Context) {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         val branch = prefs.getString(context.getString(R.string.pref_branch), "master")!!
 
-        val url = URL("https://raw.githubusercontent.com/tytydraco/KTweak/$branch/ktweak")
+        val url = URL("https://raw.githubusercontent.com/$gitAuthor/$gitRepo/$branch/$scriptName")
         return try {
             url.readBytes()
         } catch(e: Exception) {

@@ -188,7 +188,7 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
             }
 
             getString(R.string.pref_source_code) -> {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/tytydraco/ktweak/"))
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/${Script.gitAuthor}/${Script.gitRepo}"))
                 try {
                     startActivity(intent)
                 } catch (_: Exception) {
