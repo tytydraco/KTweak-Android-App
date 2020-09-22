@@ -26,11 +26,16 @@ class ChangelogActivity: AppCompatActivity() {
             /* Fetch commits from GitHub using public API */
             val branch = prefs.getString(getString(R.string.pref_branch), "master")!!
             val commitsURL = URL("https://api.github.com/repos/tytydraco/KTweak/commits?sha=$branch")
+            var json: String
 
-            /* If we can't make the connection, exit */
-            val json = try {
-                commitsURL.readText()
-            } catch(_: Exception) { return@Thread }
+            /* If we can't make the connection, retry until we can */
+            while (true) {
+                try {
+                    json = commitsURL.readText()
+                    break
+                } catch (_: Exception) {}
+                Thread.sleep(1000)
+            }
 
             val jsonArray = JSONArray(json)
             val changelogItems = arrayListOf<ChangelogItem>()
