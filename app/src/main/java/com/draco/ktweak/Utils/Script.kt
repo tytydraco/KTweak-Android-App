@@ -9,9 +9,12 @@ import java.net.URL
 class Script(private val context: Context) {
     companion object {
         const val scriptName = "ktweak"
+        const val logName = "log"
+
         const val gitRepo = "KTweak"
         const val gitAuthor = "tytydraco"
-        const val logName = "log"
+        const val gitFullName = "Tyler Nijmeh"
+        const val gitEmail = "tylernij@gmail.com"
 
         enum class ExecuteStatus {
             SUCCESS,

@@ -165,7 +165,7 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
             }
 
             getString(R.string.pref_developer) -> {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=Tyler+Nijmeh"))
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=${Script.gitFullName.replace(" ", "+")}"))
                 try {
                     startActivity(intent)
                 } catch (_: Exception) {
@@ -199,7 +199,7 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
             }
 
             getString(R.string.pref_contact) -> {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("mailto:tylernij@gmail.com"))
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("mailto:${Script.gitEmail}"))
                 try {
                     startActivity(intent)
                 } catch (_: Exception) {
