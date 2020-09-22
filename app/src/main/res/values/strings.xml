@@ -3,6 +3,12 @@
     <string name="activity_logs">Logs</string>
     <string name="activity_changelog">Changelog</string>
 
+    <string name="git_script_path">ktweak</string>
+    <string name="git_repo">KTweak</string>
+    <string name="git_author">tytydraco</string>
+    <string name="git_full_name">Tyler Nijmeh</string>
+    <string name="git_email">tylernij@gmail.com</string>
+
     <string name="log_empty">Log file does not exist</string>
 
     <string name="alert_confirm">Okay</string>

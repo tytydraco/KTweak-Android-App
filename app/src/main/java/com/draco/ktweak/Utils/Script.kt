@@ -11,12 +11,6 @@ class Script(private val context: Context) {
         const val scriptName = "script"
         const val logName = "log"
 
-        const val gitScriptPath = "ktweak"
-        const val gitRepo = "KTweak"
-        const val gitAuthor = "tytydraco"
-        const val gitFullName = "Tyler Nijmeh"
-        const val gitEmail = "tylernij@gmail.com"
-
         enum class ExecuteStatus {
             SUCCESS,
             FAILURE,
@@ -34,7 +28,7 @@ class Script(private val context: Context) {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         val branch = prefs.getString(context.getString(R.string.pref_branch), "master")!!
 
-        val url = URL("https://raw.githubusercontent.com/$gitAuthor/$gitRepo/$branch/$gitScriptPath")
+        val url = URL("https://raw.githubusercontent.com/${context.getString(R.string.git_author)}/${context.getString(R.string.git_repo)}/$branch/${context.getString(R.string.git_script_path)}")
         return try {
             url.readBytes()
         } catch(e: Exception) {

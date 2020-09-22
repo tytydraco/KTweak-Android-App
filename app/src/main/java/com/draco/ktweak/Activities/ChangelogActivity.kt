@@ -26,7 +26,7 @@ class ChangelogActivity: AppCompatActivity() {
         Thread {
             /* Fetch commits from GitHub using public API */
             val branch = prefs.getString(getString(R.string.pref_branch), "master")!!
-            val commitsURL = URL("https://api.github.com/repos/${Script.gitAuthor}/${Script.gitRepo}/commits?sha=$branch")
+            val commitsURL = URL("https://api.github.com/repos/${getString(R.string.git_author)}/${getString(R.string.git_repo)}/commits?sha=$branch")
             var json: String
 
             /* If we can't make the connection, retry until we can */

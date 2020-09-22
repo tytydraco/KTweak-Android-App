@@ -145,7 +145,7 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
             }
 
             getString(R.string.pref_clear_cached) -> {
-                val script = File(requireContext().filesDir, Script.gitScriptPath)
+                val script = File(requireContext().filesDir, Script.scriptName)
 
                 if (!script.exists()) {
                     Snackbar.make(requireView(), getString(R.string.snackbar_clear_cached_failure), Snackbar.LENGTH_SHORT)
@@ -165,7 +165,7 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
             }
 
             getString(R.string.pref_developer) -> {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=${Script.gitFullName.replace(" ", "+")}"))
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=${requireContext().getString(R.string.git_full_name).replace(" ", "+")}"))
                 try {
                     startActivity(intent)
                 } catch (_: Exception) {
@@ -188,7 +188,7 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
             }
 
             getString(R.string.pref_source_code) -> {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/${Script.gitAuthor}/${Script.gitRepo}"))
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/${requireContext().getString(R.string.git_author)}/${requireContext().getString(R.string.git_repo)}"))
                 try {
                     startActivity(intent)
                 } catch (_: Exception) {
@@ -199,7 +199,7 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
             }
 
             getString(R.string.pref_contact) -> {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("mailto:${Script.gitEmail}"))
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("mailto:${requireContext().getString(R.string.git_email)}"))
                 try {
                     startActivity(intent)
                 } catch (_: Exception) {
