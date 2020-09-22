@@ -43,7 +43,12 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         Thread {
             val branchEntryValues = script.listBranches().toTypedArray()
             val branchEntries = branchEntryValues.map {
-                it.capitalize(Locale.getDefault()) }.toTypedArray()
+                it.replace("-", " ")
+                    .split(" ")
+                    .joinToString(" ") { word ->
+                    word.toLowerCase(Locale.getDefault()).capitalize(Locale.getDefault())
+                }
+            }.toTypedArray()
             requireActivity().runOnUiThread {
                 branch.entries = branchEntries
                 branch.entryValues = branchEntryValues
