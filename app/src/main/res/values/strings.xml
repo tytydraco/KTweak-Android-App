@@ -13,12 +13,12 @@
 
     <string name="snackbar_dismiss">Dismiss</string>
     <string name="snackbar_intent_failed">Failed to launch intent</string>
-    <string name="snackbar_run_ktweak_success">Successfully executed KTweak</string>
-    <string name="snackbar_run_ktweak_failure">Failed to execute KTweak</string>
-    <string name="snackbar_run_ktweak_missing">Cannot find KTweak script</string>
-    <string name="snackbar_fetch_ktweak_success">Successfully fetched KTweak</string>
-    <string name="snackbar_fetch_ktweak_failure">Failed to fetch KTweak</string>
-    <string name="snackbar_fetch_ktweak_unchanged">Script already up-to-date</string>
+    <string name="snackbar_run_success">Successfully executed script</string>
+    <string name="snackbar_run_failure">Failed to execute script</string>
+    <string name="snackbar_run_missing">Cannot find script script</string>
+    <string name="snackbar_fetch_success">Successfully fetched script</string>
+    <string name="snackbar_fetch_failure">Failed to fetch script</string>
+    <string name="snackbar_fetch_unchanged">Script already up-to-date</string>
 
     <string name="snackbar_clear_logs_success">Successfully deleted log file</string>
     <string name="snackbar_clear_logs_failure">No log file to delete</string>
@@ -26,13 +26,13 @@
     <string name="snackbar_clear_cached_success">Successfully deleted cached script</string>
     <string name="snackbar_clear_cached_failure">No cached script to delete</string>
 
-    <string name="pref_run_ktweak">run_ktweak</string>
-    <string name="pref_run_ktweak_title">Run KTweak</string>
-    <string name="pref_run_ktweak_summary">Manually execute the script</string>
+    <string name="pref_run">run</string>
+    <string name="pref_run_title">Run script</string>
+    <string name="pref_run_summary">Manually execute the script</string>
 
-    <string name="pref_fetch_ktweak">fetch_ktweak</string>
-    <string name="pref_fetch_ktweak_title">Fetch KTweak</string>
-    <string name="pref_fetch_ktweak_summary">Manually fetch the script</string>
+    <string name="pref_fetch">fetch</string>
+    <string name="pref_fetch_title">Fetch script</string>
+    <string name="pref_fetch_summary">Manually fetch the script</string>
 
     <string name="pref_view_logs">view_logs</string>
     <string name="pref_view_logs_title">View logs</string>

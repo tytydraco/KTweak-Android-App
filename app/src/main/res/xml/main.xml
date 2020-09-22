@@ -3,14 +3,14 @@
     <PreferenceCategory android:title="Actions">
         <Preference
             android:icon="@drawable/ic_twotone_whatshot_24"
-            android:title="@string/pref_run_ktweak_title"
-            android:summary="@string/pref_run_ktweak_summary"
-            android:key="@string/pref_run_ktweak" />
+            android:title="@string/pref_run_title"
+            android:summary="@string/pref_run_summary"
+            android:key="@string/pref_run" />
         <Preference
             android:icon="@drawable/ic_baseline_cloud_download_24"
-            android:title="@string/pref_fetch_ktweak_title"
-            android:summary="@string/pref_fetch_ktweak_summary"
-            android:key="@string/pref_fetch_ktweak" />
+            android:title="@string/pref_fetch_title"
+            android:summary="@string/pref_fetch_summary"
+            android:key="@string/pref_fetch" />
         <Preference
             android:icon="@drawable/ic_baseline_assessment_24"
             android:title="@string/pref_view_logs_title"

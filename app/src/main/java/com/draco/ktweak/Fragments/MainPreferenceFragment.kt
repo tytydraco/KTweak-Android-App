@@ -64,19 +64,19 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                 setProgressVisibility(false)
                 when (ret) {
                     KTweak.Companion.ExecuteStatus.SUCCESS -> {
-                        Snackbar.make(requireView(), getString(R.string.snackbar_run_ktweak_success), Snackbar.LENGTH_SHORT)
+                        Snackbar.make(requireView(), getString(R.string.snackbar_run_success), Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
 
                     KTweak.Companion.ExecuteStatus.FAILURE -> {
-                        Snackbar.make(requireView(), getString(R.string.snackbar_run_ktweak_failure), Snackbar.LENGTH_SHORT)
+                        Snackbar.make(requireView(), getString(R.string.snackbar_run_failure), Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
 
                     KTweak.Companion.ExecuteStatus.MISSING -> {
-                        Snackbar.make(requireView(), getString(R.string.snackbar_run_ktweak_missing), Snackbar.LENGTH_SHORT)
+                        Snackbar.make(requireView(), getString(R.string.snackbar_run_missing), Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
@@ -93,19 +93,19 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                 setProgressVisibility(false)
                 when (ret) {
                     KTweak.Companion.FetchStatus.SUCCESS -> {
-                        Snackbar.make(requireView(), getString(R.string.snackbar_fetch_ktweak_success), Snackbar.LENGTH_SHORT)
+                        Snackbar.make(requireView(), getString(R.string.snackbar_fetch_success), Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
 
                     KTweak.Companion.FetchStatus.FAILURE -> {
-                        Snackbar.make(requireView(), getString(R.string.snackbar_fetch_ktweak_failure), Snackbar.LENGTH_SHORT)
+                        Snackbar.make(requireView(), getString(R.string.snackbar_fetch_failure), Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
 
                     KTweak.Companion.FetchStatus.UNCHANGED -> {
-                        Snackbar.make(requireView(), getString(R.string.snackbar_fetch_ktweak_unchanged), Snackbar.LENGTH_SHORT)
+                        Snackbar.make(requireView(), getString(R.string.snackbar_fetch_unchanged), Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
@@ -116,11 +116,11 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
 
     override fun onPreferenceTreeClick(preference: Preference?): Boolean {
         if (preference != null) when (preference.key) {
-            getString(R.string.pref_run_ktweak) -> {
+            getString(R.string.pref_run) -> {
                 runKtweak()
             }
 
-            getString(R.string.pref_fetch_ktweak) -> {
+            getString(R.string.pref_fetch) -> {
                 fetchKtweak()
             }
 
