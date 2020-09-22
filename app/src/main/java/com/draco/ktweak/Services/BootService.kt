@@ -17,12 +17,14 @@ class BootService: Service() {
 
         if (prefs.getBoolean(getString(R.string.pref_apply_on_boot), true)) {
             val ktweak = KTweak(this)
-
             val autoFetch = prefs.getBoolean(getString(R.string.pref_auto_fetch), true)
-            if (autoFetch)
-                ktweak.fetch()
 
-            ktweak.execute()
+            Thread {
+                if (autoFetch)
+                    ktweak.fetch()
+
+                ktweak.execute()
+            }.start()
         }
 
         return super.onStartCommand(intent, flags, startId)
