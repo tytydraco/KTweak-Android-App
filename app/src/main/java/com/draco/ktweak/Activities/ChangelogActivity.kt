@@ -21,9 +21,16 @@ class ChangelogActivity: AppCompatActivity() {
     private lateinit var viewAdapter: ChangelogRecyclerAdapter
     private lateinit var prefs: SharedPreferences
 
-    private fun getChangelog(callback: (ArrayList<ChangelogItem>) -> Unit) {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_changelog)
+
+        recyclerView = findViewById(R.id.recycler_view)
+        progress = findViewById(R.id.progress)
+        prefs = PreferenceManager.getDefaultSharedPreferences(this)
+
+        /* Fetch commits from GitHub using public API */
         Thread {
-            /* Fetch commits from GitHub using public API */
             val branch = prefs.getString(getString(R.string.pref_branch), "master")!!
             val commitsURL = URL("https://api.github.com/repos/" +
                     "${getString(R.string.git_author)}/${getString(R.string.git_repo)}/commits?sha=$branch")
@@ -58,21 +65,14 @@ class ChangelogActivity: AppCompatActivity() {
                 }
             }
 
-            /* Once fetched, return */
-            callback(changelogItems)
-        }.start()
-    }
-
-    private fun setupRecycler() {
-        /* Wait for changelog items to populate */
-        getChangelog {
+            /* Update recycler */
             runOnUiThread {
                 /* Hide progress bar */
                 progress.visibility = View.GONE
                 recyclerView.visibility = View.VISIBLE
 
                 recyclerView = findViewById(R.id.recycler_view)
-                viewAdapter = ChangelogRecyclerAdapter(this, it)
+                viewAdapter = ChangelogRecyclerAdapter(this, changelogItems)
                 recyclerView.apply {
                     adapter = viewAdapter
                     layoutManager = LinearLayoutManager(context)
@@ -81,17 +81,6 @@ class ChangelogActivity: AppCompatActivity() {
                 }
                 viewAdapter.notifyDataSetChanged()
             }
-        }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_changelog)
-
-        recyclerView = findViewById(R.id.recycler_view)
-        progress = findViewById(R.id.progress)
-        prefs = PreferenceManager.getDefaultSharedPreferences(this)
-
-        setupRecycler()
+        }.start()
     }
 }
