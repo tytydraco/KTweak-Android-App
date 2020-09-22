@@ -24,24 +24,24 @@ class KTweak(private val context: Context) {
         }
     }
 
-    private fun getLatestScriptBytes(callback: (ByteArray) -> Unit) {
+    private fun getLatestScriptBytes(callback: (ByteArray?) -> Unit) {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         val branch = prefs.getString(context.getString(R.string.pref_branch), "master")!!
 
         val url = URL("https://raw.githubusercontent.com/tytydraco/KTweak/$branch/ktweak")
-        var scriptBytes = byteArrayOf()
         Thread {
             try {
-                scriptBytes = url.readBytes()
-            } catch(e: Exception) {}
-            callback(scriptBytes)
+                callback(url.readBytes())
+            } catch(e: Exception) {
+                callback(null)
+            }
         }.start()
     }
 
     fun updateScript(callback: ((FetchStatus) -> Unit)? = null) {
         val script = File(context.filesDir, scriptName)
         getLatestScriptBytes {
-            if (it.isEmpty()) {
+            if (it == null) {
                 if (callback != null) callback(FetchStatus.FAILURE)
                 return@getLatestScriptBytes
             }
