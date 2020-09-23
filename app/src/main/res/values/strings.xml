@@ -11,6 +11,8 @@
 
     <string name="log_empty">Log file does not exist</string>
 
+    <string name="menu_clear_logs">Clear logs</string>
+
     <string name="alert_confirm">Okay</string>
     <string name="alert_not_rooted_title">Not Rooted</string>
     <string name="alert_not_rooted_message">Superuser binary was not detected. Ensure your device is rooted.</string>
@@ -47,10 +49,6 @@
     <string name="pref_view_logs">view_logs</string>
     <string name="pref_view_logs_title">View logs</string>
     <string name="pref_view_logs_summary">Inspect the logs generated from the last execution</string>
-
-    <string name="pref_clear_logs">clear_logs</string>
-    <string name="pref_clear_logs_title">Clear logs</string>
-    <string name="pref_clear_logs_summary">Delete the log file if it exists</string>
 
     <string name="pref_clear_cached">clear_cached</string>
     <string name="pref_clear_cached_title">Clear cached script</string>

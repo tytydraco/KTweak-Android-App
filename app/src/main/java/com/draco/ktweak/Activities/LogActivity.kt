@@ -1,6 +1,7 @@
 package com.draco.ktweak.Activities
 
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.draco.ktweak.Utils.Script
 import com.draco.ktweak.Adapters.LogRecyclerAdapter
 import com.draco.ktweak.R
+import com.google.android.material.snackbar.Snackbar
 import java.io.File
 
 class LogActivity: AppCompatActivity() {
@@ -46,5 +48,26 @@ class LogActivity: AppCompatActivity() {
         }
 
         viewAdapter.notifyDataSetChanged()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.logs, menu)
+
+        /* Clear logs */
+        menu!!.findItem(R.id.clear_logs).setOnMenuItemClickListener {
+            val log = File(filesDir, Script.logName)
+
+            if (!log.exists()) {
+                Snackbar.make(recyclerView, getString(R.string.snackbar_clear_logs_failure), Snackbar.LENGTH_SHORT)
+                    .setAction(getString(R.string.snackbar_dismiss)) {}
+                    .show()
+            } else {
+                log.delete()
+                finish()
+            }
+            return@setOnMenuItemClickListener true
+        }
+
+        return super.onCreateOptionsMenu(menu)
     }
 }

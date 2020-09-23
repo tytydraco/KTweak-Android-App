@@ -154,22 +154,6 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                 startActivity(intent)
             }
 
-            getString(R.string.pref_clear_logs) -> {
-                val log = File(requireContext().filesDir, Script.logName)
-
-                if (!log.exists()) {
-                    Snackbar.make(requireView(), getString(R.string.snackbar_clear_logs_failure), Snackbar.LENGTH_SHORT)
-                        .setAction(getString(R.string.snackbar_dismiss)) {}
-                        .show()
-                } else {
-                    log.delete()
-                    Snackbar.make(requireView(), getString(R.string.snackbar_clear_logs_success),
-                        Snackbar.LENGTH_SHORT)
-                        .setAction(getString(R.string.snackbar_dismiss)) {}
-                        .show()
-                }
-            }
-
             getString(R.string.pref_clear_cached) -> {
                 val script = File(requireContext().filesDir, Script.scriptName)
 
