@@ -66,7 +66,7 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
             setListener(object: AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator?) {
                     super.onAnimationEnd(animation)
-                    if (!visible) progress.visibility = View.INVISIBLE
+                    if (!visible) progress.visibility = View.GONE
                 }
             })
         }
