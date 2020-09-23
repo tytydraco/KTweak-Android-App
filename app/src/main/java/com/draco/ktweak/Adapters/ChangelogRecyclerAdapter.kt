@@ -9,11 +9,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.draco.ktweak.R
-import com.draco.ktweak.Utils.ChangelogItem
+import com.draco.ktweak.Utils.Script
 
 class ChangelogRecyclerAdapter(
     private val context: Context,
-    private val items: List<ChangelogItem>
+    private val items: List<Script.Companion.Commit>
 ): RecyclerView.Adapter<ChangelogRecyclerAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val message = view.findViewById<TextView>(R.id.message)!!
@@ -31,11 +31,11 @@ class ChangelogRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val changelogItem = items[position]
-        holder.message.text = changelogItem.message
-        holder.date.text = changelogItem.date
+        val commit = items[position]
+        holder.message.text = commit.message
+        holder.date.text = commit.date
         holder.itemView.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(changelogItem.url))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(commit.url))
             context.startActivity(intent)
         }
     }

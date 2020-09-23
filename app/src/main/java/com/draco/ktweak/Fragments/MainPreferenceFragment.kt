@@ -42,7 +42,7 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         val branch = findPreference<ListPreference>(getString(R.string.pref_branch))!!
         Thread {
             try {
-                val branchEntryValues = script.listBranches().toTypedArray()
+                val branchEntryValues = script.branches().toTypedArray()
                 val branchEntries = branchEntryValues.map {
                     it.replace("-", " ")
                         .split(" ")
@@ -54,7 +54,9 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                     branch.entries = branchEntries
                     branch.entryValues = branchEntryValues
                 }
-            } catch (_: Exception) {}
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }.start()
     }
 
@@ -185,7 +187,8 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
                 try {
                     startActivity(intent)
-                } catch (_: Exception) {
+                } catch (e: Exception) {
+                    e.printStackTrace()
                     Snackbar.make(requireView(), getString(R.string.snackbar_intent_failed), Snackbar.LENGTH_SHORT)
                         .setAction(getString(R.string.snackbar_dismiss)) {}
                         .show()
@@ -197,7 +200,8 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                 intent.data = Uri.parse("package:${BuildConfig.APPLICATION_ID}")
                 try {
                     startActivity(intent)
-                } catch (_: Exception) {
+                } catch (e: Exception) {
+                    e.printStackTrace()
                     Snackbar.make(requireView(), getString(R.string.snackbar_intent_failed), Snackbar.LENGTH_SHORT)
                         .setAction(getString(R.string.snackbar_dismiss)) {}
                         .show()
@@ -211,7 +215,8 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
                 try {
                     startActivity(intent)
-                } catch (_: Exception) {
+                } catch (e: Exception) {
+                    e.printStackTrace()
                     Snackbar.make(requireView(), getString(R.string.snackbar_intent_failed),
                         Snackbar.LENGTH_SHORT)
                         .setAction(getString(R.string.snackbar_dismiss)) {}
@@ -224,7 +229,8 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse("mailto:$email"))
                 try {
                     startActivity(intent)
-                } catch (_: Exception) {
+                } catch (e: Exception) {
+                    e.printStackTrace()
                     Snackbar.make(requireView(), getString(R.string.snackbar_intent_failed), Snackbar.LENGTH_SHORT)
                         .setAction(getString(R.string.snackbar_dismiss)) {}
                         .show()
