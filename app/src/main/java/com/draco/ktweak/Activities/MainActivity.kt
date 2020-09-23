@@ -38,8 +38,8 @@ class MainActivity : AppCompatActivity() {
                 .show()
         } else if (!rootGranted()) {
             AlertDialog.Builder(this)
-                .setTitle(getString(R.string.alert_root_not_granted_message))
-                .setMessage(getString(R.string.alert_root_not_granted_title))
+                .setTitle(getString(R.string.alert_root_not_granted_title))
+                .setMessage(getString(R.string.alert_root_not_granted_message))
                 .setPositiveButton(getString(R.string.alert_confirm), null)
                 .show()
         }
