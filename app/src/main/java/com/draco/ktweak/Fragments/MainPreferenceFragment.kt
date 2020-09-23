@@ -6,7 +6,9 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ProgressBar
 import androidx.preference.ListPreference
 import androidx.preference.Preference
@@ -26,9 +28,11 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
     private lateinit var script: Script
     private lateinit var progress: ProgressBar
 
-    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setPreferencesFromResource(R.xml.main, rootKey)
-
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         /* Initialize variables */
         script = Script(requireContext())
         progress = requireActivity().findViewById(R.id.progress)
@@ -50,7 +54,7 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                             word.toLowerCase(Locale.getDefault()).capitalize(Locale.getDefault())
                         }
                 }.toTypedArray()
-                requireActivity().runOnUiThread {
+                activity?.runOnUiThread {
                     branch.entries = branchEntries
                     branch.entryValues = branchEntryValues
                 }
@@ -58,6 +62,12 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                 e.printStackTrace()
             }
         }.start()
+
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        setPreferencesFromResource(R.xml.main, rootKey)
     }
 
     private fun setProgressVisibility(visible: Boolean) {
@@ -83,7 +93,7 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
             if (autoFetch)
                 script.fetch()
             val ret = script.execute()
-            requireActivity().runOnUiThread {
+            activity?.runOnUiThread {
                 setProgressVisibility(false)
                 when (ret) {
                     Script.Companion.ExecuteStatus.SUCCESS -> {
@@ -115,7 +125,7 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         setProgressVisibility(true)
         Thread {
             val ret = script.fetch()
-            requireActivity().runOnUiThread {
+            activity?.runOnUiThread {
                 setProgressVisibility(false)
                 when (ret) {
                     Script.Companion.FetchStatus.SUCCESS -> {
