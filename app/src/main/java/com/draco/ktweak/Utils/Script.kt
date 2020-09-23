@@ -107,8 +107,7 @@ class Script(private val context: Context) {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         val branch = prefs.getString(context.getString(R.string.pref_branch), "master")!!
         val script = File(context.filesDir, scriptName)
-
-
+        
         val gitAuthor = context.getString(R.string.git_author)
         val gitRepo = context.getString(R.string.git_repo)
         val gitScriptPath = context.getString(R.string.git_script_path)
