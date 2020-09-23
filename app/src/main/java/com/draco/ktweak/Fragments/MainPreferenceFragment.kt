@@ -41,18 +41,20 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         /* Update available branches */
         val branch = findPreference<ListPreference>(getString(R.string.pref_branch))!!
         Thread {
-            val branchEntryValues = script.listBranches().toTypedArray()
-            val branchEntries = branchEntryValues.map {
-                it.replace("-", " ")
-                    .split(" ")
-                    .joinToString(" ") { word ->
-                    word.toLowerCase(Locale.getDefault()).capitalize(Locale.getDefault())
+            try {
+                val branchEntryValues = script.listBranches().toTypedArray()
+                val branchEntries = branchEntryValues.map {
+                    it.replace("-", " ")
+                        .split(" ")
+                        .joinToString(" ") { word ->
+                            word.toLowerCase(Locale.getDefault()).capitalize(Locale.getDefault())
+                        }
+                }.toTypedArray()
+                requireActivity().runOnUiThread {
+                    branch.entries = branchEntries
+                    branch.entryValues = branchEntryValues
                 }
-            }.toTypedArray()
-            requireActivity().runOnUiThread {
-                branch.entries = branchEntries
-                branch.entryValues = branchEntryValues
-            }
+            } catch (_: Exception) {}
         }.start()
     }
 
