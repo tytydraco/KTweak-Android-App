@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         /* Setup preference screen */
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.main_layout, MainPreferenceFragment())
+            .replace(R.id.main_layout, MainPreferenceFragment())
             .commit()
 
         /* Warn user on each start if root is not detected */

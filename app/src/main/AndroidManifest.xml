@@ -14,19 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activities.MainActivity"
-            android:screenOrientation="portrait">
+            android:configChanges="orientation|screenSize|screenLayout">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.LogActivity"
-            android:label="@string/activity_logs"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activities.ChangelogActivity"
-            android:label="@string/activity_changelog"
-            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.LogActivity" android:label="@string/activity_logs" />
+        <activity android:name=".Activities.ChangelogActivity" android:label="@string/activity_changelog" />
         <receiver android:name=".Receivers.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
