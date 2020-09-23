@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="Actions">
+    <PreferenceCategory android:title="@string/pref_actions">
         <Preference
             android:icon="@drawable/ic_twotone_whatshot_24"
             android:title="@string/pref_run_title"
@@ -32,7 +32,7 @@
             android:summary="@string/pref_view_changelog_summary"
             android:key="@string/pref_view_changelog" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="Settings">
+    <PreferenceCategory android:title="@string/pref_settings">
         <ListPreference
             android:icon="@drawable/ic_baseline_device_hub_24"
             android:title="@string/pref_branch_title"
@@ -54,7 +54,7 @@
             android:key="@string/pref_auto_fetch"
             android:defaultValue="true" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="About">
+    <PreferenceCategory android:title="@string/pref_about">
         <Preference
             android:icon="@drawable/ic_baseline_person_24"
             android:title="@string/pref_developer_title"

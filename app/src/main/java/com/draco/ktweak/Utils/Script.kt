@@ -61,7 +61,7 @@ class Script(private val context: Context) {
         for (i in 0 until jsonArray.length()) {
             try {
                 val branch = jsonArray.getJSONObject(i).getString("name")
-                
+
                 /* If script does not exist on remote branch, skip */
                 if (getLatestScriptBytes(branch) != null)
                     branches += branch
