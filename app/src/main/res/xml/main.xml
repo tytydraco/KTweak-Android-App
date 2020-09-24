@@ -7,19 +7,19 @@
             android:summary="@string/pref_run_summary"
             android:key="@string/pref_run" />
         <Preference
-            android:icon="@drawable/ic_baseline_assessment_24"
+            android:icon="@drawable/ic_baseline_bar_chart_24"
             android:title="@string/pref_view_logs_title"
             android:summary="@string/pref_view_logs_summary"
             android:key="@string/pref_view_logs" />
         <Preference
-            android:icon="@drawable/ic_baseline_list_alt_24"
+            android:icon="@drawable/ic_baseline_format_list_bulleted_24"
             android:title="@string/pref_view_changelog_title"
             android:summary="@string/pref_view_changelog_summary"
             android:key="@string/pref_view_changelog" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_settings">
         <ListPreference
-            android:icon="@drawable/ic_baseline_device_hub_24"
+            android:icon="@drawable/ic_baseline_account_tree_24"
             android:title="@string/pref_branch_title"
             android:summary="@string/pref_branch_summary"
             android:key="@string/pref_branch"
