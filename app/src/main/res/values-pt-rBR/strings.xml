@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">KTweak</string>
+    <string name="activity_logs">Logs</string>
+    <string name="activity_changelog">Mudanças</string>
+
+    <string name="git_script_path" translatable="false">ktweak</string>
+    <string name="git_repo" translatable="false">KTweak</string>
+    <string name="git_author" translatable="false">tytydraco</string>
+    <string name="git_full_name" translatable="false">Tyler Nijmeh</string>
+    <string name="git_email" translatable="false">tylernij@gmail.com</string>
+
+    <string name="log_empty">Arquivo do log não existente</string>
+
+    <string name="menu_clear_logs">Limpar logs</string>
+
+    <string name="alert_confirm">Ok</string>
+    <string name="alert_not_rooted_title">Sem root</string>
+    <string name="alert_not_rooted_message">Binário de superusuário não foi detectado. Verifique se o dispositivo está com acesso root.</string>
+    <string name="alert_root_not_granted_title">Root Não Concedido</string>
+    <string name="alert_root_not_granted_message">Permissões de superusuário não habilitadas para esse dispositivo. Algumas funções estarão restritas.</string>
+
+    <string name="snackbar_dismiss">Dispensar</string>
+    <string name="snackbar_intent_failed">Falhou ao abrir o Intent</string>
+    <string name="snackbar_run_success">Script executado com sucesso</string>
+    <string name="snackbar_run_failure">Script falhou ao executar</string>
+    <string name="snackbar_run_missing">Script não pôde ser encontrado</string>
+    <string name="snackbar_fetch_success">Script foi buscado com sucesso</string>
+    <string name="snackbar_fetch_failure">Busca do script falhou</string>
+    <string name="snackbar_fetch_unchanged">Script já está atualizado</string>
+    <string name="snackbar_clear_logs_failure">Sem arquivo de log para deletar</string>
+    <string name="snackbar_clear_cached_success">Script em cache deletado com sucesso</string>
+    <string name="snackbar_clear_cached_failure">Sem script em cache para ser deletado</string>
+
+    <string name="pref_actions">Ações</string>
+    <string name="pref_settings">Configurações</string>
+    <string name="pref_about">Sobre</string>
+
+    <string name="pref_run" translatable="false">run</string>
+    <string name="pref_run_title">Iniciar script</string>
+    <string name="pref_run_summary">Executar o script manualmente</string>
+
+    <string name="pref_fetch" translatable="false">fetch</string>
+    <string name="pref_fetch_title">Buscar script</string>
+    <string name="pref_fetch_summary">Busca pelo script manualmente</string>
+
+    <string name="pref_view_logs" translatable="false">view_logs</string>
+    <string name="pref_view_logs_title">Ver os logs</string>
+    <string name="pref_view_logs_summary">Inspeciona os logs gerados na última execução</string>
+
+    <string name="pref_clear_cached" translatable="false">clear_cached</string>
+    <string name="pref_clear_cached_title">Limpar o script em cache</string>
+    <string name="pref_clear_cached_summary">Deleta o script em cache</string>
+
+    <string name="pref_view_changelog" translatable="false">view_changelog</string>
+    <string name="pref_view_changelog_title">Ver mudanças</string>
+    <string name="pref_view_changelog_summary">Inspeciona as últimas mudanças</string>
+
+    <string name="pref_branch" translatable="false">branch</string>
+    <string name="pref_branch_title">Branch</string>
+    <string name="pref_branch_summary">Selecionar qual canal de atualização usar</string>
+
+    <string name="pref_apply_on_boot" translatable="false">apply_on_boot</string>
+    <string name="pref_apply_on_boot_title">Aplicar no boot inicial</string>
+    <string name="pref_apply_on_boot_summary">Iniciar após um reboot automaticamente</string>
+
+    <string name="pref_auto_fetch" translatable="false">auto_fetch</string>
+    <string name="pref_auto_fetch_title">Buscar automaticamente</string>
+    <string name="pref_auto_fetch_summary">Busca o script mais atual antes de executar</string>
+
+    <string name="pref_developer" translatable="false">developer</string>
+    <string name="pref_developer_title">Desenvolvedor</string>
+    <string name="pref_developer_summary">tytydraco (Tyler Nijmeh)</string>
+
+    <string name="pref_version" translatable="false">version</string>
+    <string name="pref_version_title">Versão</string>
+
+    <string name="pref_source_code" translatable="false">source_code</string>
+    <string name="pref_source_code_title">Código fonte</string>
+    <string name="pref_source_code_summary">Veja o código fonte aberto</string>
+
+    <string name="pref_contact" translatable="false">contact</string>
+    <string name="pref_contact_title">Contato</string>
+    <string name="pref_contact_summary">Me mande e-mail com questionamentos, comentários, ou preocupações</string>
+
+    <string name="pref_licenses" translatable="false">licenses</string>
+    <string name="pref_licenses_title">Licenças</string>
+    <string name="pref_licenses_summary">Veja as licenças abertas usadas</string>
+</resources>
