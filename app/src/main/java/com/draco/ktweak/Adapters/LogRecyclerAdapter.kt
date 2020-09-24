@@ -40,15 +40,14 @@ class LogRecyclerAdapter(
         }
 
         /* Change drawable based on tag */
-        val drawableId = when(tag) {
-            "DEBUG" -> R.drawable.ic_baseline_check_24
-            "WARNING" -> R.drawable.ic_baseline_warning_24
-            "ERROR" -> R.drawable.ic_baseline_clear_24
-            else -> R.drawable.ic_baseline_arrow_right_24
+        val drawable = when(tag) {
+            "DEBUG" -> ContextCompat.getDrawable(context, R.drawable.ic_baseline_check_24)
+            "WARNING" -> ContextCompat.getDrawable(context, R.drawable.ic_baseline_warning_24)
+            "ERROR" -> ContextCompat.getDrawable(context, R.drawable.ic_baseline_clear_24)
+            else -> null
         }
 
-        holder.log.setCompoundDrawablesWithIntrinsicBounds(
-            ContextCompat.getDrawable(context, drawableId), null, null, null)
+        holder.log.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null)
         holder.log.text = logText
     }
 }
