@@ -41,9 +41,9 @@ class LogRecyclerAdapter(
 
         /* Change drawable based on tag */
         val drawableId = when(tag) {
-            "DEBUG" -> R.drawable.ic_baseline_arrow_debug_24
-            "ERROR" -> R.drawable.ic_baseline_arrow_error_24
-            "WARNING" -> R.drawable.ic_baseline_arrow_warn_24
+            "DEBUG" -> R.drawable.ic_baseline_check_24
+            "ERROR" -> R.drawable.ic_baseline_clear_24
+            "WARNING" -> R.drawable.ic_baseline_warning_24
             else -> R.drawable.ic_baseline_arrow_right_24
         }
 
