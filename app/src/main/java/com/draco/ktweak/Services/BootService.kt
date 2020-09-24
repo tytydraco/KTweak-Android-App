@@ -15,7 +15,6 @@ import com.draco.ktweak.Utils.Script
 class BootService: Service() {
     private val notificationId = 0
     private val notificationChannelId = "script-boot-notification"
-    private val notificationChannelName = getString(R.string.boot_notification_channel_name)
 
     override fun onBind(intent: Intent?): IBinder? {
         return null
@@ -34,6 +33,8 @@ class BootService: Service() {
 
                 /* Show boot notification */
                 if (prefs.getBoolean(getString(R.string.pref_boot_notification), true)) {
+                    val notificationChannelName =
+                        getString(R.string.boot_notification_channel_name)
                     val notificationManager =
                         getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
                     val notification = NotificationCompat
