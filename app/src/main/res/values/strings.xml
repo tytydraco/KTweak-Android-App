@@ -28,9 +28,6 @@
     <string name="snackbar_run_success">Successfully ran the script</string>
     <string name="snackbar_run_failure">Failed to run the script</string>
     <string name="snackbar_run_missing">Unable to find script</string>
-    <string name="snackbar_fetch_success">Successfully fetched the script</string>
-    <string name="snackbar_fetch_failure">Failed to fetch the script</string>
-    <string name="snackbar_fetch_unchanged">Script is already up-to-date</string>
     <string name="snackbar_clear_logs_failure">No log file to delete</string>
 
     <string name="pref_actions">Actions</string>
@@ -60,10 +57,6 @@
     <string name="pref_boot_notification" translatable="false">apply_on_boot</string>
     <string name="pref_boot_notification_title">Boot notification</string>
     <string name="pref_boot_notification_summary">Show a notification on boot after the script has run</string>
-
-    <string name="pref_auto_fetch" translatable="false">auto_fetch</string>
-    <string name="pref_auto_fetch_title">Automatically fetch</string>
-    <string name="pref_auto_fetch_summary">Fetch the latest script before each run</string>
 
     <string name="pref_developer" translatable="false">developer</string>
     <string name="pref_developer_title">Developer</string>
