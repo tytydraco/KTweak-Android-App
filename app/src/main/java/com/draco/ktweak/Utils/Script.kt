@@ -33,17 +33,12 @@ class Script(private val context: Context) {
 
     private fun getGitApiJSON(url: String): JSONArray {
         val apiUrl = URL(url)
-        val token = context.getString(R.string.git_api_token)
         var json: String
 
         /* If we can't make the connection, retry until we can */
         while (true) {
             try {
-                val connection = apiUrl.openConnection()
-                if (token.isNotEmpty())
-                    connection.setRequestProperty("Authorization", "Basic $token")
-                connection.connect()
-                json = connection.getInputStream().bufferedReader().readText()
+                json = apiUrl.readText()
                 break
             } catch (e: Exception) {
                 e.printStackTrace()
