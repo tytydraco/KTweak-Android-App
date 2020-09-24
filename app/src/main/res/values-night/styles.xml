@@ -1,10 +1,9 @@
 <resources>
-    <style name="AppTheme.DayNight" parent="Theme.AppCompat.Light">
+    <style name="AppTheme.DayNight" parent="Theme.AppCompat">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorControlNormal">@color/colorAccent</item>
         <item name="android:windowBackground">@color/colorPrimaryDark</item>
-        <item name="android:windowLightStatusBar">true</item>
     </style>
 </resources>
