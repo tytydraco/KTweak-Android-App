@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/pref_actions">
         <Preference
-            android:icon="@drawable/ic_twotone_whatshot_24"
+            android:icon="@drawable/ic_baseline_whatshot_24"
             android:title="@string/pref_run_title"
             android:summary="@string/pref_run_summary"
             android:key="@string/pref_run" />
