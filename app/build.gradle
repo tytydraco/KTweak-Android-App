@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.draco.ktweak"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
