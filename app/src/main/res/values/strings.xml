@@ -28,8 +28,6 @@
     <string name="snackbar_fetch_failure">Failed to fetch script</string>
     <string name="snackbar_fetch_unchanged">Script already up-to-date</string>
     <string name="snackbar_clear_logs_failure">No log file to delete</string>
-    <string name="snackbar_clear_cached_success">Successfully deleted cached script</string>
-    <string name="snackbar_clear_cached_failure">No cached script to delete</string>
 
     <string name="pref_actions">Actions</string>
     <string name="pref_settings">Settings</string>
@@ -39,17 +37,9 @@
     <string name="pref_run_title">Run script</string>
     <string name="pref_run_summary">Manually execute the script</string>
 
-    <string name="pref_fetch" translatable="false">fetch</string>
-    <string name="pref_fetch_title">Fetch script</string>
-    <string name="pref_fetch_summary">Manually fetch the script</string>
-
     <string name="pref_view_logs" translatable="false">view_logs</string>
     <string name="pref_view_logs_title">View logs</string>
     <string name="pref_view_logs_summary">Inspect the logs generated from the last execution</string>
-
-    <string name="pref_clear_cached" translatable="false">clear_cached</string>
-    <string name="pref_clear_cached_title">Clear cached script</string>
-    <string name="pref_clear_cached_summary">Delete the cached script</string>
 
     <string name="pref_view_changelog" translatable="false">view_changelog</string>
     <string name="pref_view_changelog_title">View changelog</string>
