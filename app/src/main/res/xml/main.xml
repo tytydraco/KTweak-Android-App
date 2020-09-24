@@ -38,12 +38,6 @@
             android:summary="@string/pref_boot_notification_summary"
             android:key="@string/pref_boot_notification"
             android:defaultValue="true" />
-        <SwitchPreference
-            android:icon="@drawable/ic_baseline_cloud_download_24"
-            android:title="@string/pref_auto_fetch_title"
-            android:summary="@string/pref_auto_fetch_summary"
-            android:key="@string/pref_auto_fetch"
-            android:defaultValue="true" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_about">
         <Preference

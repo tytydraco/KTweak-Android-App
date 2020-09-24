@@ -13,7 +13,6 @@ import android.widget.ProgressBar
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
-import androidx.preference.SwitchPreference
 import com.draco.ktweak.Activities.ChangelogActivity
 import com.draco.ktweak.Activities.LogActivity
 import com.draco.ktweak.BuildConfig
@@ -87,10 +86,8 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
 
     private fun runScript() {
         setProgressVisibility(true)
-        val autoFetch = findPreference<SwitchPreference>(getString(R.string.pref_auto_fetch))!!.isChecked
         Thread {
-            if (autoFetch)
-                script.fetch()
+            script.fetch()
             val ret = script.execute()
             activity?.runOnUiThread {
                 setProgressVisibility(false)
