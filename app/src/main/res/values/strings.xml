@@ -3,11 +3,11 @@
     <string name="activity_logs">Logs</string>
     <string name="activity_changelog">Changelog</string>
 
-    <string name="git_script_path">ktweak</string>
-    <string name="git_repo">KTweak</string>
-    <string name="git_author">tytydraco</string>
-    <string name="git_full_name">Tyler Nijmeh</string>
-    <string name="git_email">tylernij@gmail.com</string>
+    <string name="git_script_path" translatable="false">ktweak</string>
+    <string name="git_repo" translatable="false">KTweak</string>
+    <string name="git_author" translatable="false">tytydraco</string>
+    <string name="git_full_name" translatable="false">Tyler Nijmeh</string>
+    <string name="git_email" translatable="false">tylernij@gmail.com</string>
 
     <string name="log_empty">Log file does not exist</string>
 
@@ -35,54 +35,54 @@
     <string name="pref_settings">Settings</string>
     <string name="pref_about">About</string>
 
-    <string name="pref_run">run</string>
+    <string name="pref_run" translatable="false">run</string>
     <string name="pref_run_title">Run script</string>
     <string name="pref_run_summary">Manually execute the script</string>
 
-    <string name="pref_fetch">fetch</string>
+    <string name="pref_fetch" translatable="false">fetch</string>
     <string name="pref_fetch_title">Fetch script</string>
     <string name="pref_fetch_summary">Manually fetch the script</string>
 
-    <string name="pref_view_logs">view_logs</string>
+    <string name="pref_view_logs" translatable="false">view_logs</string>
     <string name="pref_view_logs_title">View logs</string>
     <string name="pref_view_logs_summary">Inspect the logs generated from the last execution</string>
 
-    <string name="pref_clear_cached">clear_cached</string>
+    <string name="pref_clear_cached" translatable="false">clear_cached</string>
     <string name="pref_clear_cached_title">Clear cached script</string>
     <string name="pref_clear_cached_summary">Delete the cached script</string>
 
-    <string name="pref_view_changelog">view_changelog</string>
+    <string name="pref_view_changelog" translatable="false">view_changelog</string>
     <string name="pref_view_changelog_title">View changelog</string>
     <string name="pref_view_changelog_summary">Inspect the latest updates</string>
 
-    <string name="pref_branch">branch</string>
+    <string name="pref_branch" translatable="false">branch</string>
     <string name="pref_branch_title">Branch</string>
     <string name="pref_branch_summary">Select which public version to use</string>
 
-    <string name="pref_apply_on_boot">apply_on_boot</string>
+    <string name="pref_apply_on_boot" translatable="false">apply_on_boot</string>
     <string name="pref_apply_on_boot_title">Apply on boot</string>
     <string name="pref_apply_on_boot_summary">Initialize after a reboot automatically</string>
 
-    <string name="pref_auto_fetch">auto_fetch</string>
+    <string name="pref_auto_fetch" translatable="false">auto_fetch</string>
     <string name="pref_auto_fetch_title">Automatically fetch</string>
     <string name="pref_auto_fetch_summary">Fetch the latest script before executing</string>
 
-    <string name="pref_developer">developer</string>
+    <string name="pref_developer" translatable="false">developer</string>
     <string name="pref_developer_title">Developer</string>
-    <string name="pref_developer_summary">tytydraco (Tyler Nijmeh)</string>
+    <string name="pref_developer_summary" translatable="false">tytydraco (Tyler Nijmeh)</string>
 
-    <string name="pref_version">version</string>
+    <string name="pref_version" translatable="false">version</string>
     <string name="pref_version_title">Version</string>
 
-    <string name="pref_source_code">source_code</string>
+    <string name="pref_source_code" translatable="false">source_code</string>
     <string name="pref_source_code_title">Source code</string>
     <string name="pref_source_code_summary">View the open source code</string>
 
-    <string name="pref_contact">contact</string>
+    <string name="pref_contact" translatable="false">contact</string>
     <string name="pref_contact_title">Contact</string>
     <string name="pref_contact_summary">Email me with questions, comments, or concerns</string>
 
-    <string name="pref_licenses">licenses</string>
+    <string name="pref_licenses" translatable="false">licenses</string>
     <string name="pref_licenses_title">Licenses</string>
     <string name="pref_licenses_summary">View open source licenses</string>
 </resources>
