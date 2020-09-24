@@ -4,8 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activities.MainActivity"
-    android:id="@+id/main_layout">
+    tools:context=".Activities.MainActivity">
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/main_layout" />
     <ProgressBar
         android:visibility="invisible"
         android:layout_width="match_parent"

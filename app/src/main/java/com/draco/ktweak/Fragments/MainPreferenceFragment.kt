@@ -17,11 +17,10 @@ import androidx.preference.SwitchPreference
 import com.draco.ktweak.Activities.ChangelogActivity
 import com.draco.ktweak.Activities.LogActivity
 import com.draco.ktweak.BuildConfig
-import com.draco.ktweak.Utils.Script
 import com.draco.ktweak.R
+import com.draco.ktweak.Utils.Script
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.google.android.material.snackbar.Snackbar
-import java.io.File
 import java.util.*
 
 class MainPreferenceFragment: PreferenceFragmentCompat() {
@@ -121,68 +120,15 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         }.start()
     }
 
-    private fun fetchScript() {
-        setProgressVisibility(true)
-        Thread {
-            val ret = script.fetch()
-            activity?.runOnUiThread {
-                setProgressVisibility(false)
-                when (ret) {
-                    Script.Companion.FetchStatus.SUCCESS -> {
-                        Snackbar.make(requireView(), getString(R.string.snackbar_fetch_success),
-                            Snackbar.LENGTH_SHORT)
-                            .setAction(getString(R.string.snackbar_dismiss)) {}
-                            .show()
-                    }
-
-                    Script.Companion.FetchStatus.FAILURE -> {
-                        Snackbar.make(requireView(), getString(R.string.snackbar_fetch_failure),
-                            Snackbar.LENGTH_SHORT)
-                            .setAction(getString(R.string.snackbar_dismiss)) {}
-                            .show()
-                    }
-
-                    Script.Companion.FetchStatus.UNCHANGED -> {
-                        Snackbar.make(requireView(), getString(R.string.snackbar_fetch_unchanged),
-                            Snackbar.LENGTH_SHORT)
-                            .setAction(getString(R.string.snackbar_dismiss)) {}
-                            .show()
-                    }
-                }
-            }
-        }.start()
-    }
-
     override fun onPreferenceTreeClick(preference: Preference?): Boolean {
         if (preference != null) when (preference.key) {
             getString(R.string.pref_run) -> {
                 runScript()
             }
 
-            getString(R.string.pref_fetch) -> {
-                fetchScript()
-            }
-
             getString(R.string.pref_view_logs) -> {
                 val intent = Intent(requireContext(), LogActivity::class.java)
                 startActivity(intent)
-            }
-
-            getString(R.string.pref_clear_cached) -> {
-                val script = File(requireContext().filesDir, Script.scriptName)
-
-                if (!script.exists()) {
-                    Snackbar.make(requireView(), getString(R.string.snackbar_clear_cached_failure),
-                        Snackbar.LENGTH_SHORT)
-                        .setAction(getString(R.string.snackbar_dismiss)) {}
-                        .show()
-                } else {
-                    script.delete()
-                    Snackbar.make(requireView(), getString(R.string.snackbar_clear_cached_success),
-                        Snackbar.LENGTH_SHORT)
-                        .setAction(getString(R.string.snackbar_dismiss)) {}
-                        .show()
-                }
             }
 
             getString(R.string.pref_view_changelog) -> {

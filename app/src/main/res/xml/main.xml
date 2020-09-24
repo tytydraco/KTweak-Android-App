@@ -7,20 +7,10 @@
             android:summary="@string/pref_run_summary"
             android:key="@string/pref_run" />
         <Preference
-            android:icon="@drawable/ic_baseline_cloud_download_24"
-            android:title="@string/pref_fetch_title"
-            android:summary="@string/pref_fetch_summary"
-            android:key="@string/pref_fetch" />
-        <Preference
             android:icon="@drawable/ic_baseline_assessment_24"
             android:title="@string/pref_view_logs_title"
             android:summary="@string/pref_view_logs_summary"
             android:key="@string/pref_view_logs" />
-        <Preference
-            android:icon="@drawable/ic_baseline_delete_24"
-            android:title="@string/pref_clear_cached_title"
-            android:summary="@string/pref_clear_cached_summary"
-            android:key="@string/pref_clear_cached" />
         <Preference
             android:icon="@drawable/ic_baseline_list_alt_24"
             android:title="@string/pref_view_changelog_title"
