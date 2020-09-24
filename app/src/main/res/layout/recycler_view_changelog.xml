@@ -7,14 +7,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/message"
-        style="@style/TextAppearance.AppCompat.Subhead" />
+        android:id="@+id/message" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/date"
         android:textStyle="bold"
         android:textColor="@color/colorAccent"
-        android:textSize="12sp"
-        style="@style/TextAppearance.AppCompat.Subhead" />
+        android:textSize="12sp" />
 </LinearLayout>
