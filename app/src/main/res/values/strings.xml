@@ -9,9 +9,6 @@
     <string name="git_full_name">Tyler Nijmeh</string>
     <string name="git_email">tylernij@gmail.com</string>
 
-    <!-- Base64 encoded client_id:client_token -->
-    <string name="git_api_token">Yzc3ZWM1YmE1OWQwMWJiYjY0MjI6ZTRmNGQ1NDNjYTE2MjdlZDNhNmY4MTlkOTE1MDdlMmNlYTlhZTc5Zg==</string>
-
     <string name="log_empty">Log file does not exist</string>
 
     <string name="menu_clear_logs">Clear logs</string>
