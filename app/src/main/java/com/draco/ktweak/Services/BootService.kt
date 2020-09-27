@@ -44,13 +44,14 @@ class BootService: Service() {
 
         notificationManager.notify(notificationId, notification)
 
+        /* Pause the current thread until the fetch completes */
         val fetchThread = Thread { script.fetch() }
-
         with (fetchThread) {
             start()
             join()
         }
 
+        /* Execute the script */
         script.execute()
         notificationManager.cancel(notificationId)
 
