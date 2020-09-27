@@ -33,6 +33,7 @@ class BootService: Service() {
             .setSmallIcon(R.drawable.ic_baseline_whatshot_24)
             .setContentTitle(getString(R.string.boot_notification_title))
             .setContentText(getString(R.string.boot_notification_text))
+            .setOngoing(true)
             .build()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
