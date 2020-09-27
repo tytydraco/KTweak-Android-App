@@ -38,16 +38,13 @@ class BootService: Service() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val notificationChannel = NotificationChannel(notificationChannelId,
-                notificationChannelName, NotificationManager.IMPORTANCE_HIGH)
+                notificationChannelName, NotificationManager.IMPORTANCE_DEFAULT)
             notificationManager.createNotificationChannel(notificationChannel)
         }
 
         notificationManager.notify(notificationId, notification)
-        Thread {
-            script.fetch()
-            script.execute()
-            notificationManager.cancel(notificationId)
-        }
+        script.execute()
+        notificationManager.cancel(notificationId)
 
         return super.onStartCommand(intent, flags, startId)
     }
