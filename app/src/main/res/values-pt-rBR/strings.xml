@@ -41,9 +41,6 @@
     <string name="pref_apply_on_boot_title">Aplicar no boot inicial</string>
     <string name="pref_apply_on_boot_summary">Aplicar automaticamente após o reinício</string>
 
-    <string name="pref_boot_notification_title">Notificação de boot</string>
-    <string name="pref_boot_notification_summary">Mostrar uma notificação no boot inicial após a execução do script</string>
-
     <string name="pref_developer_title">Desenvolvedor</string>
 
     <string name="pref_version_title">Versão</string>

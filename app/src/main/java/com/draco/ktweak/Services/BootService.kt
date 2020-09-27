@@ -21,37 +21,31 @@ class BootService: Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+        val script = Script(this)
 
-        if (prefs.getBoolean(getString(R.string.pref_apply_on_boot), true)) {
-            val script = Script(this)
+        /* Show boot notification */
+        val notificationChannelName =
+            getString(R.string.boot_notification_channel_name)
+        val notificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notification = NotificationCompat
+            .Builder(this, notificationChannelId)
+            .setSmallIcon(R.drawable.ic_baseline_whatshot_24)
+            .setContentTitle(getString(R.string.boot_notification_title))
+            .setContentText(getString(R.string.boot_notification_text))
+            .build()
 
-            Thread {
-                script.fetch()
-                script.execute()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val notificationChannel = NotificationChannel(notificationChannelId,
+                notificationChannelName, NotificationManager.IMPORTANCE_HIGH)
+            notificationManager.createNotificationChannel(notificationChannel)
+        }
 
-                /* Show boot notification */
-                if (prefs.getBoolean(getString(R.string.pref_boot_notification), true)) {
-                    val notificationChannelName =
-                        getString(R.string.boot_notification_channel_name)
-                    val notificationManager =
-                        getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-                    val notification = NotificationCompat
-                        .Builder(this, notificationChannelId)
-                        .setSmallIcon(R.drawable.ic_baseline_whatshot_24)
-                        .setContentTitle(getString(R.string.boot_notification_title))
-                        .setContentText(getString(R.string.boot_notification_text))
-                        .build()
-
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        val notificationChannel = NotificationChannel(notificationChannelId,
-                            notificationChannelName, NotificationManager.IMPORTANCE_DEFAULT)
-                        notificationManager.createNotificationChannel(notificationChannel)
-                    }
-
-                    notificationManager.notify(notificationId, notification)
-                }
-            }.start()
+        notificationManager.notify(notificationId, notification)
+        Thread {
+            script.fetch()
+            script.execute()
+            notificationManager.cancel(notificationId)
         }
 
         return super.onStartCommand(intent, flags, startId)

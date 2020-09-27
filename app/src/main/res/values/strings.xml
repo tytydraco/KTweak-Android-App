@@ -21,7 +21,7 @@
     
     <string name="boot_notification_channel_name">Boot Notification</string>
     <string name="boot_notification_title">Boot service</string>
-    <string name="boot_notification_text">Script has run successfully</string>
+    <string name="boot_notification_text">Script is currently running</string>
 
     <string name="snackbar_dismiss">Dismiss</string>
     <string name="snackbar_intent_failed">Failed to launch intent</string>
@@ -53,10 +53,6 @@
     <string name="pref_apply_on_boot" translatable="false">apply_on_boot</string>
     <string name="pref_apply_on_boot_title">Apply on boot</string>
     <string name="pref_apply_on_boot_summary">Run automatically after a restart</string>
-
-    <string name="pref_boot_notification" translatable="false">boot_notification</string>
-    <string name="pref_boot_notification_title">Boot notification</string>
-    <string name="pref_boot_notification_summary">Show a notification on boot after the script has run</string>
 
     <string name="pref_developer" translatable="false">developer</string>
     <string name="pref_developer_title">Developer</string>
