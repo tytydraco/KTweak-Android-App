@@ -20,8 +20,7 @@ class BootService: Service() {
         return null
     }
 
-    override fun onCreate() {
-        super.onCreate()
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
 
         if (prefs.getBoolean(getString(R.string.pref_apply_on_boot), true)) {
@@ -54,5 +53,7 @@ class BootService: Service() {
                 }
             }.start()
         }
+
+        return super.onStartCommand(intent, flags, startId)
     }
 }
