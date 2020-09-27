@@ -1,0 +1,59 @@
+<resources>
+    <string name="activity_changelog">Mudanças</string>
+
+    <string name="log_empty">Arquivo do log não existente</string>
+
+    <string name="menu_clear_logs">Limpar logs</string>
+
+    <string name="alert_confirm">Ok</string>
+    <string name="alert_not_rooted_title">Sem acesso root</string>
+    <string name="alert_not_rooted_message">Binário de superusuário não foi detectado. Verifique se o dispositivo está com acesso root</string>
+    <string name="alert_root_not_granted_title">Acesso root não concedido</string>
+    <string name="alert_root_not_granted_message">Permissões de superusuário não habilitadas para esse dispositivo. Algumas funções estarão restritas</string>
+    
+    <string name="boot_notification_channel_name">Notificação de boot</string>
+    <string name="boot_notification_title">Serviço de boot</string>
+    <string name="boot_notification_text">O script executou com sucesso</string>
+
+    <string name="snackbar_dismiss">Dispensar</string>
+    <string name="snackbar_intent_failed">Falhou ao abrir o Intent</string>
+    <string name="snackbar_run_success">Script executado com sucesso</string>
+    <string name="snackbar_run_failure">Script falhou ao executar</string>
+    <string name="snackbar_run_missing">Script não pôde ser encontrado</string>
+    <string name="snackbar_clear_logs_failure">Sem arquivo de log para deletar</string>
+
+    <string name="pref_actions">Ações</string>
+    <string name="pref_settings">Configurações</string>
+    <string name="pref_about">Sobre</string>
+
+    <string name="pref_run_title">Iniciar script</string>
+    <string name="pref_run_summary">Executar o script manualmente</string>
+
+    <string name="pref_view_logs_title">Ver logs</string>
+    <string name="pref_view_logs_summary">Ver os logs gerados na última execução</string>
+
+    <string name="pref_view_changelog_title">Ver mudanças</string>
+    <string name="pref_view_changelog_summary">Ver as últimas alterações feitas no script</string>
+
+    <string name="pref_branch_title">Branch</string>
+    <string name="pref_branch_summary">Selecionar qual canal de atualização usar para o script</string>
+
+    <string name="pref_apply_on_boot_title">Aplicar no boot inicial</string>
+    <string name="pref_apply_on_boot_summary">Aplicar automaticamente após o reinício</string>
+
+    <string name="pref_boot_notification_title">Notificação de boot</string>
+    <string name="pref_boot_notification_summary">Mostrar uma notificação no boot inicial após a execução do script</string>
+
+    <string name="pref_developer_title">Desenvolvedor</string>
+
+    <string name="pref_version_title">Versão</string>
+
+    <string name="pref_source_code_title">Código fonte</string>
+    <string name="pref_source_code_summary">Ver o código fonte</string>
+
+    <string name="pref_contact_title">Contato</string>
+    <string name="pref_contact_summary">Me mande e-mail com questionamentos, comentários, ou preocupações</string>
+
+    <string name="pref_licenses_title">Licenças</string>
+    <string name="pref_licenses_summary">Ver as licenças abertas usadas</string>
+</resources>
