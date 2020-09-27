@@ -61,6 +61,21 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
             }
         }.start()
 
+        /* Try to automatically update */
+        Thread {
+            val ret = script.fetch()
+            activity?.runOnUiThread {
+                if (ret == Script.Companion.FetchStatus.SUCCESS) {
+                    Snackbar.make(
+                        requireView(), getString(R.string.snackbar_fetch_success),
+                        Snackbar.LENGTH_SHORT
+                    )
+                        .setAction(getString(R.string.snackbar_dismiss)) {}
+                        .show()
+                }
+            }
+        }.start()
+
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
