@@ -10,10 +10,6 @@
     <string name="alert_not_rooted_message">Binário de superusuário não foi detectado. Verifique se o dispositivo está com acesso root</string>
     <string name="alert_root_not_granted_title">Acesso root não concedido</string>
     <string name="alert_root_not_granted_message">Permissões de superusuário não habilitadas para esse dispositivo. Algumas funções estarão restritas</string>
-    
-    <string name="boot_notification_channel_name">Notificação de boot</string>
-    <string name="boot_notification_title">Serviço de boot</string>
-    <string name="boot_notification_text">O script está sendo executado</string>
 
     <string name="snackbar_dismiss">Dispensar</string>
     <string name="snackbar_intent_failed">Falhou ao abrir o Intent</string>
