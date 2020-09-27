@@ -13,7 +13,7 @@
     
     <string name="boot_notification_channel_name">Notificação de boot</string>
     <string name="boot_notification_title">Serviço de boot</string>
-    <string name="boot_notification_text">O script executou com sucesso</string>
+    <string name="boot_notification_text">O script está sendo executado</string>
 
     <string name="snackbar_dismiss">Dispensar</string>
     <string name="snackbar_intent_failed">Falhou ao abrir o Intent</string>
