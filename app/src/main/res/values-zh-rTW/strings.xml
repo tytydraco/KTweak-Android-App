@@ -14,6 +14,7 @@
 
     <string name="snackbar_dismiss">取消</string>
     <string name="snackbar_intent_failed">已動意圖失敗</string>
+    <string name="snackbar_fetch_success">更新腳本成功</string>
     <string name="snackbar_run_success">腳本執行成功</string>
     <string name="snackbar_run_failure">腳本執行失敗</string>
     <string name="snackbar_run_missing">找不到腳本</string>
