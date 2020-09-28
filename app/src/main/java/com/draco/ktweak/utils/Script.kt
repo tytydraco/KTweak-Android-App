@@ -1,4 +1,4 @@
-package com.draco.ktweak.Utils
+package com.draco.ktweak.utils
 
 import android.content.Context
 import androidx.preference.PreferenceManager

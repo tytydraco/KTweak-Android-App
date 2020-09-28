@@ -1,9 +1,9 @@
-package com.draco.ktweak.Services
+package com.draco.ktweak.services
 
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
-import com.draco.ktweak.Utils.Script
+import com.draco.ktweak.utils.Script
 
 class BootService: Service() {
     override fun onBind(intent: Intent?): IBinder? {

@@ -13,23 +13,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.DayNight">
-        <activity android:name=".Activities.MainActivity"
+        <activity android:name=".activities.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.LogActivity" android:label="@string/activity_logs"
+        <activity android:name=".activities.LogActivity" android:label="@string/activity_logs"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activities.ChangelogActivity" android:label="@string/activity_changelog"
+        <activity android:name=".activities.ChangelogActivity" android:label="@string/activity_changelog"
             android:screenOrientation="portrait"/>
-        <receiver android:name=".Receivers.BootReceiver">
+        <receiver android:name=".receivers.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <service android:name=".Services.BootService" />
+        <service android:name=".services.BootService" />
     </application>
 
 </manifest>

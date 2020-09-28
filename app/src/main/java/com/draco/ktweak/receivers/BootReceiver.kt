@@ -1,4 +1,4 @@
-package com.draco.ktweak.Receivers
+package com.draco.ktweak.receivers
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -6,7 +6,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.preference.PreferenceManager
 import com.draco.ktweak.R
-import com.draco.ktweak.Services.BootService
+import com.draco.ktweak.services.BootService
 
 class BootReceiver: BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {

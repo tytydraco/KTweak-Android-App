@@ -1,4 +1,4 @@
-package com.draco.ktweak.Activities
+package com.draco.ktweak.activities
 
 import android.os.Bundle
 import android.view.Menu
@@ -8,8 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.draco.ktweak.Utils.Script
-import com.draco.ktweak.Adapters.LogRecyclerAdapter
+import com.draco.ktweak.utils.Script
+import com.draco.ktweak.adapters.LogRecyclerAdapter
 import com.draco.ktweak.R
 import com.google.android.material.snackbar.Snackbar
 import java.io.File

@@ -1,4 +1,4 @@
-package com.draco.ktweak.Adapters
+package com.draco.ktweak.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.draco.ktweak.R
-import com.draco.ktweak.Utils.Script
+import com.draco.ktweak.utils.Script
 
 class ChangelogRecyclerAdapter(
     private val context: Context,

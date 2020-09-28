@@ -1,4 +1,4 @@
-package com.draco.ktweak.Adapters
+package com.draco.ktweak.adapters
 
 import android.view.LayoutInflater
 import android.view.View

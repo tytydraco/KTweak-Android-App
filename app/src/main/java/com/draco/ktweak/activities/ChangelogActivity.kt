@@ -1,4 +1,4 @@
-package com.draco.ktweak.Activities
+package com.draco.ktweak.activities
 
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -9,9 +9,9 @@ import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.draco.ktweak.Adapters.ChangelogRecyclerAdapter
+import com.draco.ktweak.adapters.ChangelogRecyclerAdapter
 import com.draco.ktweak.R
-import com.draco.ktweak.Utils.Script
+import com.draco.ktweak.utils.Script
 
 class ChangelogActivity: AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
