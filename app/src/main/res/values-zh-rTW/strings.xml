@@ -1,0 +1,72 @@
+<resources>
+    <string name="app_name" translatable="false">KTweak</string>
+    <string name="activity_logs">記錄檔</string>
+    <string name="activity_changelog">更新記錄</string>
+
+    <string name="git_script_path" translatable="false">ktweak</string>
+    <string name="git_repo" translatable="false">KTweak</string>
+    <string name="git_author" translatable="false">tytydraco</string>
+    <string name="git_full_name" translatable="false">Tyler Nijmeh</string>
+    <string name="git_email" translatable="false">tylernij@gmail.com</string>
+
+    <string name="log_empty">記錄檔不存在</string>
+
+    <string name="menu_clear_logs">清除記錄檔</string>
+
+    <string name="alert_confirm">確認</string>
+    <string name="alert_not_rooted_title">無 Root</string>
+    <string name="alert_not_rooted_message">未檢測到超級使用者二進位制檔案。確保您的裝置已 Root。</string>
+    <string name="alert_root_not_granted_title">沒有 Root 權限</string>
+    <string name="alert_root_not_granted_message">此應用程式未啟用 Root 權限，一些功能將會受到限制。</string>
+
+    <string name="snackbar_dismiss">取消</string>
+    <string name="snackbar_intent_failed">已動意圖失敗</string>
+    <string name="snackbar_fetch_success">更新腳本成功</string>
+    <string name="snackbar_run_success">腳本執行成功</string>
+    <string name="snackbar_run_failure">腳本執行失敗</string>
+    <string name="snackbar_run_missing">找不到腳本</string>
+    <string name="snackbar_clear_logs_failure">沒有要刪除的記錄檔</string>
+
+    <string name="pref_actions">動作</string>
+    <string name="pref_settings">設定</string>
+    <string name="pref_about">關於</string>
+
+    <string name="pref_run" translatable="false">run</string>
+    <string name="pref_run_title">執行腳本</string>
+    <string name="pref_run_summary">手動執行腳本</string>
+
+    <string name="pref_view_logs" translatable="false">view_logs</string>
+    <string name="pref_view_logs_title">查看記錄檔</string>
+    <string name="pref_view_logs_summary">查看上次執行的記錄檔</string>
+
+    <string name="pref_view_changelog" translatable="false">view_changelog</string>
+    <string name="pref_view_changelog_title">查看更新記錄</string>
+    <string name="pref_view_changelog_summary">查看最近更新</string>
+
+    <string name="pref_branch" translatable="false">branch</string>
+    <string name="pref_branch_title">分支</string>
+    <string name="pref_branch_summary">選擇要使用的分支</string>
+
+    <string name="pref_apply_on_boot" translatable="false">apply_on_boot</string>
+    <string name="pref_apply_on_boot_title">在啟動時應用</string>
+    <string name="pref_apply_on_boot_summary">重新啟動後自動執行</string>
+
+    <string name="pref_developer" translatable="false">developer</string>
+    <string name="pref_developer_title">開發人員</string>
+    <string name="pref_developer_summary" translatable="false">tytydraco (Tyler Nijmeh)</string>
+
+    <string name="pref_version" translatable="false">version</string>
+    <string name="pref_version_title">版本</string>
+
+    <string name="pref_source_code" translatable="false">source_code</string>
+    <string name="pref_source_code_title">原始碼</string>
+    <string name="pref_source_code_summary">查看原始碼</string>
+
+    <string name="pref_contact" translatable="false">contact</string>
+    <string name="pref_contact_title">聯絡</string>
+    <string name="pref_contact_summary">有任何疑問請與我聯絡</string>
+
+    <string name="pref_licenses" translatable="false">licenses</string>
+    <string name="pref_licenses_title">授權</string>
+    <string name="pref_licenses_summary">查看原始碼授權</string>
+</resources>
