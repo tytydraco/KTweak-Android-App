@@ -22,7 +22,7 @@
     <string name="snackbar_dismiss">Dismiss</string>
     <string name="snackbar_intent_failed">Failed to launch intent</string>
     <string name="snackbar_fetch_success">Successfully updated the script</string>
-    <string name="snackbar_run_success">Successfully ran the script</string>
+    <string name="snackbar_run_success">Successfully run the script</string>
     <string name="snackbar_run_failure">Failed to run the script</string>
     <string name="snackbar_run_missing">Unable to find script</string>
     <string name="snackbar_clear_logs_failure">No log file to delete</string>
