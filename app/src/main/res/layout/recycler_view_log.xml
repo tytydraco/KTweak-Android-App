@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="12dp">
@@ -8,7 +7,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/log"
-        android:drawablePadding="12dp"
-        android:gravity="center_vertical"
-        app:drawableStartCompat="@drawable/ic_baseline_arrow_right_24" />
+        android:gravity="center_vertical" />
 </LinearLayout>

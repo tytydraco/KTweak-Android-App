@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KTweak</string>
+    <string name="app_name" translatable="false">KTweak</string>
     <string name="activity_logs">Logs</string>
     <string name="activity_changelog">Changelog</string>
 

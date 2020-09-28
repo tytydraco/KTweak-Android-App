@@ -39,7 +39,7 @@ class LogActivity: AppCompatActivity() {
         }
 
         val logLines = log.readLines()
-        viewAdapter = LogRecyclerAdapter(this, logLines)
+        viewAdapter = LogRecyclerAdapter(logLines)
 
         recyclerView.apply {
             adapter = viewAdapter

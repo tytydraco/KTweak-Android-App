@@ -1,4 +1,5 @@
 <resources>
+    <string name="activity_logs">Logs</string>
     <string name="activity_changelog">Mudanças</string>
 
     <string name="log_empty">Arquivo do log não existente</string>
