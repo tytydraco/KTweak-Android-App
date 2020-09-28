@@ -20,7 +20,7 @@
     <string name="alert_root_not_granted_message">Superuser permissions are not enabled for this app. Some functionality will be restricted.</string>
 
     <string name="snackbar_dismiss">Dismiss</string>
-    <string name="snackbar_intent_failed">Failed to launch intent</string>
+    <string name="snackbar_intent_failed">Failed to launch action</string>
     <string name="snackbar_run_success">Successfully ran the script</string>
     <string name="snackbar_run_failure">Failed to run the script</string>
     <string name="snackbar_run_missing">Unable to find script</string>
