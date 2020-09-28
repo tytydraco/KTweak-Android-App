@@ -24,7 +24,7 @@ class Script(private val context: Context) {
             MISSING
         }
 
-        enum class FetchStatus {
+        enum class UpdateStatus {
             SUCCESS,
             FAILURE,
             UNCHANGED
@@ -98,34 +98,6 @@ class Script(private val context: Context) {
         return branches
     }
 
-    fun fetch(): FetchStatus {
-        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
-        val branch = prefs.getString(context.getString(R.string.pref_branch), "master")!!
-        val script = File(context.filesDir, scriptName)
-        
-        val gitAuthor = context.getString(R.string.git_author)
-        val gitRepo = context.getString(R.string.git_repo)
-        val gitScriptPath = context.getString(R.string.git_script_path)
-        val url = URL("https://raw.githubusercontent.com/" +
-                "$gitAuthor/$gitRepo/$branch/$gitScriptPath")
-
-        val bytes = try {
-            val connection = url.openConnection()
-            connection.connectTimeout = 5000
-            connection.readTimeout = 5000
-            connection.getInputStream().readBytes()
-        } catch(e: Exception) {
-            e.printStackTrace()
-            return FetchStatus.FAILURE
-        }
-
-        if (script.exists() && script.readBytes().contentEquals(bytes))
-            return FetchStatus.UNCHANGED
-
-        script.writeBytes(bytes)
-        return FetchStatus.SUCCESS
-    }
-
     fun execute(): ExecuteStatus {
         val script = File(context.filesDir, scriptName)
         val log = File(context.filesDir, logName)
@@ -148,5 +120,33 @@ class Script(private val context: Context) {
             ExecuteStatus.SUCCESS
         else
             ExecuteStatus.FAILURE
+    }
+
+    fun update(): UpdateStatus {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        val branch = prefs.getString(context.getString(R.string.pref_branch), "master")!!
+        val script = File(context.filesDir, scriptName)
+
+        val gitAuthor = context.getString(R.string.git_author)
+        val gitRepo = context.getString(R.string.git_repo)
+        val gitScriptPath = context.getString(R.string.git_script_path)
+        val url = URL("https://raw.githubusercontent.com/" +
+                "$gitAuthor/$gitRepo/$branch/$gitScriptPath")
+
+        val bytes = try {
+            val connection = url.openConnection()
+            connection.connectTimeout = 5000
+            connection.readTimeout = 5000
+            connection.getInputStream().readBytes()
+        } catch(e: Exception) {
+            e.printStackTrace()
+            return UpdateStatus.FAILURE
+        }
+
+        if (script.exists() && script.readBytes().contentEquals(bytes))
+            return UpdateStatus.UNCHANGED
+
+        script.writeBytes(bytes)
+        return UpdateStatus.SUCCESS
     }
 }

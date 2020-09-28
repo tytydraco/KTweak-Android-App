@@ -21,10 +21,12 @@
 
     <string name="snackbar_dismiss">Dismiss</string>
     <string name="snackbar_intent_failed">Failed to launch intent</string>
-    <string name="snackbar_fetch_success">Successfully updated the script</string>
     <string name="snackbar_run_success">Successfully ran the script</string>
     <string name="snackbar_run_failure">Failed to run the script</string>
     <string name="snackbar_run_missing">Unable to find script</string>
+    <string name="snackbar_update_success">Successfully updated the script</string>
+    <string name="snackbar_update_failure">Failed to update the script</string>
+    <string name="snackbar_update_unchanged">Script is already up-to-date</string>
     <string name="snackbar_clear_logs_failure">No log file to delete</string>
 
     <string name="pref_actions">Actions</string>
@@ -34,6 +36,10 @@
     <string name="pref_run" translatable="false">run</string>
     <string name="pref_run_title">Run script</string>
     <string name="pref_run_summary">Manually run the script</string>
+
+    <string name="pref_update" translatable="false">update</string>
+    <string name="pref_update_title">Update script</string>
+    <string name="pref_update_summary">Manually update the script</string>
 
     <string name="pref_view_logs" translatable="false">view_logs</string>
     <string name="pref_view_logs_title">View logs</string>

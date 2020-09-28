@@ -61,21 +61,6 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
             }
         }.start()
 
-        /* Try to automatically update */
-        Thread {
-            val ret = script.fetch()
-            activity?.runOnUiThread {
-                if (ret == Script.Companion.FetchStatus.SUCCESS) {
-                    Snackbar.make(
-                        requireView(), getString(R.string.snackbar_fetch_success),
-                        Snackbar.LENGTH_SHORT
-                    )
-                        .setAction(getString(R.string.snackbar_dismiss)) {}
-                        .show()
-                }
-            }
-        }.start()
-
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
@@ -102,7 +87,6 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
     private fun runScript() {
         setProgressVisibility(true)
         Thread {
-            script.fetch()
             val ret = script.execute()
             activity?.runOnUiThread {
                 setProgressVisibility(false)
@@ -132,10 +116,46 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         }.start()
     }
 
+    private fun updateScript() {
+        setProgressVisibility(true)
+        Thread {
+            val ret = script.update()
+            activity?.runOnUiThread {
+                setProgressVisibility(false)
+                when (ret) {
+                    Script.Companion.UpdateStatus.SUCCESS -> {
+                        Snackbar.make(requireView(), getString(R.string.snackbar_update_success),
+                            Snackbar.LENGTH_SHORT)
+                            .setAction(getString(R.string.snackbar_dismiss)) {}
+                            .show()
+                    }
+
+                    Script.Companion.UpdateStatus.FAILURE -> {
+                        Snackbar.make(requireView(), getString(R.string.snackbar_update_failure),
+                            Snackbar.LENGTH_SHORT)
+                            .setAction(getString(R.string.snackbar_dismiss)) {}
+                            .show()
+                    }
+
+                    Script.Companion.UpdateStatus.UNCHANGED -> {
+                        Snackbar.make(requireView(), getString(R.string.snackbar_update_unchanged),
+                            Snackbar.LENGTH_SHORT)
+                            .setAction(getString(R.string.snackbar_dismiss)) {}
+                            .show()
+                    }
+                }
+            }
+        }.start()
+    }
+
     override fun onPreferenceTreeClick(preference: Preference?): Boolean {
         if (preference != null) when (preference.key) {
             getString(R.string.pref_run) -> {
                 runScript()
+            }
+
+            getString(R.string.pref_update) -> {
+                updateScript()
             }
 
             getString(R.string.pref_view_logs) -> {

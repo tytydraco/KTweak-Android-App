@@ -7,6 +7,11 @@
             android:summary="@string/pref_run_summary"
             android:key="@string/pref_run" />
         <Preference
+            android:icon="@drawable/ic_baseline_system_update_24"
+            android:title="@string/pref_update_title"
+            android:summary="@string/pref_update_summary"
+            android:key="@string/pref_update" />
+        <Preference
             android:icon="@drawable/ic_baseline_bar_chart_24"
             android:title="@string/pref_view_logs_title"
             android:summary="@string/pref_view_logs_summary"
