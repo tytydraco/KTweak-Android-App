@@ -11,18 +11,7 @@ class BootService: Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        val script = Script(this)
-
-        /* Pause the current thread until the fetch completes */
-        val fetchThread = Thread { script.fetch() }
-        with (fetchThread) {
-            start()
-            join()
-        }
-
-        /* Execute the script */
-        script.execute()
-
+        Script(this).execute()
         return super.onStartCommand(intent, flags, startId)
     }
 }
