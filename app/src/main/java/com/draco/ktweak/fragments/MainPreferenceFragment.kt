@@ -69,6 +69,12 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
     }
 
     private fun setProgressVisibility(visible: Boolean) {
+        val run = findPreference<Preference>(getString(R.string.pref_run))!!
+        val update = findPreference<Preference>(getString(R.string.pref_update))!!
+
+        run.isEnabled = !visible
+        update.isEnabled = !visible
+
         with(progress.animate()) {
             if (visible) progress.visibility = View.VISIBLE
 
@@ -86,7 +92,6 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
 
     private fun runScript() {
         setProgressVisibility(true)
-        findPreference<Preference>(getString(R.string.pref_update))!!.isEnabled = false
         Thread {
             val ret = script.execute()
             activity?.runOnUiThread {
@@ -113,14 +118,12 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                             .show()
                     }
                 }
-                findPreference<Preference>(getString(R.string.pref_update))!!.isEnabled = true
             }
         }.start()
     }
 
     private fun updateScript() {
         setProgressVisibility(true)
-        findPreference<Preference>(getString(R.string.pref_run))!!.isEnabled = false
         Thread {
             val ret = script.update()
             activity?.runOnUiThread {
@@ -147,7 +150,6 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                             .show()
                     }
                 }
-                findPreference<Preference>(getString(R.string.pref_run))!!.isEnabled = true
             }
         }.start()
     }
