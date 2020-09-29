@@ -14,8 +14,6 @@
     <string name="menu_clear_logs">Clear logs</string>
 
     <string name="alert_confirm">Okay</string>
-    <string name="alert_not_rooted_title">Not Rooted</string>
-    <string name="alert_not_rooted_message">Superuser binary was not detected. Ensure your device is rooted.</string>
     <string name="alert_root_not_granted_title">Root Not Granted</string>
     <string name="alert_root_not_granted_message">Superuser permissions are not enabled for this app. Some functionality will be restricted.</string>
 
