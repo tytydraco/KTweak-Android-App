@@ -134,10 +134,7 @@ class Script(private val context: Context) {
                 "$gitAuthor/$gitRepo/$branch/$gitScriptPath")
 
         val bytes = try {
-            val connection = url.openConnection()
-            connection.connectTimeout = 5000
-            connection.readTimeout = 5000
-            connection.getInputStream().readBytes()
+            url.readBytes()
         } catch(e: Exception) {
             e.printStackTrace()
             return UpdateStatus.FAILURE
