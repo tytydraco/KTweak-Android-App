@@ -1,13 +1,6 @@
 <resources>
-    <string name="app_name" translatable="false">KTweak</string>
     <string name="activity_logs">السجلات</string>
     <string name="activity_changelog">سجل التغيرات</string>
-
-    <string name="git_script_path" translatable="false">ktweak</string>
-    <string name="git_repo" translatable="false">KTweak</string>
-    <string name="git_author" translatable="false">tytydraco</string>
-    <string name="git_full_name" translatable="false">Tyler Nijmeh</string>
-    <string name="git_email" translatable="false">tylernij@gmail.com</string>
 
     <string name="log_empty">لا توجد اي سجلات</string>
 
@@ -30,42 +23,31 @@
     <string name="pref_settings">الاعدادات</string>
     <string name="pref_about">حول</string>
 
-    <string name="pref_run" translatable="false">run</string>
     <string name="pref_run_title">تفعيل البرنامج</string>
     <string name="pref_run_summary">تفعيل البرنامج يدوياً</string>
 
-    <string name="pref_view_logs" translatable="false">view_logs</string>
     <string name="pref_view_logs_title">عرض السجلات</string>
     <string name="pref_view_logs_summary">عرض سجلات اخر عمليه تفعيل</string>
 
-    <string name="pref_view_changelog" translatable="false">view_changelog</string>
     <string name="pref_view_changelog_title">عرض سجل التحديثات</string>
     <string name="pref_view_changelog_summary">عرض اخر التحديثات في البرنامج</string>
 
-    <string name="pref_branch" translatable="false">branch</string>
     <string name="pref_branch_title">الفرع</string>
     <string name="pref_branch_summary">اختيار اي فرع للاستخدام</string>
 
-    <string name="pref_apply_on_boot" translatable="false">apply_on_boot</string>
     <string name="pref_apply_on_boot_title">تفعيل مع الاقلاع</string>
     <string name="pref_apply_on_boot_summary">تفعيل اوتوماتيكياً بعد اعاده التشغيل</string>
 
-    <string name="pref_developer" translatable="false">developer</string>
     <string name="pref_developer_title">المطور</string>
-    <string name="pref_developer_summary" translatable="false">tytydraco (Tyler Nijmeh)</string>
 
-    <string name="pref_version" translatable="false">version</string>
     <string name="pref_version_title">رقم الاصدار</string>
 
-    <string name="pref_source_code" translatable="false">source_code</string>
     <string name="pref_source_code_title">كود المصدر</string>
     <string name="pref_source_code_summary">عرض كود المصدر</string>
 
-    <string name="pref_contact" translatable="false">contact</string>
     <string name="pref_contact_title">تواصل</string>
     <string name="pref_contact_summary">ارسل ايميل لي باسئله, تعليقات, اهتمامات</string>
 
-    <string name="pref_licenses" translatable="false">licenses</string>
     <string name="pref_licenses_title">التراخيص</string>
     <string name="pref_licenses_summary">عرض تراخيص المصدر المفتوح</string>
 </resources>
