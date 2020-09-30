@@ -43,8 +43,7 @@ class ChangelogActivity: AppCompatActivity() {
                 recyclerView.apply {
                     adapter = viewAdapter
                     layoutManager = LinearLayoutManager(context)
-                    addItemDecoration(DividerItemDecoration(context,
-                        DividerItemDecoration.VERTICAL))
+                    addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
                 }
                 viewAdapter.notifyDataSetChanged()
             }

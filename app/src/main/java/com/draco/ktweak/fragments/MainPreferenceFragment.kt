@@ -76,15 +76,18 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         update.isEnabled = !visible
 
         with(progress.animate()) {
-            if (visible) progress.visibility = View.VISIBLE
+            if (visible)
+                progress.visibility = View.VISIBLE
 
-            alpha(if (visible) 1f else 0f)
+            val transparency = if (visible) 1f else 0f
+            alpha(transparency)
             duration = resources.getInteger(android.R.integer.config_shortAnimTime).toLong()
 
             setListener(object: AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator?) {
                     super.onAnimationEnd(animation)
-                    if (!visible) progress.visibility = View.GONE
+                    if (!visible)
+                        progress.visibility = View.GONE
                 }
             })
         }
@@ -175,8 +178,7 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
             }
 
             getString(R.string.pref_developer) -> {
-                val fullName = requireContext().getString(R.string.git_full_name)
-                    .replace(" ", "+")
+                val fullName = requireContext().getString(R.string.git_full_name).replace(" ", "+")
                 val uri = "https://play.google.com/store/apps/developer?id=$fullName"
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
                 try {
@@ -203,16 +205,15 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
             }
 
             getString(R.string.pref_source_code) -> {
-                val uri = "https://github.com/" +
-                        requireContext().getString(R.string.git_author) + "/" +
-                        requireContext().getString(R.string.git_repo)
+                val gitAuthor = requireContext().getString(R.string.git_author)
+                val gitRepo = requireContext().getString(R.string.git_repo)
+                val uri = "https://github.com/$gitAuthor/$gitRepo"
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
                 try {
                     startActivity(intent)
                 } catch (e: Exception) {
                     e.printStackTrace()
-                    Snackbar.make(requireView(), getString(R.string.snackbar_intent_failed),
-                        Snackbar.LENGTH_SHORT)
+                    Snackbar.make(requireView(), getString(R.string.snackbar_intent_failed), Snackbar.LENGTH_SHORT)
                         .setAction(getString(R.string.snackbar_dismiss)) {}
                         .show()
                 }

@@ -53,8 +53,7 @@ class Script(private val context: Context) {
         val gitAuthor = context.getString(R.string.git_author)
         val gitRepo = context.getString(R.string.git_repo)
 
-        val jsonArray = getGitApiJSON("https://api.github.com/repos/" +
-                "$gitAuthor/$gitRepo/commits?sha=$branch")
+        val jsonArray = getGitApiJSON("https://api.github.com/repos/$gitAuthor/$gitRepo/commits?sha=$branch")
 
         /* Parse returned JSON */
         val commits = arrayListOf<Commit>()
@@ -62,13 +61,19 @@ class Script(private val context: Context) {
             val commit = Commit()
             with(commit) {
                 try {
-                    message = jsonArray.getJSONObject(i).getJSONObject("commit")
+                    message = jsonArray
+                        .getJSONObject(i)
+                        .getJSONObject("commit")
                         .getString("message").lines()[0]
-                    date = jsonArray.getJSONObject(i).getJSONObject("commit")
+                    date = jsonArray
+                        .getJSONObject(i)
+                        .getJSONObject("commit")
                         .getJSONObject("author").getString("date")
                         .replace("T", "\n")
                         .replace("Z", "")
-                    url = jsonArray.getJSONObject(i).getString("html_url")
+                    url = jsonArray
+                        .getJSONObject(i)
+                        .getString("html_url")
                     commits += commit
                 } catch (e: Exception) {
                     e.printStackTrace()
@@ -130,8 +135,7 @@ class Script(private val context: Context) {
         val gitAuthor = context.getString(R.string.git_author)
         val gitRepo = context.getString(R.string.git_repo)
         val gitScriptPath = context.getString(R.string.git_script_path)
-        val url = URL("https://raw.githubusercontent.com/" +
-                "$gitAuthor/$gitRepo/$branch/$gitScriptPath")
+        val url = URL("https://raw.githubusercontent.com/$gitAuthor/$gitRepo/$branch/$gitScriptPath")
 
         val bytes = try {
             url.readBytes()
