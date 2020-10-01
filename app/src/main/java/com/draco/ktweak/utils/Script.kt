@@ -111,8 +111,8 @@ class Script(private val context: Context) {
         if (!script.exists())
             return ExecuteStatus.MISSING
 
-        /* Start in parsable mode */
-        val process = ProcessBuilder("su", "-c", "sh", script.absolutePath)
+        /* Start the process */
+        val process = ProcessBuilder("su", "-c", "sh ${script.absolutePath}")
             .redirectErrorStream(true)
             .start()
 
