@@ -13,6 +13,7 @@ import android.widget.ProgressBar
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.SwitchPreference
 import com.draco.ktweak.activities.ChangelogActivity
 import com.draco.ktweak.activities.LogActivity
 import com.draco.ktweak.BuildConfig
@@ -60,6 +61,11 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                 e.printStackTrace()
             }
         }.start()
+
+        /* Update script on start */
+        val updateOnStart = findPreference<SwitchPreference>(getString(R.string.pref_update_on_start))!!
+        if (updateOnStart.isChecked)
+            updateScript()
 
         return super.onCreateView(inflater, container, savedInstanceState)
     }

@@ -60,6 +60,10 @@
     <string name="pref_apply_on_boot_title">Apply on boot</string>
     <string name="pref_apply_on_boot_summary">Run automatically after a restart</string>
 
+    <string name="pref_update_on_start" translatable="false">update_on_start</string>
+    <string name="pref_update_on_start_title">Update on start</string>
+    <string name="pref_update_on_start_summary">Update the script when the app opens</string>
+
     <string name="pref_developer" translatable="false">developer</string>
     <string name="pref_developer_title">Developer</string>
     <string name="pref_developer_summary" translatable="false">tytydraco (Tyler Nijmeh)</string>

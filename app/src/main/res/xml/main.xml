@@ -37,6 +37,12 @@
             android:summary="@string/pref_apply_on_boot_summary"
             android:key="@string/pref_apply_on_boot"
             android:defaultValue="true" />
+        <SwitchPreference
+            android:icon="@drawable/ic_baseline_update_24"
+            android:title="@string/pref_update_on_start_title"
+            android:summary="@string/pref_update_on_start_summary"
+            android:key="@string/pref_update_on_start"
+            android:defaultValue="true" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_about">
         <Preference
