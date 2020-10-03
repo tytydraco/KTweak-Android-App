@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="activity_logs">Логи</string>
+    <string name="activity_changelog">Список изменений</string>
+    <string name="log_empty">Файл с логом не существует</string>
+    <string name="menu_clear_logs">Очистить логи</string>
+    <string name="alert_confirm">Хорошо</string>
+    <string name="alert_root_not_granted_title">Root-права не предоставлены</string>
+    <string name="alert_root_not_granted_message">Эту приложению недоступны права суперпользователя. Часть функционала будет ограничена.</string>
+    <string name="boot_notification_channel_name">Уведомление при загрузке</string>
+    <string name="boot_notification_title">Служба загрузки</string>
+    <string name="boot_notification_text">Скрипт уже выполняется</string>
+    <string name="snackbar_dismiss">Отклонить</string>
+    <string name="snackbar_intent_failed">Не удалось выполнить действие</string>
+    <string name="snackbar_run_success">Скрипт успешно выполнен</string>
+    <string name="snackbar_run_failure">Не удалось выполнить скрипт</string>
+    <string name="snackbar_run_missing">Не удалось найти скрипт</string>
+    <string name="snackbar_update_success">Скрипт был успешно обновлен</string>
+    <string name="snackbar_update_failure">Не удалось обновить скрипт</string>
+    <string name="snackbar_update_unchanged">Обновлений для скрипта не найдено</string>
+    <string name="snackbar_clear_logs_failure">Нет файла с логом, удаление невозможно</string>
+    <string name="pref_actions">Действия</string>
+    <string name="pref_settings">Настройки</string>
+    <string name="pref_about">О приложении</string>
+    <string name="pref_run_title">Запустить скрипт</string>
+    <string name="pref_run_summary">Запустить скрипт вручную</string>
+    <string name="pref_update_title">Обновить скрипт</string>
+    <string name="pref_update_summary">Обновить скрипт вручную</string>
+    <string name="pref_view_logs_title">Посмотреть логи</string>
+    <string name="pref_view_logs_summary">Логи скрипта после последнего выполнения</string>
+    <string name="pref_view_changelog_title">Посмотреть список изменений</string>
+    <string name="pref_view_changelog_summary">Список последних изменений</string>
+    <string name="pref_branch_title">Ветка обновлений</string>
+    <string name="pref_branch_summary">Выберите какую версию вы хотите использовать</string>
+    <string name="pref_apply_on_boot_title">Применять при загрузке</string>
+    <string name="pref_apply_on_boot_summary">Выполнять скрипт после перезагрузки</string>
+    <string name="pref_update_on_start_title">Обновить скрипт при запуске</string>
+    <string name="pref_update_on_start_summary">Обновление скрипта произойдет после открытия приложения</string>
+    <string name="pref_developer_title">Разработчик</string>
+    <string name="pref_version_title">Версия</string>
+    <string name="pref_source_code_title">Исходный код</string>
+    <string name="pref_source_code_summary">Открыть исходный код</string>
+    <string name="pref_contact_title">Обратная связь</string>
+    <string name="pref_contact_summary">Отправьте мне письмо с вопросами или пожеланиями</string>
+    <string name="pref_licenses_title">Лицензии</string>
+    <string name="pref_licenses_summary">Открыть список лицензий</string>
+</resources>

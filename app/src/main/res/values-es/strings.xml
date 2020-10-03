@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="activity_logs">Registros</string>
+    <string name="activity_changelog">Registro de cambios</string>
+    <string name="log_empty">No existe el archivo de registro</string>
+    <string name="menu_clear_logs">Limpiar registros</string>
+    <string name="alert_confirm">Ok</string>
+    <string name="alert_root_not_granted_title">Root no concedido</string>
+    <string name="alert_root_not_granted_message">Los permisos de superusuario no están habilitados para esta aplicación. Algunas funciones se restringirán.</string>
+    <string name="boot_notification_channel_name">Notificación de arranque</string>
+    <string name="boot_notification_title">Servicio de arranque</string>
+    <string name="boot_notification_text">El script está ejecutándose</string>
+    <string name="snackbar_dismiss">Descartar</string>
+    <string name="snackbar_intent_failed">Error al iniciar la acción</string>
+    <string name="snackbar_run_success">El script se ejecutó exitosamente</string>
+    <string name="snackbar_run_failure">Falló la ejecución del script</string>
+    <string name="snackbar_run_missing">No se pudo encontrar el script</string>
+    <string name="snackbar_update_success">Se actualizó correctamente el script</string>
+    <string name="snackbar_update_failure">Falló la actualización del script</string>
+    <string name="snackbar_update_unchanged">El script ya está actualizado</string>
+    <string name="snackbar_clear_logs_failure">Ningún archivo de registro para eliminar</string>
+    <string name="pref_actions">Acciones</string>
+    <string name="pref_settings">Ajustes</string>
+    <string name="pref_about">Acerca de</string>
+    <string name="pref_run_title">Ejecutar script</string>
+    <string name="pref_run_summary">Ejecutar el script manualmente</string>
+    <string name="pref_update_title">Actualizar el script</string>
+    <string name="pref_update_summary">Actualizar el script manualmente</string>
+    <string name="pref_view_logs_title">Ver los registros</string>
+    <string name="pref_view_logs_summary">Ver los registros de la última ejecución</string>
+    <string name="pref_view_changelog_title">Registro de cambios</string>
+    <string name="pref_view_changelog_summary">Ver los cambios más recientes</string>
+    <string name="pref_branch_title">Rama</string>
+    <string name="pref_branch_summary">Seleccione la versión a utilizar</string>
+    <string name="pref_apply_on_boot_title">Aplicar en el arranque</string>
+    <string name="pref_apply_on_boot_summary">Ejecutar automáticamente después de reiniciar</string>
+    <string name="pref_update_on_start_title">Actualizar al inicio</string>
+    <string name="pref_update_on_start_summary">Actualizar el script cuando se abre la aplicación</string>
+    <string name="pref_developer_title">Desarrollador</string>
+    <string name="pref_version_title">Versión</string>
+    <string name="pref_source_code_title">Código fuente</string>
+    <string name="pref_source_code_summary">Ver el código fuente</string>
+    <string name="pref_contact_title">Contacto</string>
+    <string name="pref_contact_summary">Enviar un correo con preguntas, comentarios o inquietudes</string>
+    <string name="pref_licenses_title">Licencias</string>
+    <string name="pref_licenses_summary">Ver licencias de código abierto</string>
+</resources>

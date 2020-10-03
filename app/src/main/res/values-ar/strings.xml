@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="activity_logs">السجلات</string>
+    <string name="activity_changelog">سِجل التغيرات</string>
+    <string name="log_empty">لا توجد اي سجلات</string>
+    <string name="menu_clear_logs">مسح السجلات</string>
+    <string name="alert_confirm"> حسناً</string>
+    <string name="alert_root_not_granted_title">لم يتم منح صلاحيات الروت</string>
+    <string name="alert_root_not_granted_message">لم يتم تفعيل صلاحيات الروت للبرنامج, بعض الخصائص لن تكون متاحه.</string>
+    <string name="boot_notification_channel_name">إشعار التشغيل</string>
+    <string name="boot_notification_title">خدمة التشغيل</string>
+    <string name="boot_notification_text">البرنامج النصي قيد التشغيل</string>
+    <string name="snackbar_dismiss">تجاهل</string>
+    <string name="snackbar_intent_failed">فشل في الاجراء</string>
+    <string name="snackbar_run_success">تم تشغيل البرنامج النصي بنجاح</string>
+    <string name="snackbar_run_failure">فشل في تشغيل البرنامج النصي</string>
+    <string name="snackbar_run_missing">تعذر العثور على البرنامج النصي</string>
+    <string name="snackbar_update_success">تم تحديث البرنامج النصي بنجاح</string>
+    <string name="snackbar_update_failure">فشل في تحديث البرنامج النصي</string>
+    <string name="snackbar_update_unchanged">البرنامج النصي محدّث بالفعل</string>
+    <string name="snackbar_clear_logs_failure">لا يوجد ملف سجل للحذف</string>
+    <string name="pref_actions">إجراءات</string>
+    <string name="pref_settings">الإعدادات</string>
+    <string name="pref_about">حول البرنامج</string>
+    <string name="pref_run_title">تشغيل البرنامج النصي</string>
+    <string name="pref_run_summary">تشغيل البرنامج النصي يدوياً</string>
+    <string name="pref_update_title">تحديث البرنامج النصي</string>
+    <string name="pref_update_summary">تحديث البرنامج النصي يدوياً</string>
+    <string name="pref_view_logs_title">عرض السجل</string>
+    <string name="pref_view_logs_summary">اعرض السجلات من آخر تشغيل</string>
+    <string name="pref_view_changelog_title">عرض سجل التغييرات</string>
+    <string name="pref_view_changelog_summary">عرض أحدث التغييرات</string>
+    <string name="pref_branch_title">الفرع</string>
+    <string name="pref_branch_summary">حدد الإصدار الذي تريد استخدامه</string>
+    <string name="pref_apply_on_boot_title">تفعيل عند التشغيل</string>
+    <string name="pref_apply_on_boot_summary">تفعيل تلقائي بعد إعادة التشغيل</string>
+    <string name="pref_update_on_start_title">التحديث عند البدء</string>
+    <string name="pref_update_on_start_summary">تحديث البرنامج النصي عند فتح التطبيق</string>
+    <string name="pref_developer_title">المطور</string>
+    <string name="pref_version_title">الإصدار</string>
+    <string name="pref_source_code_title">كود المصدر</string>
+    <string name="pref_source_code_summary">عرض كود المصدر</string>
+    <string name="pref_contact_title">تواصل</string>
+    <string name="pref_contact_summary">أرسل لي بريد إلكتروني بالأسئلة أو التعليقات أو الاهتمامات</string>
+    <string name="pref_licenses_title">التراخيص</string>
+    <string name="pref_licenses_summary">عرض تراخيص مفتوحة المصدر</string>
+</resources>

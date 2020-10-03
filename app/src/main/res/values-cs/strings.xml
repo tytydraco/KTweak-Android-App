@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="activity_logs">Protokoly</string>
+    <string name="activity_changelog">Seznam změn</string>
+    <string name="log_empty">Log soubor neexistuje</string>
+    <string name="menu_clear_logs">Vymazat logy</string>
+    <string name="alert_confirm">Potvrdit</string>
+    <string name="alert_root_not_granted_title">Root nepřidělen</string>
+    <string name="alert_root_not_granted_message">Oprávnění Superuser nejsou pro tuto aplikaci povolena. Některé funkce budou omezeny.</string>
+    <string name="boot_notification_channel_name">Oznámení o spuštění</string>
+    <string name="boot_notification_title">Spuštění služby</string>
+    <string name="boot_notification_text">Skript je již spuštěn</string>
+    <string name="snackbar_dismiss">Zavřít</string>
+    <string name="snackbar_intent_failed">Nepodařilo se spustit akci</string>
+    <string name="snackbar_run_success">Skript byl úspěšně spuštěn</string>
+    <string name="snackbar_run_failure">Nepodařilo se spustit skript</string>
+    <string name="snackbar_run_missing">Skript nelze najít</string>
+    <string name="snackbar_update_success">Skript byl úspěšně aktualizován</string>
+    <string name="snackbar_update_failure">Skript se nepodařilo aktualizovat</string>
+    <string name="snackbar_update_unchanged">Skript je již aktuální</string>
+    <string name="snackbar_clear_logs_failure">Žádné logy k odstranění</string>
+    <string name="pref_actions">Úpravy</string>
+    <string name="pref_settings">Nastavení</string>
+    <string name="pref_about">Podrobnosti</string>
+    <string name="pref_run_title">Spustit skript</string>
+    <string name="pref_run_summary">Ručně spustit skript</string>
+    <string name="pref_update_title">Aktualizovat skript</string>
+    <string name="pref_update_summary">Ručně aktualizovat skript</string>
+    <string name="pref_view_logs_title">Zobrazit logy</string>
+    <string name="pref_view_logs_summary">Zobrazit logy z posledního spuštění</string>
+    <string name="pref_view_changelog_title">Zobrazit seznam změn</string>
+    <string name="pref_view_changelog_summary">Zobrazit poslední změny</string>
+    <string name="pref_branch_title">Odvětví</string>
+    <string name="pref_branch_summary">Vyberte verzi, kterou chcete použít</string>
+    <string name="pref_apply_on_boot_title">Aplikovat při spuštění</string>
+    <string name="pref_apply_on_boot_summary">Automaticky spustit po restartu</string>
+    <string name="pref_update_on_start_title">Aktualizace při spuštění</string>
+    <string name="pref_update_on_start_summary">Aktualizovat skript, když se aplikace otevře</string>
+    <string name="pref_developer_title">Vývojář</string>
+    <string name="pref_version_title">Verze</string>
+    <string name="pref_source_code_title">Zdrojový kód</string>
+    <string name="pref_source_code_summary">Zobrazit zdrojový kód</string>
+    <string name="pref_contact_title">Kontaktní údaje</string>
+    <string name="pref_contact_summary">Pošlete mi e-mail s dotazy, komentáři nebo doporučeními</string>
+    <string name="pref_licenses_title">Licence</string>
+    <string name="pref_licenses_summary">Zobrazit open source licence</string>
+</resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="activity_logs">Riassunto eventi</string>
+    <string name="activity_changelog">Riassunto cambiamenti di versione</string>
+    <string name="log_empty">Il file del riassunto degli eventi non esiste</string>
+    <string name="menu_clear_logs">Elimina riassunto eventi</string>
+    <string name="alert_confirm">Okay</string>
+    <string name="alert_root_not_granted_title">Permessi di root non concessi</string>
+    <string name="alert_root_not_granted_message">I permessi di superuser non sono abilitati per questa applicazione, alcune funzionalità potrebbero essere ristrette.</string>
+    <string name="boot_notification_channel_name">Notifica all\'avvio</string>
+    <string name="boot_notification_title">Servizio all\'avvio</string>
+    <string name="boot_notification_text">Lo script è in esecuzione</string>
+    <string name="snackbar_dismiss">Annulla</string>
+    <string name="snackbar_intent_failed">Impossibile eseguire questo comando</string>
+    <string name="snackbar_run_success">Script eseguito correttamente</string>
+    <string name="snackbar_run_failure">Errore nell\'esecuzione dello script</string>
+    <string name="snackbar_run_missing">Impossibile trovare lo script</string>
+    <string name="snackbar_update_success">Script aggiornato correttamente</string>
+    <string name="snackbar_update_failure">Errore nell\'aggiornamento dello script</string>
+    <string name="snackbar_update_unchanged">Lo script è già aggiornato all\'ultima versione</string>
+    <string name="snackbar_clear_logs_failure">Non è stato trovato nessun file di log da eliminare</string>
+    <string name="pref_actions">Azioni</string>
+    <string name="pref_settings">Impostazioni</string>
+    <string name="pref_about">Riferimenti</string>
+    <string name="pref_run_title">Avvia script</string>
+    <string name="pref_run_summary">Avvia lo script manualmente</string>
+    <string name="pref_update_title">Aggiorna lo script</string>
+    <string name="pref_update_summary">Aggiorna lo script manualmente</string>
+    <string name="pref_view_logs_title">Visualizza registri</string>
+    <string name="pref_view_logs_summary">Visualizza il registro dell\'ultimo avvio</string>
+    <string name="pref_view_changelog_title">Visualizza modifiche dall\'ultima versione</string>
+    <string name="pref_view_changelog_summary">Visualizza gli ultimi aggiornamenti</string>
+    <string name="pref_branch_title">Versione</string>
+    <string name="pref_branch_summary">Seleziona la versione da utilizzare</string>
+    <string name="pref_apply_on_boot_title">Applica all\'avvio</string>
+    <string name="pref_apply_on_boot_summary">Esegui automaticamente dopo un riavvio</string>
+    <string name="pref_update_on_start_title">Aggiorna all\'avvio</string>
+    <string name="pref_update_on_start_summary">Aggiorna lo script quando l\'app viene aperta</string>
+    <string name="pref_developer_title">Sviluppatore</string>
+    <string name="pref_version_title">Versione</string>
+    <string name="pref_source_code_title">Codice Sorgente</string>
+    <string name="pref_source_code_summary">Visualizza il codice sorgente</string>
+    <string name="pref_contact_title">Contatti</string>
+    <string name="pref_contact_summary">Mandami una mail con le domande, commenti o osservazioni</string>
+    <string name="pref_licenses_title">Licenze</string>
+    <string name="pref_licenses_summary">Visualizza le licenze open source</string>
+</resources>

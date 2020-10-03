@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="activity_logs">Loglar</string>
+    <string name="activity_changelog">Değişiklik</string>
+    <string name="log_empty">Günlük dosyaları mevcut değil</string>
+    <string name="menu_clear_logs">Günlükleri temizle</string>
+    <string name="alert_confirm">Tamam</string>
+    <string name="alert_root_not_granted_title">Root izni verilmedi</string>
+    <string name="alert_root_not_granted_message">Bu uygulama için süper kullanıcı izinleri etkinleştirilmedi.  Bazı işlevler kısıtlanacaktır.</string>
+    <string name="boot_notification_channel_name">Önyükleme Bildirimi</string>
+    <string name="boot_notification_title">Önyükleme hizmeti</string>
+    <string name="boot_notification_text">Komut dosyası şu anda çalışıyor</string>
+    <string name="snackbar_dismiss">Reddet</string>
+    <string name="snackbar_intent_failed">Eylem başlatılamadı</string>
+    <string name="snackbar_run_success">Komut dosyası başarıyla çalıştırdı</string>
+    <string name="snackbar_run_failure">Komut dosyası çalıştırılamadı</string>
+    <string name="snackbar_run_missing">Komut dosyası bulunamıyor</string>
+    <string name="snackbar_update_success">Komut dosyası başarıyla güncellendi</string>
+    <string name="snackbar_update_failure">Komut dosyası güncellenemedi</string>
+    <string name="snackbar_update_unchanged">Komut dosyası zaten güncel</string>
+    <string name="snackbar_clear_logs_failure">Silinecek günlük dosyası yok</string>
+    <string name="pref_actions">Eylemler</string>
+    <string name="pref_settings">Ayarlar</string>
+    <string name="pref_about">Hakkında</string>
+    <string name="pref_run_title">Komut dosyasını çalıştır</string>
+    <string name="pref_run_summary">Komut dosyasını manuel olarak çalıştırın</string>
+    <string name="pref_update_title">Komut dosyasını güncelle</string>
+    <string name="pref_update_summary">Komut dosyasını manuel olarak güncelleyin</string>
+    <string name="pref_view_logs_title">Günlükleri göster</string>
+    <string name="pref_view_logs_summary">Son çalıştırmanın günlüklerini görüntüleyin</string>
+    <string name="pref_view_changelog_title">Değişiklikleri görüntüle</string>
+    <string name="pref_view_changelog_summary">En son değişiklikleri görüntüle</string>
+    <string name="pref_branch_title">Dallanma</string>
+    <string name="pref_branch_summary">Hangi sürümü kullanacağınızı seçin</string>
+    <string name="pref_apply_on_boot_title">Açılışta uygula</string>
+    <string name="pref_apply_on_boot_summary">Yeniden başlatmanın ardından otomatik olarak çalıştır</string>
+    <string name="pref_update_on_start_title">Başlangıçta güncelle</string>
+    <string name="pref_update_on_start_summary">Uygulama açıldığında komut dosyasını güncelle</string>
+    <string name="pref_developer_title">Geliştirici</string>
+    <string name="pref_version_title">Sürüm</string>
+    <string name="pref_source_code_title">Kaynak kodu</string>
+    <string name="pref_source_code_summary">Kaynak kodunu görüntüle</string>
+    <string name="pref_contact_title">İletişim</string>
+    <string name="pref_contact_summary">Soru, yorum veya endişelerinizi e-posta ile gönderin</string>
+    <string name="pref_licenses_title">Lisanslar</string>
+    <string name="pref_licenses_summary">Açık kaynak lisanslarını göster</string>
+</resources>

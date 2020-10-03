@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="activity_logs">Journaux</string>
+    <string name="activity_changelog">Journal de modifications</string>
+    <string name="log_empty">Le fichier journal n\'existe pas</string>
+    <string name="menu_clear_logs">Effacer les journaux</string>
+    <string name="alert_confirm">Ok</string>
+    <string name="alert_root_not_granted_title">Permission root non accordé</string>
+    <string name="alert_root_not_granted_message">Les autorisations Super-utilisateur ne sont pas activées pour cette application. Certaines fonctionnalités seront restreintes.</string>
+    <string name="boot_notification_channel_name">Notification au démarrage</string>
+    <string name="boot_notification_title">Service de démarrage</string>
+    <string name="boot_notification_text">Le script est actuellement en marche</string>
+    <string name="snackbar_dismiss">Ignorer</string>
+    <string name="snackbar_intent_failed">Échec du lancement de l\'action</string>
+    <string name="snackbar_run_success">Le script a été exécuté avec succès</string>
+    <string name="snackbar_run_failure">Échec de l\'exécution du script</string>
+    <string name="snackbar_run_missing">Incapable de trouver le script</string>
+    <string name="snackbar_update_success">Le script a été mis à jour avec succès</string>
+    <string name="snackbar_update_failure">Échec de la mise à jour du script</string>
+    <string name="snackbar_update_unchanged">Le script est déjà à jour</string>
+    <string name="snackbar_clear_logs_failure">Aucun fichier journal à supprimer</string>
+    <string name="pref_actions">Actions</string>
+    <string name="pref_settings">Paramètres</string>
+    <string name="pref_about">À propos</string>
+    <string name="pref_run_title">Exécuter le script</string>
+    <string name="pref_run_summary">Exécuter manuellement le script</string>
+    <string name="pref_update_title">Mettre à jour le script</string>
+    <string name="pref_update_summary">Mettre à jour manuellement le script</string>
+    <string name="pref_view_logs_title">Voir les journaux</string>
+    <string name="pref_view_logs_summary">Voir les logs de la dernière exécution</string>
+    <string name="pref_view_changelog_title">Voir le journal des modifications</string>
+    <string name="pref_view_changelog_summary">Voir les dernières modifications</string>
+    <string name="pref_branch_title">Branche</string>
+    <string name="pref_branch_summary">Sélectionner la version à utiliser</string>
+    <string name="pref_apply_on_boot_title">Appliquer au démarrage</string>
+    <string name="pref_apply_on_boot_summary">Exécuter automatiquement après un redémarrage</string>
+    <string name="pref_update_on_start_title">Mettre à jour au démarrage</string>
+    <string name="pref_update_on_start_summary">Mettre à jour le script quand l\'application s\'ouvre</string>
+    <string name="pref_developer_title">Développeur</string>
+    <string name="pref_version_title">Version</string>
+    <string name="pref_source_code_title">Code source</string>
+    <string name="pref_source_code_summary">Voir le code source</string>
+    <string name="pref_contact_title">Contact</string>
+    <string name="pref_contact_summary">Envoyez-moi par e-mail des questions, des commentaires ou des préoccupations</string>
+    <string name="pref_licenses_title">Licences</string>
+    <string name="pref_licenses_summary">Voir les licences Open Source</string>
+</resources>
