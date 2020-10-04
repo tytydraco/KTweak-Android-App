@@ -44,6 +44,7 @@ class BootService: Service() {
         startForeground(notificationId, notification)
         Script(this).execute()
         stopForeground(true)
+        stopSelf()
 
         return super.onStartCommand(intent, flags, startId)
     }
