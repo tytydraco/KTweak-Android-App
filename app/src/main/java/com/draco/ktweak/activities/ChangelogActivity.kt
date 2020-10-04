@@ -45,7 +45,6 @@ class ChangelogActivity: AppCompatActivity() {
                     layoutManager = LinearLayoutManager(context)
                     addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
                 }
-                viewAdapter.notifyDataSetChanged()
             }
         }.start()
     }
