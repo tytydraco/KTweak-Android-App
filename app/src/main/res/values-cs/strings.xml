@@ -3,6 +3,7 @@
     <string name="activity_logs">Protokoly</string>
     <string name="activity_changelog">Seznam změn</string>
     <string name="log_empty">Log soubor neexistuje</string>
+    <string name="menu_share">Sdílet</string>
     <string name="menu_clear_logs">Vymazat logy</string>
     <string name="alert_confirm">Potvrdit</string>
     <string name="alert_root_not_granted_title">Root nepřidělen</string>
@@ -19,6 +20,7 @@
     <string name="snackbar_update_failure">Skript se nepodařilo aktualizovat</string>
     <string name="snackbar_update_unchanged">Skript je již aktuální</string>
     <string name="snackbar_clear_logs_failure">Žádné logy k odstranění</string>
+    <string name="snackbar_share_failure">Žádný log ke sdílení</string>
     <string name="pref_actions">Úpravy</string>
     <string name="pref_settings">Nastavení</string>
     <string name="pref_about">Podrobnosti</string>

@@ -3,6 +3,7 @@
     <string name="activity_logs">Loglar</string>
     <string name="activity_changelog">Değişiklik</string>
     <string name="log_empty">Günlük dosyaları mevcut değil</string>
+    <string name="menu_share">Paylaş</string>
     <string name="menu_clear_logs">Günlükleri temizle</string>
     <string name="alert_confirm">Tamam</string>
     <string name="alert_root_not_granted_title">Root izni verilmedi</string>
@@ -19,6 +20,7 @@
     <string name="snackbar_update_failure">Komut dosyası güncellenemedi</string>
     <string name="snackbar_update_unchanged">Komut dosyası zaten güncel</string>
     <string name="snackbar_clear_logs_failure">Silinecek günlük dosyası yok</string>
+    <string name="snackbar_share_failure">Paylaşılacak günlük dosyası yok</string>
     <string name="pref_actions">Eylemler</string>
     <string name="pref_settings">Ayarlar</string>
     <string name="pref_about">Hakkında</string>
