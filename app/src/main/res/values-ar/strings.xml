@@ -3,6 +3,7 @@
     <string name="activity_logs">السجلات</string>
     <string name="activity_changelog">سِجل التغيرات</string>
     <string name="log_empty">لا توجد اي سجلات</string>
+    <string name="menu_share">مشاركة</string>
     <string name="menu_clear_logs">مسح السجلات</string>
     <string name="alert_confirm"> حسناً</string>
     <string name="alert_root_not_granted_title">لم يتم منح صلاحيات الروت</string>
@@ -19,6 +20,7 @@
     <string name="snackbar_update_failure">فشل في تحديث البرنامج النصي</string>
     <string name="snackbar_update_unchanged">البرنامج النصي محدّث بالفعل</string>
     <string name="snackbar_clear_logs_failure">لا يوجد ملف سجل للحذف</string>
+    <string name="snackbar_share_failure">لا يوجد ملف سجلات للمشاركه</string>
     <string name="pref_actions">إجراءات</string>
     <string name="pref_settings">الإعدادات</string>
     <string name="pref_about">حول البرنامج</string>
@@ -34,7 +36,7 @@
     <string name="pref_branch_summary">حدد الإصدار الذي تريد استخدامه</string>
     <string name="pref_apply_on_boot_title">تفعيل عند التشغيل</string>
     <string name="pref_apply_on_boot_summary">تفعيل تلقائي بعد إعادة التشغيل</string>
-    <string name="pref_update_on_start_title">التحديث عند البدء</string>
+    <string name="pref_update_on_start_title">التحديث عند الفتح</string>
     <string name="pref_update_on_start_summary">تحديث البرنامج النصي عند فتح التطبيق</string>
     <string name="pref_developer_title">المطور</string>
     <string name="pref_version_title">الإصدار</string>

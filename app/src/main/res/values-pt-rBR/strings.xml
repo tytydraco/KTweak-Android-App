@@ -3,6 +3,7 @@
     <string name="activity_logs">Logs</string>
     <string name="activity_changelog">Mudanças</string>
     <string name="log_empty">O arquivo de log não existe</string>
+    <string name="menu_share">Compartilhar</string>
     <string name="menu_clear_logs">Limpar logs</string>
     <string name="alert_confirm">Ok</string>
     <string name="alert_root_not_granted_title">Permissão root negada</string>
@@ -19,6 +20,7 @@
     <string name="snackbar_update_failure">O script falhou ao ser atualizado</string>
     <string name="snackbar_update_unchanged">O script já está atualizado</string>
     <string name="snackbar_clear_logs_failure">Sem arquivo de log pra deletar</string>
+    <string name="snackbar_share_failure">Não há arquivos de log pra compartilhar</string>
     <string name="pref_actions">Ações</string>
     <string name="pref_settings">Configurações</string>
     <string name="pref_about">Sobre</string>

@@ -3,10 +3,11 @@
     <string name="activity_logs">Логи</string>
     <string name="activity_changelog">Список изменений</string>
     <string name="log_empty">Файл с логом не существует</string>
+    <string name="menu_share">Поделиться</string>
     <string name="menu_clear_logs">Очистить логи</string>
     <string name="alert_confirm">Хорошо</string>
     <string name="alert_root_not_granted_title">Root-права не предоставлены</string>
-    <string name="alert_root_not_granted_message">Эту приложению недоступны права суперпользователя. Часть функционала будет ограничена.</string>
+    <string name="alert_root_not_granted_message">Права суперпользователя не предоставлены этомк приложению. Некоторые функции будут недоступны.</string>
     <string name="boot_notification_channel_name">Уведомление при загрузке</string>
     <string name="boot_notification_title">Служба загрузки</string>
     <string name="boot_notification_text">Скрипт уже выполняется</string>
@@ -19,6 +20,7 @@
     <string name="snackbar_update_failure">Не удалось обновить скрипт</string>
     <string name="snackbar_update_unchanged">Обновлений для скрипта не найдено</string>
     <string name="snackbar_clear_logs_failure">Нет файла с логом, удаление невозможно</string>
+    <string name="snackbar_share_failure">Нет файла с логом для отправки</string>
     <string name="pref_actions">Действия</string>
     <string name="pref_settings">Настройки</string>
     <string name="pref_about">О приложении</string>
@@ -34,8 +36,8 @@
     <string name="pref_branch_summary">Выберите какую версию вы хотите использовать</string>
     <string name="pref_apply_on_boot_title">Применять при загрузке</string>
     <string name="pref_apply_on_boot_summary">Выполнять скрипт после перезагрузки</string>
-    <string name="pref_update_on_start_title">Обновить скрипт при запуске</string>
-    <string name="pref_update_on_start_summary">Обновление скрипта произойдет после открытия приложения</string>
+    <string name="pref_update_on_start_title">Обновлять при запуске</string>
+    <string name="pref_update_on_start_summary">Скрипт будет обновлен при запуске программы</string>
     <string name="pref_developer_title">Разработчик</string>
     <string name="pref_version_title">Версия</string>
     <string name="pref_source_code_title">Исходный код</string>
