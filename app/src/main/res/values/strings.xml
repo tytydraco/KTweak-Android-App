@@ -23,6 +23,11 @@
     <string name="boot_notification_title">Boot service</string>
     <string name="boot_notification_text">Script is currently running</string>
 
+    <string name="update_notification_channel_id" translatable="false">script-update-notification</string>
+    <string name="update_notification_channel_name">Update Notification</string>
+    <string name="update_notification_title">Update service</string>
+    <string name="update_notification_text">Script was updated in the background</string>
+
     <string name="snackbar_dismiss">Dismiss</string>
     <string name="snackbar_intent_failed">Failed to launch action</string>
     <string name="snackbar_run_success">Successfully ran the script</string>
