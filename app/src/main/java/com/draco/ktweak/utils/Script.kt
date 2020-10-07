@@ -31,13 +31,13 @@ class Script(private val context: Context) {
     fun scriptName(): String {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         val branch = prefs.getString(context.getString(R.string.pref_branch), "master")!!
-        return "script-$branch"
+        return "script-$branch.sh"
     }
 
     fun logName(): String {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         val branch = prefs.getString(context.getString(R.string.pref_branch), "master")!!
-        return "log-$branch"
+        return "log-$branch.txt"
     }
 
     private fun getGitApiJSON(url: String): JSONArray {
