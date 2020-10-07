@@ -34,7 +34,7 @@ class LogActivity: AppCompatActivity() {
         empty = findViewById(R.id.empty)
 
         /* If log does not exist, show warning */
-        val log = File(filesDir, Script.logName)
+        val log = File(filesDir, script.logName())
         if (!log.exists()) {
             recyclerView.visibility = View.GONE
             empty.visibility = View.VISIBLE
@@ -56,7 +56,7 @@ class LogActivity: AppCompatActivity() {
 
         /* Clear logs */
         menu.findItem(R.id.clear_logs).setOnMenuItemClickListener {
-            val log = File(filesDir, Script.logName)
+            val log = File(filesDir, script.logName())
 
             if (!log.exists()) {
                 Snackbar.make(recyclerView, getString(R.string.snackbar_clear_logs_failure), Snackbar.LENGTH_SHORT)
@@ -71,7 +71,7 @@ class LogActivity: AppCompatActivity() {
 
         /* Share log file */
         menu.findItem(R.id.share).setOnMenuItemClickListener {
-            val log = File(filesDir, Script.logName)
+            val log = File(filesDir, script.logName())
 
             if (!log.exists()) {
                 Snackbar.make(recyclerView, getString(R.string.snackbar_share_failure), Snackbar.LENGTH_SHORT)
