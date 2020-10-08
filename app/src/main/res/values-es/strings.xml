@@ -3,6 +3,7 @@
     <string name="activity_logs">Registros</string>
     <string name="activity_changelog">Registro de cambios</string>
     <string name="log_empty">No existe el archivo de registro</string>
+    <string name="menu_share">Compartir</string>
     <string name="menu_clear_logs">Limpiar registros</string>
     <string name="alert_confirm">Ok</string>
     <string name="alert_root_not_granted_title">Root no concedido</string>
@@ -19,6 +20,7 @@
     <string name="snackbar_update_failure">Falló la actualización del script</string>
     <string name="snackbar_update_unchanged">El script ya está actualizado</string>
     <string name="snackbar_clear_logs_failure">Ningún archivo de registro para eliminar</string>
+    <string name="snackbar_share_failure">Ningún archivo de registro que compartir</string>
     <string name="pref_actions">Acciones</string>
     <string name="pref_settings">Ajustes</string>
     <string name="pref_about">Acerca de</string>
