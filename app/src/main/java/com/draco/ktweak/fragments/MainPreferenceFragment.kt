@@ -65,7 +65,7 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         /* Update script on start */
         val updateOnStart = findPreference<SwitchPreference>(getString(R.string.pref_update_on_start))!!
         if (updateOnStart.isChecked)
-            updateScript()
+            updateScript(false)
 
         return super.onCreateView(inflater, container, savedInstanceState)
     }
@@ -131,7 +131,7 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         }.start()
     }
 
-    private fun updateScript() {
+    private fun updateScript(showFailure: Boolean = true) {
         setProgressVisibility(true)
         Thread {
             val ret = script.update()
@@ -146,14 +146,14 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                     }
 
                     Script.Companion.UpdateStatus.FAILURE -> {
-                        Snackbar.make(requireView(), getString(R.string.snackbar_update_failure),
+                        if (showFailure) Snackbar.make(requireView(), getString(R.string.snackbar_update_failure),
                             Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
                     }
 
                     Script.Companion.UpdateStatus.UNCHANGED -> {
-                        Snackbar.make(requireView(), getString(R.string.snackbar_update_unchanged),
+                        if (showFailure) Snackbar.make(requireView(), getString(R.string.snackbar_update_unchanged),
                             Snackbar.LENGTH_SHORT)
                             .setAction(getString(R.string.snackbar_dismiss)) {}
                             .show()
