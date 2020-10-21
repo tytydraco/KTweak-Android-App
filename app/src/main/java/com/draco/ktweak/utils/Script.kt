@@ -93,23 +93,35 @@ class Script(private val context: Context) {
         return commits
     }
 
-    fun branches(): List<String> {
+    private fun withApi(api: String, handler: (JSONArray) -> Unit) {
         val gitAuthor = context.getString(R.string.git_author)
         val gitRepo = context.getString(R.string.git_repo)
-        val apiUrl = "https://api.github.com/repos/$gitAuthor/$gitRepo/branches"
+        val apiUrl = "https://api.github.com/repos/$gitAuthor/$gitRepo/$api"
         val jsonArray = getGitApiJSON(apiUrl)
+        handler(jsonArray)
+    }
 
+    private fun objectsInApi(api: String, name: String): List<String> {
         /* Parse returned JSON */
-        val branches = arrayListOf<String>()
-        for (i in 0 until jsonArray.length()) {
-            try {
-               branches += jsonArray.getJSONObject(i).getString("name")
-            } catch (e: Exception) {
-                e.printStackTrace()
+        val result = arrayListOf<String>()
+
+        withApi(api) {
+            for (i in 0 until it.length()) {
+                try {
+                    result += it.getJSONObject(i).getString(name)
+                } catch (_: Exception) {}
             }
         }
 
-        return branches
+        return result
+    }
+
+    fun branches(): List<String> {
+        return objectsInApi("branches", "name")
+    }
+
+    fun tags(): List<String> {
+        return objectsInApi("tags", "name")
     }
 
     fun execute(): ExecuteStatus {

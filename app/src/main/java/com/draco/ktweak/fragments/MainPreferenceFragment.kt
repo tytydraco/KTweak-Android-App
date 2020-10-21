@@ -21,7 +21,6 @@ import com.draco.ktweak.R
 import com.draco.ktweak.utils.Script
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.google.android.material.snackbar.Snackbar
-import java.util.*
 
 class MainPreferenceFragment: PreferenceFragmentCompat() {
     private lateinit var script: Script
@@ -45,17 +44,11 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         val branch = findPreference<ListPreference>(getString(R.string.pref_branch))!!
         Thread {
             try {
-                val branchEntryValues = script.branches().toTypedArray()
-                val branchEntries = branchEntryValues.map {
-                    it.replace("-", " ")
-                        .split(" ")
-                        .joinToString(" ") { word ->
-                            word.toLowerCase(Locale.getDefault()).capitalize(Locale.getDefault())
-                        }
-                }.toTypedArray()
+                val branches = script.branches().toTypedArray()
+                val tags = script.tags().toTypedArray()
                 activity?.runOnUiThread {
-                    branch.entries = branchEntries
-                    branch.entryValues = branchEntryValues
+                    branch.entries = branches + tags
+                    branch.entryValues = branches + tags
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
