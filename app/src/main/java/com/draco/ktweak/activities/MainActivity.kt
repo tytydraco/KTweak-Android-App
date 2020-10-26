@@ -8,9 +8,13 @@ import com.draco.ktweak.fragments.MainPreferenceFragment
 
 class MainActivity : AppCompatActivity() {
     private fun isRooted(): Boolean {
-        val rootCheckProcess = ProcessBuilder("su", "-c", "exit").start()
-        rootCheckProcess.waitFor()
-        return rootCheckProcess.exitValue() == 0
+        return try {
+            val rootCheckProcess = ProcessBuilder("su", "-c", "exit").start()
+            rootCheckProcess.waitFor()
+            rootCheckProcess.exitValue() == 0
+        } catch (_: Exception) {
+            false
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

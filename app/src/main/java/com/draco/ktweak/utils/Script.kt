@@ -133,19 +133,23 @@ class Script(private val context: Context) {
             return ExecuteStatus.MISSING
 
         /* Start the process */
-        val process = ProcessBuilder("su", "-c", "sh ${script.absolutePath}")
-            .redirectErrorStream(true)
-            .start()
+        try {
+            val process = ProcessBuilder("su", "-c", "sh ${script.absolutePath}")
+                .redirectErrorStream(true)
+                .start()
 
-        process.waitFor()
+            process.waitFor()
 
-        /* Write output to log file */
-        log.writeText(process.inputStream.bufferedReader().readText())
+            /* Write output to log file */
+            log.writeText(process.inputStream.bufferedReader().readText())
 
-        return if (process.exitValue() == 0)
-            ExecuteStatus.SUCCESS
-        else
-            ExecuteStatus.FAILURE
+            return if (process.exitValue() == 0)
+                ExecuteStatus.SUCCESS
+            else
+                ExecuteStatus.FAILURE
+        } catch (_: Exception) {
+            return ExecuteStatus.FAILURE
+        }
     }
 
     fun update(): UpdateStatus {
