@@ -4,15 +4,15 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="12dp">
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/message" />
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/date"
         android:textStyle="bold"
-        android:textColor="@color/colorAccent"
+        android:textColor="?attr/colorSecondary"
         android:textSize="12sp" />
 </LinearLayout>
