@@ -15,13 +15,14 @@ import com.draco.ktweak.utils.Script
 import com.draco.ktweak.adapters.LogRecyclerAdapter
 import com.draco.ktweak.R
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textview.MaterialTextView
 import java.io.File
 
 class LogActivity: AppCompatActivity() {
     private lateinit var script: Script
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var empty: TextView
+    private lateinit var empty: MaterialTextView
     private lateinit var viewAdapter: LogRecyclerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.draco.ktweak.R
 import com.draco.ktweak.fragments.MainPreferenceFragment
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class MainActivity : AppCompatActivity() {
     private fun isRooted(): Boolean {
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         /* Warn user on each start if root is not detected */
         if (!isRooted()) {
-            AlertDialog.Builder(this)
+            MaterialAlertDialogBuilder(this)
                 .setTitle(getString(R.string.alert_root_not_granted_title))
                 .setMessage(getString(R.string.alert_root_not_granted_message))
                 .setPositiveButton(getString(R.string.alert_confirm), null)
