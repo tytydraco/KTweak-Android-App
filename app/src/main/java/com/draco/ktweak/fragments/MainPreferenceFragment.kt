@@ -14,10 +14,10 @@ import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreference
-import com.draco.ktweak.activities.ChangelogActivity
-import com.draco.ktweak.activities.LogActivity
 import com.draco.ktweak.BuildConfig
 import com.draco.ktweak.R
+import com.draco.ktweak.activities.ChangelogActivity
+import com.draco.ktweak.activities.LogActivity
 import com.draco.ktweak.utils.Script
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.google.android.material.snackbar.Snackbar
@@ -42,6 +42,10 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
 
         /* Update available branches */
         val branch = findPreference<ListPreference>(getString(R.string.pref_branch))!!
+
+        /* Update script on start */
+        val updateOnStart = findPreference<SwitchPreference>(getString(R.string.pref_update_on_start))!!
+
         Thread {
             try {
                 val branches = script.branches().toTypedArray()
@@ -49,16 +53,19 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
                 activity?.runOnUiThread {
                     branch.entries = branches + tags
                     branch.entryValues = branches + tags
+
+                    /* Default to the first branch */
+                    if (branch.entry == null)
+                        branch.setValueIndex(0)
+
+                    /* Update now, after the null check */
+                    if (updateOnStart.isChecked)
+                        updateScript(false)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
             }
         }.start()
-
-        /* Update script on start */
-        val updateOnStart = findPreference<SwitchPreference>(getString(R.string.pref_update_on_start))!!
-        if (updateOnStart.isChecked)
-            updateScript(false)
 
         return super.onCreateView(inflater, container, savedInstanceState)
     }
