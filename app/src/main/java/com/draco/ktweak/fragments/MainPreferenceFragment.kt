@@ -50,18 +50,16 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         val updateOnStart = findPreference<SwitchPreference>(getString(R.string.pref_update_on_start))!!
 
         github.branches {
-            activity?.runOnUiThread {
-                branch.entries = it.toTypedArray()
-                branch.entryValues = it.toTypedArray()
+            branch.entries = it.toTypedArray()
+            branch.entryValues = it.toTypedArray()
 
-                /* Default to the first branch */
-                if (branch.entry == null)
-                    branch.setValueIndex(0)
+            /* Default to the first branch */
+            if (branch.entry == null)
+                branch.setValueIndex(0)
 
-                /* Update now, after the null check */
-                if (updateOnStart.isChecked)
-                    updateScript(false)
-            }
+            /* Update now, after the null check */
+            if (updateOnStart.isChecked)
+                updateScript(false)
         }
 
         return super.onCreateView(inflater, container, savedInstanceState)
