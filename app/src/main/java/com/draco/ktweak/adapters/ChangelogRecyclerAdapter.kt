@@ -9,11 +9,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.draco.ktweak.R
-import com.draco.ktweak.utils.Script
+import com.draco.ktweak.utils.Commit
 
 class ChangelogRecyclerAdapter(
     private val context: Context,
-    private val items: List<Script.Companion.Commit>
+    private val items: List<Commit>
 ): RecyclerView.Adapter<ChangelogRecyclerAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val message = view.findViewById<TextView>(R.id.message)!!

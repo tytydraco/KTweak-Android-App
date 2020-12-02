@@ -18,12 +18,14 @@ import com.draco.ktweak.BuildConfig
 import com.draco.ktweak.R
 import com.draco.ktweak.activities.ChangelogActivity
 import com.draco.ktweak.activities.LogActivity
+import com.draco.ktweak.retrofit.GitHub
 import com.draco.ktweak.utils.Script
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.google.android.material.snackbar.Snackbar
 
 class MainPreferenceFragment: PreferenceFragmentCompat() {
     private lateinit var script: Script
+    private lateinit var github: GitHub
     private lateinit var progress: ProgressBar
 
     override fun onCreateView(
@@ -33,6 +35,7 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
     ): View? {
         /* Initialize variables */
         script = Script(requireContext())
+        github = GitHub(requireContext())
         progress = requireActivity().findViewById(R.id.progress)
 
         /* Update the version code string */
@@ -46,26 +49,20 @@ class MainPreferenceFragment: PreferenceFragmentCompat() {
         /* Update script on start */
         val updateOnStart = findPreference<SwitchPreference>(getString(R.string.pref_update_on_start))!!
 
-        Thread {
-            try {
-                val branches = script.branches().toTypedArray()
-                val tags = script.tags().toTypedArray()
-                activity?.runOnUiThread {
-                    branch.entries = branches + tags
-                    branch.entryValues = branches + tags
+        github.branches {
+            activity?.runOnUiThread {
+                branch.entries = it.toTypedArray()
+                branch.entryValues = it.toTypedArray()
 
-                    /* Default to the first branch */
-                    if (branch.entry == null)
-                        branch.setValueIndex(0)
+                /* Default to the first branch */
+                if (branch.entry == null)
+                    branch.setValueIndex(0)
 
-                    /* Update now, after the null check */
-                    if (updateOnStart.isChecked)
-                        updateScript(false)
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
+                /* Update now, after the null check */
+                if (updateOnStart.isChecked)
+                    updateScript(false)
             }
-        }.start()
+        }
 
         return super.onCreateView(inflater, container, savedInstanceState)
     }
