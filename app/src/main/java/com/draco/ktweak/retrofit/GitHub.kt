@@ -62,7 +62,11 @@ class GitHub(context: Context) {
                 val gitHubAPIResponses = response?.body()!!
 
                 for (branchResponse in gitHubAPIResponses) {
-                    branches += branchResponse.name!!
+                    try {
+                        branches += branchResponse.name!!
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
                 }
 
                 callback(branches)
